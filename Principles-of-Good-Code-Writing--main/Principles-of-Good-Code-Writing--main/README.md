@@ -38,7 +38,7 @@ Good code is like a **well-organized lab notebook**:
 ## How to Use This Guide
 - Start with **Introduction** if you're new to coding.
 - Jump to any principle for **quick tips and examples**.
-- Download the [Cheat Sheet](sections/15-cheat-sheet.jpg) for a one-page summary.
+- Download the [Cheat Sheet](good-code-principles-complete/sections/15-cheat-sheet.jpg) for a one-page summary.
 
 ---
 
