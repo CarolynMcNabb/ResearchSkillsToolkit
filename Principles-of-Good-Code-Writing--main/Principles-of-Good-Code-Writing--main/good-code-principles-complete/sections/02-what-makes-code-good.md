@@ -71,7 +71,7 @@ print(mean_height)
 ### 💡 Tip:
 When in doubt:  
 > **Code for humans first, computers second.**  
-Computers don’t care about messy code — but future you will!
+Computers don’t care about messy code but future you will!
 
 Every time you write code, ask yourself:  
 > “Would future me understand this in six months?”  
