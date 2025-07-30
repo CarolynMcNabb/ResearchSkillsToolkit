@@ -19,20 +19,19 @@ Good code is like a **well-organized lab notebook**:
 
 ## Table of Contents 📖 
 1. [Introduction](good-code-principles-complete/sections/01-introduction.md)
-1. [Introduction](sections/01-introduction.md)
-2. [What Makes Code Good?](sections/02-what-makes-code-good.md)
-3. [Naming Things Well](sections/03-naming-things.md)
-4. [Writing Readable Code](sections/04-readable-code.md)
-5. [Commenting and Documenting](sections/05-commenting.md)
-6. [Breaking Code Into Chunks](sections/06-breaking-into-chunks.md)
-7. [Core Coding Principles (DRY, KISS, YAGNI)](sections/07-core-principles.md)
-8. [Avoiding Common Mistakes](sections/08-common-mistakes.md)
-9. [Write Code Like a Lab Notebook](sections/09-lab-notebook-style.md)
-10. [Reproducibility in Practice](sections/10-reproducibility.md)
-11. [Magic Numbers & Checks](sections/11-magic-numbers.md)
-12. [Reading Error Messages](sections/12-reading-errors.md)
-13. [Cheat Sheet](sections/13-cheat-sheet.md)
-14. [Emergency Fixes](sections/14-emergency-fixes.md)
+2. [What Makes Code Good?](good-code-principles-complete/sections/02-what-makes-code-good.md)
+3. [Naming Things Well](good-code-principles-complete/sections/03-naming-things.md)
+4. [Writing Readable Code](good-code-principles-complete/sections/04-readable-code.md)
+5. [Commenting and Documenting](good-code-principles-complete/sections/05-commenting.md)
+6. [Breaking Code Into Chunks](good-code-principles-complete/sections/06-breaking-into-chunks.md)
+7. [Core Coding Principles (DRY, KISS, YAGNI)](good-code-principles-complete/sections/07-core-principles.md)
+8. [Avoiding Common Mistakes](good-code-principles-complete/sections/08-common-mistakes.md)
+9. [Write Code Like a Lab Notebook](good-code-principles-complete/sections/09-lab-notebook-style.md)
+10. [Reproducibility in Practice](good-code-principles-complete/sections/10-reproducibility.md)
+11. [Magic Numbers & Checks](good-code-principles-complete/sections/11-magic-numbers.md)
+12. [Reading Error Messages](good-code-principles-complete/sections/12-reading-errors.md)
+13. [Cheat Sheet](good-code-principles-complete/sections/13-cheat-sheet.md)
+14. [Emergency Fixes](good-code-principles-complete/sections/14-emergency-fixes.md)
 
 ---
 
