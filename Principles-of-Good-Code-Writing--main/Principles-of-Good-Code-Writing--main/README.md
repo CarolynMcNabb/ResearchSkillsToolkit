@@ -18,6 +18,7 @@ Good code is like a **well-organized lab notebook**:
 ---
 
 ## Table of Contents 📖 
+1. [Introduction](good-code-principles-complete/sections/01-introduction.md)
 1. [Introduction](sections/01-introduction.md)
 2. [What Makes Code Good?](sections/02-what-makes-code-good.md)
 3. [Naming Things Well](sections/03-naming-things.md)
