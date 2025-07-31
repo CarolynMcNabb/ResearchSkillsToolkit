@@ -22,7 +22,7 @@ While Git is the tool that tracks changes locally on your computer, GitHub is a 
 
 **Citations and career benefits:**
 
--   Open research gets cited 30% more than closed research - \<***citation!!!\>***
+-   Open research gets cited more than closed research [Colavizza, 2024]
 
 -   Your GitHub profile showcases your technical skills to potential collaborators and employers
 
@@ -38,7 +38,7 @@ While Git is the tool that tracks changes locally on your computer, GitHub is a 
 
 **Industry standard:**
 
--   Used by \>90% of software developers and increasingly by researchers across all disciplines - \<***citation!!!\>***
+-   Used by >90% of software developers and increasingly by researchers across all disciplines 
 
 -   Learning Git makes you fluent in the language of modern collaborative work
 
@@ -460,70 +460,706 @@ The staging area is Git's way of letting you craft deliberate, meaningful snapsh
 
 Next, we'll learn how to turn these staged changes into permanent commits that become part of your project's history.
 
-
-### 5. Creating Your First Commit
-
 ## 5. Creating Commits: Saving changes
-
-### Understanding Commits
 
 A commit is Git's way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project's story - a point you can always return to, no matter what happens later.
 
 When you create a commit, Git doesn't just save the files you've staged. It creates a complete record that includes:
 
-- **The exact state** of all your staged files
-- **A unique identifier** (like a fingerprint) for this specific snapshot
-- **Your name and timestamp** showing who made the change and when
-- **A message** describing what this snapshot represents
+-   **The exact state** of all your staged files
+-   **A unique identifier** (like a fingerprint) for this specific snapshot
+-   **Your name and timestamp** showing who made the change and when
+-   **A message** describing what this snapshot represents
 
 This is fundamentally different from just saving a file. When you save a document, you overwrite the previous version. When you commit in Git, you add a new entry to your project's permanent history while keeping all previous versions intact.
 
-### The Commit Message: Your Future Self Will Thank You
+### Creating a Commit
 
-The commit message is your opportunity to explain what this snapshot represents and why it matters. Later on, when you're trying to understand your project's evolution, these messages become invaluable breadcrumbs.
+::: panel-tabset
+
+## GitHub Desktop
+
+The commit interface in GitHub Desktop keeps everything visual and straightforward:
+
+1.  **Review your staged files** - confirm the checked files are what you want to commit
+2.  **Write your commit message** in the "Summary" field at the bottom
+    -   Good: "Add initial analysis script and sample data"
+    -   Avoid: "stuff" or "updates"
+3.  **Add details if helpful** in the "Description" field (optional)
+4.  **Click "Commit to main"**
+
+![GitHub Desktop commit interface showing staged files and message box](images/desktop-commit-interface.png)
+
+Once you commit, the staged files disappear from the Changes tab - they're now part of your project's permanent history. Any unstaged files remain in the Changes tab, ready for your next commit.
+
+## Command Line
+
+Creating a commit from the command line is straightforward once your files are staged:
+
+``` bash
+# Create a commit with a message
+$ git commit -m "Add initial analysis script and sample data"
+
+[main (root-commit) f7fde3a] Add initial analysis script and sample data
+ 4 files changed, 8 insertions(+)
+ create mode 100644 analysis.py
+ create mode 100644 data.csv
+ create mode 100644 notes.md
+ create mode 100644 results.txt
+
+# Check the result
+$ git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .DS_Store
+
+nothing added to commit but untracked files present
+Understanding the commit output:
+
+[main (root-commit) f7fde3a] - This is your first commit on the main branch
+4 files changed, 8 insertions(+) 
+```
+
+The previously staged files no longer appear under "Changes to be committed"
+:::
+
+::: callout-tip
+Get in the habit of running `git status` (or checking the Changes tab in GitHub Desktop) before and after every Git command. It keeps you aware of what's happening and prevents surprises.
+:::
+
+**The Commit message** is your opportunity to explain what this snapshot represents and why it matters. Later on, when you're trying to understand your project's evolution, these messages become invaluable breadcrumbs.
 
 **Effective commit messages follow a simple pattern:**
 
-- **Start with an action verb** - "Add", "Fix", "Update", "Remove", "Refactor"
+-   **Start with an action verb** - "Add", "Fix", "Update", "Remove", "Refactor"
 
-- **Be specific about what changed** - not just that something changed
+-   **Be specific about what changed** - not just that something changed
 
-- **Keep the first line concise** - aim for 50 characters or less
+-   **Keep the first line concise** - aim for 50 characters or less
 
-- **Focus on the "what" and "why"** - the code shows the "how"
+-   **Focus on the "what" and "why"** - the code shows the "how"
 
 **Examples that tell a story:**
 
-- "Add correlation analysis for housing price data"
-- "Fix missing value handling in data cleaning step"
-- "Update visualization colors for accessibility"
-- "Changes" or "Update stuff" or "Fixed it"
+-   "Add correlation analysis for housing price data"
+-   "Fix missing value handling in data cleaning step"
+-   "Update visualisation colors for accessibility"
+-   Not just "Changes" or "Update stuff" or "Fixed it"
 
 The difference is clear: good messages help you understand your project's progression, while vague messages leave you guessing.
 
-::: {.callout-tip}
+::: callout-tip
 ## Before You Commit: Quick Checklist
 
 **Check your staged files** - Use `git status` or review GitHub Desktop's Changes tab. Are you committing exactly what you intend?
 
 **Avoid large files** - Git works best with text files and small binaries. Large datasets or high-resolution images can bloat your repository. Consider if these files belong in Git or should be stored elsewhere.
 
-**Review your changes** - Click on files in GitHub Desktop or use `git diff --staged` to see exactly what you're about to commit. Catching mistakes now is easier than fixing them later.
+**Review your changes (optional)** - Click on files in GitHub Desktop or use `git diff --staged` to see exactly what changes you're about to commit. Catching mistakes now is easier than fixing them later.
 :::
 
-### Creating Your Commit
+### Your Project's Story: Viewing Commit History
+
+Now that you've created your first commit, you've started writing your project's permanent story. Each commit becomes a chapter that documents not just what changed, but when and why it changed.
+
+This history is more than just a record - it's a powerful tool that lets you understand how your research evolved, track down when specific changes were made, and see the logical progression of your work.
 
 ::: panel-tabset
 ## GitHub Desktop
 
-The commit interface in GitHub Desktop keeps everything visual and straightforward:
+Click the **"History"** tab to see your project's timeline:
 
-1. **Review your staged files** - confirm the checked files are what you want to commit
-2. **Write your commit message** in the "Summary" field at the bottom
-3. **Add details if helpful** in the "Description" field (optional)
-4. **Click "Commit to main"**
+![GitHub Desktop history showing project timeline](images/desktop-history-timeline.png)
 
-![GitHub Desktop commit interface showing staged files and message box](images/desktop-commit-interface.png)
+Each entry shows: - **The commit message** - your description of what this snapshot represents - **When it was created** - timestamp showing your project's progression - **Your name** - useful when collaborating with others - **A unique identifier** - like a fingerprint for this exact snapshot
 
-Once you commit, the staged files disappear from the Changes tab - they're now part of 
+**Click on any commit** to see exactly what files were changed and how they were modified. This transforms your abstract commit messages into concrete changes you can review.
 
+## Command Line
+
+Git provides several ways to explore your project's evolution:
+
+``` bash
+# See your commit history
+$ git log --oneline
+f7fde3a Add initial analysis script and sample data
+a1b2c3d Initial project setup
+
+# More detailed view
+$ git log
+commit f7fde3a8b2c1d5e6789012345678901234567890
+Author: Jane Researcher <jane@university.edu>
+Date:   Wed Jan 15 14:30:22 2025 -0500
+
+    Add initial analysis script and sample data
+
+# See what actually changed in the most recent commit
+$ git show
+```
+:::
+
+## 6. Connecting to GitHub: From Local to Public
+
+### Understanding GitHub's Role
+
+GitHub is essentially a hosting service for Git repositories - think of it as a public library where you can store and share your research projects. While Git tracks your changes locally on your computer, GitHub provides a remote location where those same Git repositories can live online.
+
+This connection transforms your personal version control system into a collaborative platform. Your local Git repository remains the primary workspace where you make changes and create commits, but GitHub becomes the public version that others can access, reference, and build upon.
+
+The relationship is straightforward: your local repository contains your actual work and Git history, while GitHub hosts an identical copy that stays synchronised through "pushing" (uploading) and "pulling" (downloading) changes.
+
+### Creating Your GitHub Repository
+
+When you create a GitHub repository, you're establishing the online counterpart to your local Git repository. This process involves creating the remote storage space and then connecting your local repository to it.
+
+:::: panel-tabset
+## GitHub Desktop
+
+GitHub Desktop streamlines this entire process:
+
+1.  **Ensure your repository is selected** in GitHub Desktop
+2.  **Click "Publish repository"** in the toolbar
+3.  **Configure the repository settings:**
+    -   Name: Usually matches your local folder name
+    -   Description: Brief explanation of the research
+    -   Keep code private: Leave unchecked for public repository
+4.  **Click "Publish Repository"**
+
+![GitHub Desktop publish interface](images/desktop-publish-repo.png)
+
+GitHub Desktop creates the online repository and establishes the connection automatically. Your local commits are immediately uploaded to GitHub.
+
+## Command Line
+
+The command line approach requires two steps: creating the GitHub repository through the web interface, then connecting your local repository to it.
+
+**First, create the repository on GitHub:**
+
+1.  Visit [github.com](https://github.com) and sign in
+
+2.  Click the "+" icon and select "New repository"
+
+3.  Configure the repository:
+
+    -   Repository name: Match your local folder name
+
+    -   Description: Brief research description
+
+    -   Set to Public
+
+    -   "Initialize with README" (Check or not, we will cover README later in more detail)
+
+4.  Click "Create repository"
+
+**Then connect your local repository:**
+
+``` bash
+# Add GitHub as a remote repository
+$ git remote add origin https://github.com/yourusername/my-research-project.git
+
+# Verify the connection
+$ git remote -v
+origin  https://github.com/yourusername/my-research-project.git (fetch)
+origin  https://github.com/yourusername/my-research-project.git (push)
+
+# Upload your commits to GitHub
+$ git push -u origin main
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 1.15 KiB | 1.15 MiB/s, done.
+To https://github.com/yourusername/my-research-project.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+```
+
+**Understanding the Remote Connection** The `git remote add` command establishes a connection between your local repository and GitHub, using "origin" as a convenient shortcut name for the full GitHub URL. This is Git's way of saying "when I refer to 'origin', I mean this specific GitHub repository."
+
+The first `git push -u origin main` command does two important things: it uploads all your local commits to GitHub, and it sets up "tracking" so that your local main branch knows it corresponds to the main branch on GitHub. After this initial setup, future pushes require only `git push`.
+
+::: callout-important
+Authentication requirement: GitHub requires personal access tokens instead of passwords for command line access. If prompted for a password during git push, you'll need to create a personal access token in your GitHub settings.
+:::
+::::
+
+**Your Repository Goes Public** Once the connection is established and your first push completes, your research becomes publicly accessible. Anyone can visit your repository URL, browse your files, and see your complete commit history.
+
+This public visibility means your work immediately gains several practical benefits: it's automatically backed up in the cloud, accessible from any internet-connected device, and permanently citable with its GitHub URL. Other researchers can examine your methodology, reproduce your analysis, and reference your work in their own research.
+
+The repository URL follows a simple pattern: github.com/yourusername/repositoryname. This becomes the permanent address for your research project.
+
+Maintaining the Connection From this point forward, your local Git workflow remains unchanged - you continue staging and committing changes as before. When you are ready, you push your commits to GitHub.
+
+::: panel-tabset
+## GitHub Desktop
+
+After making new commits locally, you'll see a "Push origin" button appear. Clicking this uploads your recent commits to GitHub.
+
+## Command Line
+
+After creating new commits, use git push to upload them to GitHub:
+
+``` bash
+# Check what needs to be pushed
+$ git status
+Your branch is ahead of 'origin/main' by 2 commits. # This means there are local changes compared to the online repository
+
+# Push your new commits
+$ git push
+```
+:::
+
+Your local repository remains the primary workspace, but GitHub now serves as both backup and public platform for your research. This dual setup - local for active work, remote for sharing and backup - forms the foundation of modern collaborative research workflows.
+
+::: callout-tip
+Get into the habit of pushing your commits to GitHub regularly. This ensures your public repository stays current and provides continuous backup of your work.
+:::
+
+## 7. Essential Files for Public Repositories
+
+### Making Your Repository Professional
+
+When you publish research code on GitHub, certain files transform it from a simple code dump into a professional, usable resource. These files serve as documentation that helps others understand, run, and properly credit your work.
+
+The essential components are straightforward:
+
+-   **README.md** that explains your project and how to use it
+
+-   A **.gitignore** that disables tracking of chosen files or filetypes
+
+-   A **licence** that clarifies usage rights
+
+-   **Dependency** information that enables reproducibility.
+
+### Core Repository Files
+
+::: panel-tabset
+## README
+
+Your README.md (this is markdown format) serves as the front page of your repository. It should quickly answer what your work does, how others can use it, and how to contact you.
+
+**Essential sections for research:**
+
+``` markdown
+# Project Title
+
+Brief description of your work and approach.
+
+## Getting Started
+- Prerequisites needed
+- How to run the analysis
+
+## Project Structure
+Brief explanation of key files and folders
+
+## Citation
+How others should cite your work
+
+## Contact
+Your name, email, and institution
+```
+
+The key is clarity and brevity: visitors should understand your project within 30 seconds of reading. For markdown formatting help and adding items like images or graphs please see this link: https://github.com/darsaveli/Readme-Markdown-Syntax
+
+## .gitignore
+
+This file prevents sensitive or irrelevant files from being tracked by Git. Essential for protecting personal data and keeping repositories clean.
+
+Common exclusions:
+
+.gitignore.txt
+
+# System files
+
+.DS_Store Thumbs.db
+
+# Language-specific
+
+**pycache**/ \# Python .Rproj.user/ \# R
+
+# Sensitive data
+
+\*.key .env config.ini
+
+# Large files
+
+\*.zip data/raw/ \# If datasets are large
+
+Remember: .gitignore only affects new files. Previously tracked files need manual removal. For more detail: https://www.freecodecamp.org/news/gitignore-file-how-to-ignore-files-and-folders-in-git/
+
+## Licence
+
+A licence clarifies how others can use your work. For most research, permissive licences work well. **MIT Licence** (recommended for research code):
+
+MIT License
+
+Copyright (c) \[year\] \[your name\]
+
+\[Standard MIT licence text\]
+
+Visit https://choosealicense.com/ for guidance on selecting appropriate licences.
+
+## Dependencies
+
+Document what software others need to run your analysis. This enables reproducibility.
+
+-   You could create a requirements.txt file that someone can use to install all required software at once
+
+-   Include detail on the dependencies or third party software that may need to be installed and how
+
+-   Include specific version numbers to ensure reproducibility - the more information the better
+:::
+
+**Adding these files to your repository**
+
+::: panel-tabset
+## GitHub Desktop
+
+Create each file in your project folder using a text editor Return to GitHub Desktop - new files appear in the Changes tab Stage the files you want to commit (check the boxes) Write a descriptive commit message Commit and push to update your GitHub repository
+
+## Command Line
+
+``` bash
+# Create files in your project directory
+$ touch README.md .gitignore LICENSE
+
+# Edit files with your preferred editor
+$ nano README.md
+
+# Stage and commit new files
+$ git add README.md .gitignore LICENSE
+$ git commit -m "Add essential documentation files"
+
+# Push to GitHub
+$ git push
+```
+:::
+
+::: callout-important
+Before pushing: Review your .gitignore file and ensure no large files or sensitive information (passwords, personal data, API keys) are tracked in your repository.
+:::
+
+Iterative improvement: You don't need perfect documentation immediately. Start with basic versions of these files and improve them as your project evolves.
+
+## 8. Basic Collaboration: Using Others' Work
+
+### Understanding repository sharing
+
+Git's distributed nature means every repository can exist in multiple places simultaneously. When researchers share their work on GitHub, they're making their entire Git repository (including all history and commits) available for others to download and use.
+
+This creates powerful opportunities for building on existing research. Rather than starting from scratch, you can clone (download) others' repositories, explore their approaches, and adapt their methods to your own work.
+
+The key insight is that cloning creates a complete, independent copy of someone else's repository on your computer. You get their files, their entire commit history, and the ability to track updates they make over time.
+
+### Cloning: getting a complete copy
+
+When you clone a repository, Git downloads everything: all files, all commits, all branches, and sets up a connection to the original repository for future updates.
+
+::: panel-tabset
+## GitHub Desktop
+
+1.  **Find the repository** on GitHub you want to clone
+2.  **Click the green "Code" button** and select "Open with GitHub Desktop"
+3.  **Choose a local folder** for the repository
+4.  **Click "Clone"**
+
+GitHub Desktop downloads the complete repository and establishes the connection automatically.
+
+Alternatively, use **File → Clone Repository** in GitHub Desktop and paste the repository URL.
+
+## Command Line
+
+``` bash
+# Navigate to your preferred location
+$ cd ~/Documents/research-projects
+
+# Clone the repository
+$ git clone https://github.com/researcher/interesting-project.git
+
+Cloning into 'interesting-project'...
+remote: Counting objects: 127, done.
+Receiving objects: 100% (127/127), 2.85 MiB | 4.12 MiB/s, done.
+
+# Move into the cloned repository
+$ cd interesting-project
+
+# Verify the clone worked
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+```
+:::
+
+The cloned repository is now a fully functional Git repository on your computer. You can explore the files, examine the commit history, and understand how the research was developed.
+
+### Staying current: pulling updates
+
+Research is ongoing, and the original authors may continue updating their repository. Since your clone maintains a connection to the original, you can download these updates whenever they occur. This is different from cloning - pulling updates an existing local repository rather than creating a new one.
+
+::: panel-tabset
+
+## GitHub Desktop
+
+Select the cloned repository in GitHub Desktop Click "Fetch origin" to check for updates If updates exist, click "Pull origin" to download them
+
+GitHub Desktop shows you exactly what changed in the update, maintaining your awareness of how the project evolves.
+
+## Command Line
+
+``` bash
+# Check for updates (doesn't download them yet)
+$ git fetch
+
+# See what's new
+$ git log HEAD..origin/main --oneline
+x9y8z7w Add new visualisation options
+v6u5t4s Fix data preprocessing bug
+
+# Download the updates
+$ git pull
+Updating a1b2c3d..x9y8z7w
+Fast-forward
+ analysis.py | 15 +++++++++++++--
+ README.md   |  3 +++
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+```
+:::
+
+Practical Workflow for Using Others' Research
+
+-   **Before cloning**: Read the repository's README and licence to understand what the project does and how you can use it.
+
+-   **After cloning**: Install any required dependencies and run the provided examples to ensure everything works in your environment.
+
+-   **For ongoing use**: Periodically pull updates to benefit from improvements and bug fixes the original authors make.
+
+-   **When building on others' work**: Always provide appropriate citation and consider reaching out to collaborate rather than working in isolation.
+
+::: callout-important
+Respecting licences: Check the repository's licence file to understand what you can legally do with the code. Most research repositories use permissive licences, but always verify.
+:::
+
+Understanding Your Boundaries This basic collaboration workflow focuses on using others' work rather than contributing back to it. You can clone any public repository, explore its contents, and pull updates as they become available.
+
+More advanced collaboration, such as suggesting changes back to the original authors or handling conflicts when multiple people modify the same files, involves additional Git concepts we haven't covered here. See this link for further Git actions: [The Turing Way's Guide to Version Control](https://the-turing-way.netlify.app/reproducible-research/vcs.html)
+
+The ability to easily clone and update others' work and history transforms research from isolated efforts into a connected ecosystem where you can build upon the best available tools and methods.
+
+## 9. Common Issues and Quick Fixes
+
+### Diagnosing Problems
+
+When Git behaves unexpectedly, start with these diagnostic commands to understand what's happening:
+
+``` bash
+# Check current repository state
+$ git status
+
+# See recent commits
+$ git log --oneline -5
+
+# Check remote connections
+$ git remote -v
+
+# See what changes are staged
+$ git diff --staged
+```
+
+These commands reveal most issues quickly and help you understand the current state before attempting fixes. 
+
+### Quick Reference for Common Issues
+
+:::: panel-tabset
+## Commit Wrong Files
+
+Problem: Committed files you didn't intend to include Before pushing:
+
+**Command line**
+
+``` bash
+# Undo last commit, keep changes
+$ git reset HEAD~1
+```
+
+Re-stage only desired files, then commit again
+
+**GitHub Desktop**: History tab → right-click commit → "Undo this commit" Prevention: Always use git status before committing
+
+## Large Files
+
+Problem: "File exceeds 100MB limit" when pushing to GitHub Solution:
+
+``` bash
+# Remove large file from tracking
+$ git rm --cached large-file.csv
+```
+
+**Add to .gitignore**
+
+``` bash
+$ echo "large-file.csv" >> .gitignore
+$ git commit -m "Remove large file from tracking"
+```
+
+Check file sizes before committing:
+
+``` bash
+$ find . -size +50M -type f
+```
+
+For ongoing large file needs: Consider Git LFS or external storage solutions https://git-lfs.com/
+
+## Push Rejected
+
+Problem: "Updates were rejected" or "fetch first" Solution: 
+
+**Command line**
+
+``` bash
+# Pull remote changes first
+$ git pull
+
+# Then push your changes
+$ git push
+```
+
+**GitHub Desktop**: 
+Click "Pull origin" then "Push origin" Prevention: Push changes regularly, pull before starting work sessions
+
+## Unstage Files
+
+Problem: Added wrong files to staging area Solution:
+
+``` bash
+# Unstage specific file
+$ git restore --staged filename.py
+
+# Unstage all files
+$ git restore --staged .
+```
+
+GitHub Desktop: Uncheck the boxes next to files in Changes tab
+
+## Commit Sensitive Data
+
+Problem: Committed passwords, API keys, or personal data If not yet pushed:
+
+``` bash
+$ git reset HEAD~1
+# Remove sensitive files, add to .gitignore, recommit
+```
+
+If already pushed: Stop immediately and seek expert help - this requires history rewriting
+
+::: callout-caution
+## Prevention
+
+Use .gitignore from project start, review staged changes before committing
+:::
+::::
+
+### Exploring Repository History
+
+Understanding your repository's history helps diagnose issues and find solutions:
+
+``` bash
+# See all commits with details
+$ git log
+
+# Compact view of recent commits  
+$ git log --oneline -10
+
+# See what changed in a specific commit
+$ git show commit-hash
+
+# View all past actions (including "lost" commits)
+$ git reflog
+```
+
+GitHub Desktop: Use the History tab to visually explore commits and changes.
+
+Recovery Options If you've lost work or made mistakes:
+
+``` bash
+# Check for stashed changes
+$ git stash list
+
+# Recover stashed work
+$ git stash pop
+
+# Go back to a previous commit (temporarily)
+$ git checkout commit-hash
+# Return to latest: git checkout main
+
+# See if "lost" work exists in reflog
+$ git reflog
+```
+
+::: callout-warning
+Avoid destructive commands: Be cautious with commands containing --hard, --force, or that mention "destructive" in warnings. When in doubt, ask for help rather than risk losing work.
+:::
+
+### Getting Help
+
+- Modern AI assistance: AI chatbots (ChatGPT, Claude, GitHub Copilot) are excellent for Git troubleshooting. Copy your exact error message and ask for help, but always understand the suggested commands before running them.
+
+- GitHub documentation: Comprehensive official guides 
+
+- Your institution's IT support: Often have Git expertise 
+
+- Git documentation locally: `git help <command>` for detailed command information
+
+::: callout-tip
+Error message strategy: Git's error messages are usually helpful. Read them carefully as they often suggest the exact commands needed to fix the problem.
+:::
+
+### Summary 
+
+Remember that Git is designed to prevent data loss. Almost every mistake can be undone, and your commit history provides multiple recovery points. When encountering errors:
+
+Read the error message carefully Use diagnostic commands to understand the current state Try the simplest solution first Seek help for unfamiliar or destructive-looking commands
+
+The key insight is that Git problems are typically fixable, and each one you resolve builds your understanding and confidence with the system.
+
+### Further resources for continued learning
+
+**In-depth tutorials:** 
+
+- [The Turing Way's Guide to Version Control](https://the-turing-way.netlify.app/reproducible-research/vcs.html) : Academic perspective on reproducible research 
+
+- [Software Carpentry Git Lessons](https://swcarpentry.github.io/git-novice/): Step-by-step lessons with exercises 
+
+- [Pro Git Book](https://git-scm.com/book) : Comprehensive Git reference (free online)
+
+**Tools and utilities:** 
+
+- [GitHub Desktop](https://desktop.github.com) - GUI for Git operations 
+
+- [GitKraken](https://www.gitkraken.com) - Advanced Git GUI with visualization 
+
+- [GitHub CLI](https://cli.github.com) - Command-line tools for GitHub integration
+
+### Downloadable cheat sheet for Git/GitHub
+
+`[DOWNLOADABLE CHEAT SHEET PLACEHOLDER: PDF reference card with common commands, flags, and troubleshooting tips]`
+
+------------------------------------------------------------------------
+
+## Final Thoughts: You're Part of Something Bigger
+
+Every time you make your research open and collaborative, you're contributing to a global movement toward better science. Your shared code might:
+
+-   **Help another researcher** solve a critical problem in their work
+-   **Get adapted for use** in a completely different field
+-   **Become the foundation** for the next breakthrough discovery
+-   **Inspire someone** to pursue research they wouldn't have attempted alone
+
+**Git and GitHub aren't just tools** - they're your contribution to open, reproducible, collaborative science.
+
+**Start small. Experiment. Make mistakes.** Git is there to help you recover and learn.
+
+**Your research deserves to be shared with the world.**
+
+------------------------------------------------------------------------
+
+*Remember: The goal was never to become a Git expert overnight. It was to build the confidence and skills to share your research openly and collaborate effectively. Every commit you make is a step toward better science.*

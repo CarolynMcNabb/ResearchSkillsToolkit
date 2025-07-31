@@ -493,14 +493,9 @@ Demo project folder
 <p>The staging area is Git’s way of letting you craft deliberate, meaningful snapshots rather than chaotic “save everything” moments. Once you get comfortable with this concept, you’ll find it becomes second nature and your project history will tell a much clearer story of your research progress.</p>
 <p>Next, we’ll learn how to turn these staged changes into permanent commits that become part of your project’s history.</p>
 </section>
-<section id="creating-your-first-commit" class="level3">
-<h3 class="anchored" data-anchor-id="creating-your-first-commit">5. Creating Your First Commit</h3>
-</section>
 </section>
 <section id="creating-commits-saving-changes" class="level2">
 <h2 class="anchored" data-anchor-id="creating-commits-saving-changes">5. Creating Commits: Saving changes</h2>
-<section id="understanding-commits" class="level3">
-<h3 class="anchored" data-anchor-id="understanding-commits">Understanding Commits</h3>
 <p>A commit is Git’s way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project’s story - a point you can always return to, no matter what happens later.</p>
 <p>When you create a commit, Git doesn’t just save the files you’ve staged. It creates a complete record that includes:</p>
 <ul>
@@ -510,10 +505,73 @@ Demo project folder
 <li><strong>A message</strong> describing what this snapshot represents</li>
 </ul>
 <p>This is fundamentally different from just saving a file. When you save a document, you overwrite the previous version. When you commit in Git, you add a new entry to your project’s permanent history while keeping all previous versions intact.</p>
-</section>
-<section id="the-commit-message-your-future-self-will-thank-you" class="level3">
-<h3 class="anchored" data-anchor-id="the-commit-message-your-future-self-will-thank-you">The Commit Message: Your Future Self Will Thank You</h3>
-<p>The commit message is your opportunity to explain what this snapshot represents and why it matters. Later on, when you’re trying to understand your project’s evolution, these messages become invaluable breadcrumbs.</p>
+<section id="creating-a-commit" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-commit">Creating a Commit</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>The commit interface in GitHub Desktop keeps everything visual and straightforward:</p>
+<ol type="1">
+<li><strong>Review your staged files</strong> - confirm the checked files are what you want to commit</li>
+<li><strong>Write your commit message</strong> in the “Summary” field at the bottom
+<ul>
+<li>Good: “Add initial analysis script and sample data”</li>
+<li>Avoid: “stuff” or “updates”</li>
+</ul></li>
+<li><strong>Add details if helpful</strong> in the “Description” field (optional)</li>
+<li><strong>Click “Commit to main”</strong></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/desktop-commit-interface.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop commit interface showing staged files and message box</figcaption>
+</figure>
+</div>
+<p>Once you commit, the staged files disappear from the Changes tab - they’re now part of your project’s permanent history. Any unstaged files remain in the Changes tab, ready for your next commit.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>Creating a commit from the command line is straightforward once your files are staged:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a commit with a message</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add initial analysis script and sample data"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">f7fde3a]</span> Add initial analysis script and sample data</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">4</span> files changed, 8 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 analysis.py</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 data.csv</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 notes.md</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 results.txt</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the result</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ex">Untracked</span> files:</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to include in what will be committed<span class="kw">)</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="ex">.DS_Store</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> added to commit but untracked files present</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Understanding</span> the commit output:</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">f7fde3a]</span> <span class="at">-</span> This is your first commit on the main branch</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span> files changed, 8 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The previously staged files no longer appear under “Changes to be committed”</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Get in the habit of running <code>git status</code> (or checking the Changes tab in GitHub Desktop) before and after every Git command. It keeps you aware of what’s happening and prevents surprises.</p>
+</div>
+</div>
+<p><strong>The Commit message</strong> is your opportunity to explain what this snapshot represents and why it matters. Later on, when you’re trying to understand your project’s evolution, these messages become invaluable breadcrumbs.</p>
 <p><strong>Effective commit messages follow a simple pattern:</strong></p>
 <ul>
 <li><p><strong>Start with an action verb</strong> - “Add”, “Fix”, “Update”, “Remove”, “Refactor”</p></li>
@@ -525,8 +583,8 @@ Demo project folder
 <ul>
 <li>“Add correlation analysis for housing price data”</li>
 <li>“Fix missing value handling in data cleaning step”</li>
-<li>“Update visualization colors for accessibility”</li>
-<li>“Changes” or “Update stuff” or “Fixed it”</li>
+<li>“Update visualisation colors for accessibility”</li>
+<li>Not just “Changes” or “Update stuff” or “Fixed it”</li>
 </ul>
 <p>The difference is clear: good messages help you understand your project’s progression, while vague messages leave you guessing.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -541,34 +599,578 @@ Before You Commit: Quick Checklist
 <div class="callout-body-container callout-body">
 <p><strong>Check your staged files</strong> - Use <code>git status</code> or review GitHub Desktop’s Changes tab. Are you committing exactly what you intend?</p>
 <p><strong>Avoid large files</strong> - Git works best with text files and small binaries. Large datasets or high-resolution images can bloat your repository. Consider if these files belong in Git or should be stored elsewhere.</p>
-<p><strong>Review your changes</strong> - Click on files in GitHub Desktop or use <code>git diff --staged</code> to see exactly what you’re about to commit. Catching mistakes now is easier than fixing them later.</p>
+<p><strong>Review your changes (optional)</strong> - Click on files in GitHub Desktop or use <code>git diff --staged</code> to see exactly what changes you’re about to commit. Catching mistakes now is easier than fixing them later.</p>
 </div>
 </div>
 </section>
-<section id="creating-your-commit" class="level3">
-<h3 class="anchored" data-anchor-id="creating-your-commit">Creating Your Commit</h3>
+<section id="your-projects-story-viewing-commit-history" class="level3">
+<h3 class="anchored" data-anchor-id="your-projects-story-viewing-commit-history">Your Project’s Story: Viewing Commit History</h3>
+<p>Now that you’ve created your first commit, you’ve started writing your project’s permanent story. Each commit becomes a chapter that documents not just what changed, but when and why it changed.</p>
+<p>This history is more than just a record - it’s a powerful tool that lets you understand how your research evolved, track down when specific changes were made, and see the logical progression of your work.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">GitHub Desktop</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Command Line</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<p>The commit interface in GitHub Desktop keeps everything visual and straightforward:</p>
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Click the <strong>“History”</strong> tab to see your project’s timeline:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/desktop-history-timeline.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop history showing project timeline</figcaption>
+</figure>
+</div>
+<p>Each entry shows: - <strong>The commit message</strong> - your description of what this snapshot represents - <strong>When it was created</strong> - timestamp showing your project’s progression - <strong>Your name</strong> - useful when collaborating with others - <strong>A unique identifier</strong> - like a fingerprint for this exact snapshot</p>
+<p><strong>Click on any commit</strong> to see exactly what files were changed and how they were modified. This transforms your abstract commit messages into concrete changes you can review.</p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Git provides several ways to explore your project’s evolution:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See your commit history</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--oneline</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">f7fde3a</span> Add initial analysis script and sample data</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">a1b2c3d</span> Initial project setup</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># More detailed view</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> f7fde3a8b2c1d5e6789012345678901234567890</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Jane Researcher <span class="op">&lt;</span>jane@university.edu<span class="op">&gt;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Wed Jan 15 14:30:22 2025 <span class="at">-0500</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Add</span> initial analysis script and sample data</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># See what actually changed in the most recent commit</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git show</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="connecting-to-github-from-local-to-public" class="level2">
+<h2 class="anchored" data-anchor-id="connecting-to-github-from-local-to-public">6. Connecting to GitHub: From Local to Public</h2>
+<section id="understanding-githubs-role" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-githubs-role">Understanding GitHub’s Role</h3>
+<p>GitHub is essentially a hosting service for Git repositories - think of it as a public library where you can store and share your research projects. While Git tracks your changes locally on your computer, GitHub provides a remote location where those same Git repositories can live online.</p>
+<p>This connection transforms your personal version control system into a collaborative platform. Your local Git repository remains the primary workspace where you make changes and create commits, but GitHub becomes the public version that others can access, reference, and build upon.</p>
+<p>The relationship is straightforward: your local repository contains your actual work and Git history, while GitHub hosts an identical copy that stays synchronised through “pushing” (uploading) and “pulling” (downloading) changes.</p>
+</section>
+<section id="creating-your-github-repository" class="level3">
+<h3 class="anchored" data-anchor-id="creating-your-github-repository">Creating Your GitHub Repository</h3>
+<p>When you create a GitHub repository, you’re establishing the online counterpart to your local Git repository. This process involves creating the remote storage space and then connecting your local repository to it.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>GitHub Desktop streamlines this entire process:</p>
 <ol type="1">
-<li><strong>Review your staged files</strong> - confirm the checked files are what you want to commit</li>
-<li><strong>Write your commit message</strong> in the “Summary” field at the bottom</li>
-<li><strong>Add details if helpful</strong> in the “Description” field (optional)</li>
-<li><strong>Click “Commit to main”</strong></li>
+<li><strong>Ensure your repository is selected</strong> in GitHub Desktop</li>
+<li><strong>Click “Publish repository”</strong> in the toolbar</li>
+<li><strong>Configure the repository settings:</strong>
+<ul>
+<li>Name: Usually matches your local folder name</li>
+<li>Description: Brief explanation of the research</li>
+<li>Keep code private: Leave unchecked for public repository</li>
+</ul></li>
+<li><strong>Click “Publish Repository”</strong></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/desktop-commit-interface.png" class="img-fluid figure-img"></p>
-<figcaption>GitHub Desktop commit interface showing staged files and message box</figcaption>
+<p><img src="images/desktop-publish-repo.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop publish interface</figcaption>
 </figure>
 </div>
-<p>Once you commit, the staged files disappear from the Changes tab - they’re now part of</p>
+<p>GitHub Desktop creates the online repository and establishes the connection automatically. Your local commits are immediately uploaded to GitHub.</p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p>The command line approach requires two steps: creating the GitHub repository through the web interface, then connecting your local repository to it.</p>
+<p><strong>First, create the repository on GitHub:</strong></p>
+<ol type="1">
+<li><p>Visit <a href="https://github.com">github.com</a> and sign in</p></li>
+<li><p>Click the “+” icon and select “New repository”</p></li>
+<li><p>Configure the repository:</p>
+<ul>
+<li><p>Repository name: Match your local folder name</p></li>
+<li><p>Description: Brief research description</p></li>
+<li><p>Set to Public</p></li>
+<li><p>“Initialize with README” (Check or not, we will cover README later in more detail)</p></li>
+</ul></li>
+<li><p>Click “Create repository”</p></li>
+</ol>
+<p><strong>Then connect your local repository:</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add GitHub as a remote repository</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add origin https://github.com/yourusername/my-research-project.git</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the connection</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote <span class="at">-v</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/yourusername/my-research-project.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/yourusername/my-research-project.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload your commits to GitHub</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin main</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Enumerating</span> objects: 8, done.</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Counting</span> objects: 100% <span class="er">(</span><span class="ex">8/8</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Writing</span> objects: 100% <span class="er">(</span><span class="ex">8/8</span><span class="kw">)</span><span class="ex">,</span> 1.15 KiB <span class="kw">|</span> <span class="ex">1.15</span> MiB/s, done.</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://github.com/yourusername/my-research-project.git</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a> <span class="ex">*</span> [new branch]      main <span class="at">-</span><span class="op">&gt;</span> main</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="ex">Branch</span> <span class="st">'main'</span> set up to track remote branch <span class="st">'main'</span> from <span class="st">'origin'</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Understanding the Remote Connection</strong> The <code>git remote add</code> command establishes a connection between your local repository and GitHub, using “origin” as a convenient shortcut name for the full GitHub URL. This is Git’s way of saying “when I refer to ‘origin’, I mean this specific GitHub repository.”</p>
+<p>The first <code>git push -u origin main</code> command does two important things: it uploads all your local commits to GitHub, and it sets up “tracking” so that your local main branch knows it corresponds to the main branch on GitHub. After this initial setup, future pushes require only <code>git push</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Authentication requirement: GitHub requires personal access tokens instead of passwords for command line access. If prompted for a password during git push, you’ll need to create a personal access token in your GitHub settings.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Your Repository Goes Public</strong> Once the connection is established and your first push completes, your research becomes publicly accessible. Anyone can visit your repository URL, browse your files, and see your complete commit history.</p>
+<p>This public visibility means your work immediately gains several practical benefits: it’s automatically backed up in the cloud, accessible from any internet-connected device, and permanently citable with its GitHub URL. Other researchers can examine your methodology, reproduce your analysis, and reference your work in their own research.</p>
+<p>The repository URL follows a simple pattern: github.com/yourusername/repositoryname. This becomes the permanent address for your research project.</p>
+<p>Maintaining the Connection From this point forward, your local Git workflow remains unchanged - you continue staging and committing changes as before. When you are ready, you push your commits to GitHub.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>After making new commits locally, you’ll see a “Push origin” button appear. Clicking this uploads your recent commits to GitHub.</p>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<p>After creating new commits, use git push to upload them to GitHub:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check what needs to be pushed</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is ahead of <span class="st">'origin/main'</span> by 2 commits. <span class="co"># This means there are local changes compared to the online repository</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Push your new commits</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Your local repository remains the primary workspace, but GitHub now serves as both backup and public platform for your research. This dual setup - local for active work, remote for sharing and backup - forms the foundation of modern collaborative research workflows.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Get into the habit of pushing your commits to GitHub regularly. This ensures your public repository stays current and provides continuous backup of your work.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="essential-files-for-public-repositories" class="level2">
+<h2 class="anchored" data-anchor-id="essential-files-for-public-repositories">7. Essential Files for Public Repositories</h2>
+<section id="making-your-repository-professional" class="level3">
+<h3 class="anchored" data-anchor-id="making-your-repository-professional">Making Your Repository Professional</h3>
+<p>When you publish research code on GitHub, certain files transform it from a simple code dump into a professional, usable resource. These files serve as documentation that helps others understand, run, and properly credit your work.</p>
+<p>The essential components are straightforward:</p>
+<ul>
+<li><p><strong>README.md</strong> that explains your project and how to use it</p></li>
+<li><p>A <strong>.gitignore</strong> that disables tracking of chosen files or filetypes</p></li>
+<li><p>A <strong>licence</strong> that clarifies usage rights</p></li>
+<li><p><strong>Dependency</strong> information that enables reproducibility.</p></li>
+</ul>
+</section>
+<section id="core-repository-files" class="level3">
+<h3 class="anchored" data-anchor-id="core-repository-files">Core Repository Files</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">README</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false" href="">.gitignore</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-3" role="tab" aria-controls="tabset-9-3" aria-selected="false" href="">Licence</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-4" role="tab" aria-controls="tabset-9-4" aria-selected="false" href="">Dependencies</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p>Your README.md (this is markdown format) serves as the front page of your repository. It should quickly answer what your work does, how others can use it, and how to contact you.</p>
+<p><strong>Essential sections for research:</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Project Title</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>Brief description of your work and approach.</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting Started</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Prerequisites needed</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How to run the analysis</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Structure</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>Brief explanation of key files and folders</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Citation</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>How others should cite your work</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contact</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>Your name, email, and institution</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The key is clarity and brevity: visitors should understand your project within 30 seconds of reading. For markdown formatting help and adding items like images or graphs please see this link: https://github.com/darsaveli/Readme-Markdown-Syntax</p>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<p>This file prevents sensitive or irrelevant files from being tracked by Git. Essential for protecting personal data and keeping repositories clean.</p>
+<p>Common exclusions:</p>
+<p>.gitignore.txt</p>
+<section id="system-files" class="level1">
+<h1>System files</h1>
+<p>.DS_Store Thumbs.db</p>
+</section>
+<section id="language-specific" class="level1">
+<h1>Language-specific</h1>
+<p><strong>pycache</strong>/ # Python .Rproj.user/ # R</p>
+</section>
+<section id="sensitive-data" class="level1">
+<h1>Sensitive data</h1>
+<p>*.key .env config.ini</p>
+</section>
+<section id="large-files" class="level1">
+<h1>Large files</h1>
+<p>*.zip data/raw/ # If datasets are large</p>
+<p>Remember: .gitignore only affects new files. Previously tracked files need manual removal. For more detail: https://www.freecodecamp.org/news/gitignore-file-how-to-ignore-files-and-folders-in-git/</p>
+</section>
+</div>
+<div id="tabset-9-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-3-tab">
+<p>A licence clarifies how others can use your work. For most research, permissive licences work well. <strong>MIT Licence</strong> (recommended for research code):</p>
+<p>MIT License</p>
+<p>Copyright (c) [year] [your name]</p>
+<p>[Standard MIT licence text]</p>
+<p>Visit https://choosealicense.com/ for guidance on selecting appropriate licences.</p>
+</div>
+<div id="tabset-9-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-4-tab">
+<p>Document what software others need to run your analysis. This enables reproducibility.</p>
+<ul>
+<li><p>You could create a requirements.txt file that someone can use to install all required software at once</p></li>
+<li><p>Include detail on the dependencies or third party software that may need to be installed and how</p></li>
+<li><p>Include specific version numbers to ensure reproducibility - the more information the better</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Adding these files to your repository</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p>Create each file in your project folder using a text editor Return to GitHub Desktop - new files appear in the Changes tab Stage the files you want to commit (check the boxes) Write a descriptive commit message Commit and push to update your GitHub repository</p>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create files in your project directory</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch README.md .gitignore LICENSE</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit files with your preferred editor</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nano README.md</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage and commit new files</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add README.md .gitignore LICENSE</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add essential documentation files"</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Push to GitHub</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before pushing: Review your .gitignore file and ensure no large files or sensitive information (passwords, personal data, API keys) are tracked in your repository.</p>
+</div>
+</div>
+<p>Iterative improvement: You don’t need perfect documentation immediately. Start with basic versions of these files and improve them as your project evolves.</p>
+</section>
+</section>
+<section id="basic-collaboration-using-others-work" class="level2">
+<h2 class="anchored" data-anchor-id="basic-collaboration-using-others-work">8. Basic Collaboration: Using Others’ Work</h2>
+<section id="understanding-repository-sharing" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-repository-sharing">Understanding repository sharing</h3>
+<p>Git’s distributed nature means every repository can exist in multiple places simultaneously. When researchers share their work on GitHub, they’re making their entire Git repository (including all history and commits) available for others to download and use.</p>
+<p>This creates powerful opportunities for building on existing research. Rather than starting from scratch, you can clone (download) others’ repositories, explore their approaches, and adapt their methods to your own work.</p>
+<p>The key insight is that cloning creates a complete, independent copy of someone else’s repository on your computer. You get their files, their entire commit history, and the ability to track updates they make over time.</p>
+</section>
+<section id="cloning-getting-a-complete-copy" class="level3">
+<h3 class="anchored" data-anchor-id="cloning-getting-a-complete-copy">Cloning: getting a complete copy</h3>
+<p>When you clone a repository, Git downloads everything: all files, all commits, all branches, and sets up a connection to the original repository for future updates.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<ol type="1">
+<li><strong>Find the repository</strong> on GitHub you want to clone</li>
+<li><strong>Click the green “Code” button</strong> and select “Open with GitHub Desktop”</li>
+<li><strong>Choose a local folder</strong> for the repository</li>
+<li><strong>Click “Clone”</strong></li>
+</ol>
+<p>GitHub Desktop downloads the complete repository and establishes the connection automatically.</p>
+<p>Alternatively, use <strong>File → Clone Repository</strong> in GitHub Desktop and paste the repository URL.</p>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your preferred location</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/Documents/research-projects</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/researcher/interesting-project.git</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Cloning</span> into <span class="st">'interesting-project'</span>...</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Counting objects: 127, done.</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Receiving</span> objects: 100% <span class="er">(</span><span class="ex">127/127</span><span class="kw">)</span><span class="ex">,</span> 2.85 MiB <span class="kw">|</span> <span class="ex">4.12</span> MiB/s, done.</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Move into the cloned repository</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd interesting-project</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the clone worked</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>The cloned repository is now a fully functional Git repository on your computer. You can explore the files, examine the commit history, and understand how the research was developed.</p>
+</section>
+<section id="staying-current-pulling-updates" class="level3">
+<h3 class="anchored" data-anchor-id="staying-current-pulling-updates">Staying current: pulling updates</h3>
+<p>Research is ongoing, and the original authors may continue updating their repository. Since your clone maintains a connection to the original, you can download these updates whenever they occur. This is different from cloning - pulling updates an existing local repository rather than creating a new one.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p>Select the cloned repository in GitHub Desktop Click “Fetch origin” to check for updates If updates exist, click “Pull origin” to download them</p>
+<p>GitHub Desktop shows you exactly what changed in the update, maintaining your awareness of how the project evolves.</p>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for updates (doesn't download them yet)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git fetch</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># See what's new</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log HEAD..origin/main <span class="at">--oneline</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">x9y8z7w</span> Add new visualisation options</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ex">v6u5t4s</span> Fix data preprocessing bug</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the updates</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Updating</span> a1b2c3d..x9y8z7w</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Fast-forward</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">analysis.py</span> <span class="kw">|</span> <span class="ex">15</span> +++++++++++++--</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">README.md</span>   <span class="kw">|</span>  <span class="ex">3</span> +++</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a> <span class="ex">2</span> files changed, 16 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span><span class="ex">,</span> 2 deletions<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Practical Workflow for Using Others’ Research</p>
+<ul>
+<li><p><strong>Before cloning</strong>: Read the repository’s README and licence to understand what the project does and how you can use it.</p></li>
+<li><p><strong>After cloning</strong>: Install any required dependencies and run the provided examples to ensure everything works in your environment.</p></li>
+<li><p><strong>For ongoing use</strong>: Periodically pull updates to benefit from improvements and bug fixes the original authors make.</p></li>
+<li><p><strong>When building on others’ work</strong>: Always provide appropriate citation and consider reaching out to collaborate rather than working in isolation.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Respecting licences: Check the repository’s licence file to understand what you can legally do with the code. Most research repositories use permissive licences, but always verify.</p>
+</div>
+</div>
+<p>Understanding Your Boundaries This basic collaboration workflow focuses on using others’ work rather than contributing back to it. You can clone any public repository, explore its contents, and pull updates as they become available.</p>
+<p>More advanced collaboration, such as suggesting changes back to the original authors or handling conflicts when multiple people modify the same files, involves additional Git concepts we haven’t covered here. See this link for further Git actions: <a href="https://the-turing-way.netlify.app/reproducible-research/vcs.html">The Turing Way’s Guide to Version Control</a></p>
+<p>The ability to easily clone and update others’ work and history transforms research from isolated efforts into a connected ecosystem where you can build upon the best available tools and methods.</p>
+</section>
+</section>
+<section id="common-issues-and-quick-fixes" class="level2">
+<h2 class="anchored" data-anchor-id="common-issues-and-quick-fixes">9. Common Issues and Quick Fixes</h2>
+<section id="diagnosing-problems" class="level3">
+<h3 class="anchored" data-anchor-id="diagnosing-problems">Diagnosing Problems</h3>
+<p>When Git behaves unexpectedly, start with these diagnostic commands to understand what’s happening:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check current repository state</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># See recent commits</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--oneline</span> <span class="at">-5</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check remote connections</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote <span class="at">-v</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># See what changes are staged</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff <span class="at">--staged</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These commands reveal most issues quickly and help you understand the current state before attempting fixes.</p>
+</section>
+<section id="quick-reference-for-common-issues" class="level3">
+<h3 class="anchored" data-anchor-id="quick-reference-for-common-issues">Quick Reference for Common Issues</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true" href="">Commit Wrong Files</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false" href="">Large Files</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-3" role="tab" aria-controls="tabset-13-3" aria-selected="false" href="">Push Rejected</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-4" role="tab" aria-controls="tabset-13-4" aria-selected="false" href="">Unstage Files</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-5" role="tab" aria-controls="tabset-13-5" aria-selected="false" href="">Commit Sensitive Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
+<p>Problem: Committed files you didn’t intend to include Before pushing:</p>
+<p><strong>Command line</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Undo last commit, keep changes</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset HEAD~1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Re-stage only desired files, then commit again</p>
+<p><strong>GitHub Desktop</strong>: History tab → right-click commit → “Undo this commit” Prevention: Always use git status before committing</p>
+</div>
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
+<p>Problem: “File exceeds 100MB limit” when pushing to GitHub Solution:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove large file from tracking</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> large-file.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Add to .gitignore</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"large-file.csv"</span> <span class="op">&gt;&gt;</span> .gitignore</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Remove large file from tracking"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check file sizes before committing:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> find . <span class="at">-size</span> +50M <span class="at">-type</span> f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For ongoing large file needs: Consider Git LFS or external storage solutions https://git-lfs.com/</p>
+</div>
+<div id="tabset-13-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-3-tab">
+<p>Problem: “Updates were rejected” or “fetch first” Solution:</p>
+<p><strong>Command line</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull remote changes first</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Then push your changes</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>GitHub Desktop</strong>: Click “Pull origin” then “Push origin” Prevention: Push changes regularly, pull before starting work sessions</p>
+</div>
+<div id="tabset-13-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-4-tab">
+<p>Problem: Added wrong files to staging area Solution:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unstage specific file</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore <span class="at">--staged</span> filename.py</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Unstage all files</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore <span class="at">--staged</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>GitHub Desktop: Uncheck the boxes next to files in Changes tab</p>
+</div>
+<div id="tabset-13-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-5-tab">
+<p>Problem: Committed passwords, API keys, or personal data If not yet pushed:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset HEAD~1</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove sensitive files, add to .gitignore, recommit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If already pushed: Stop immediately and seek expert help - this requires history rewriting</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prevention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use .gitignore from project start, review staged changes before committing</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
+<section id="exploring-repository-history" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-repository-history">Exploring Repository History</h3>
+<p>Understanding your repository’s history helps diagnose issues and find solutions:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See all commits with details</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compact view of recent commits  </span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--oneline</span> <span class="at">-10</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See what changed in a specific commit</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git show commit-hash</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View all past actions (including "lost" commits)</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reflog</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>GitHub Desktop: Use the History tab to visually explore commits and changes.</p>
+<p>Recovery Options If you’ve lost work or made mistakes:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for stashed changes</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git stash list</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Recover stashed work</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git stash pop</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Go back to a previous commit (temporarily)</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout commit-hash</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Return to latest: git checkout main</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># See if "lost" work exists in reflog</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reflog</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avoid destructive commands: Be cautious with commands containing –hard, –force, or that mention “destructive” in warnings. When in doubt, ask for help rather than risk losing work.</p>
+</div>
+</div>
+</section>
+<section id="getting-help" class="level3">
+<h3 class="anchored" data-anchor-id="getting-help">Getting Help</h3>
+<ul>
+<li><p>Modern AI assistance: AI chatbots (ChatGPT, Claude, GitHub Copilot) are excellent for Git troubleshooting. Copy your exact error message and ask for help, but always understand the suggested commands before running them.</p></li>
+<li><p>GitHub documentation: Comprehensive official guides</p></li>
+<li><p>Your institution’s IT support: Often have Git expertise</p></li>
+<li><p>Git documentation locally: <code>git help &lt;command&gt;</code> for detailed command information</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Error message strategy: Git’s error messages are usually helpful. Read them carefully as they often suggest the exact commands needed to fix the problem.</p>
+</div>
+</div>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>Remember that Git is designed to prevent data loss. Almost every mistake can be undone, and your commit history provides multiple recovery points. When encountering errors:</p>
+<p>Read the error message carefully Use diagnostic commands to understand the current state Try the simplest solution first Seek help for unfamiliar or destructive-looking commands</p>
+<p>The key insight is that Git problems are typically fixable, and each one you resolve builds your understanding and confidence with the system.</p>
+</section>
+<section id="further-resources-for-continued-learning" class="level3">
+<h3 class="anchored" data-anchor-id="further-resources-for-continued-learning">Further resources for continued learning</h3>
+<p><strong>In-depth tutorials:</strong></p>
+<ul>
+<li><p><a href="https://the-turing-way.netlify.app/reproducible-research/vcs.html">The Turing Way’s Guide to Version Control</a> : Academic perspective on reproducible research</p></li>
+<li><p><a href="https://swcarpentry.github.io/git-novice/">Software Carpentry Git Lessons</a>: Step-by-step lessons with exercises</p></li>
+<li><p><a href="https://git-scm.com/book">Pro Git Book</a> : Comprehensive Git reference (free online)</p></li>
+</ul>
+<p><strong>Tools and utilities:</strong></p>
+<ul>
+<li><p><a href="https://desktop.github.com">GitHub Desktop</a> - GUI for Git operations</p></li>
+<li><p><a href="https://www.gitkraken.com">GitKraken</a> - Advanced Git GUI with visualization</p></li>
+<li><p><a href="https://cli.github.com">GitHub CLI</a> - Command-line tools for GitHub integration</p></li>
+</ul>
+</section>
+<section id="downloadable-cheat-sheet-for-gitgithub" class="level3">
+<h3 class="anchored" data-anchor-id="downloadable-cheat-sheet-for-gitgithub">Downloadable cheat sheet for Git/GitHub</h3>
+<p><code>[DOWNLOADABLE CHEAT SHEET PLACEHOLDER: PDF reference card with common commands, flags, and troubleshooting tips]</code></p>
+<hr>
+</section>
+</section>
+<section id="final-thoughts-youre-part-of-something-bigger" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts-youre-part-of-something-bigger">Final Thoughts: You’re Part of Something Bigger</h2>
+<p>Every time you make your research open and collaborative, you’re contributing to a global movement toward better science. Your shared code might:</p>
+<ul>
+<li><strong>Help another researcher</strong> solve a critical problem in their work</li>
+<li><strong>Get adapted for use</strong> in a completely different field</li>
+<li><strong>Become the foundation</strong> for the next breakthrough discovery</li>
+<li><strong>Inspire someone</strong> to pursue research they wouldn’t have attempted alone</li>
+</ul>
+<p><strong>Git and GitHub aren’t just tools</strong> - they’re your contribution to open, reproducible, collaborative science.</p>
+<p><strong>Start small. Experiment. Make mistakes.</strong> Git is there to help you recover and learn.</p>
+<p><strong>Your research deserves to be shared with the world.</strong></p>
+<hr>
+<p><em>Remember: The goal was never to become a Git expert overnight. It was to build the confidence and skills to share your research openly and collaborate effectively. Every commit you make is a step toward better science.</em></p>
 </section>
 </section>
 
