@@ -1,0 +1,529 @@
+# A Researcher's guide to Git & GitHub
+
+**Before we start:** If you've ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. Git might seem intimidating at first, but it's designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We'll walk through this together, step by step, and by the end you'll wonder why you waited so long to start using it!
+
+::: {.callout-note appearance="simple" icon="false"}
+*All tools in this guide are free to install and use!*
+:::
+
+## 1. What and why?
+
+### What is Git and GitHub?
+
+Git is a version control software that allows you to go back in time to previous points in a project's history. Much like track changes in Microsoft Word or saving progress in a video game, it allows you to decide when and what you want to save from a project.
+
+If you make any changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It's like having infinite "undo" for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.
+
+While Git is the tool that tracks changes locally on your computer, GitHub is a website where you can share and backup your Git projects.  
+
+![*Overview of the Git/GitHub pipeline - we'll cover each step in more detail!*](images/git_overview_diagram.png){width="100%"}
+
+### Why should researchers care?
+
+**Citations and career benefits:**
+
+-   Open research gets cited 30% more than closed research - \<***citation!!!\>***
+
+-   Your GitHub profile showcases your technical skills to potential collaborators and employers
+
+-   Funding agencies increasingly require open access to research code and data
+
+**Collaboration made simple:**
+
+-   Multiple researchers can work on the same project without emailing files back and forth
+
+-   Colleagues can easily build on your work, leading to new collaborations
+
+-   You can contribute to other researchers' projects, expanding your network
+
+**Industry standard:**
+
+-   Used by \>90% of software developers and increasingly by researchers across all disciplines - \<***citation!!!\>***
+
+-   Learning Git makes you fluent in the language of modern collaborative work
+
+-   Essential skill for reproducible research and open science initiatives
+
+**Peace of mind:**
+
+-   Never lose work due to computer crashes or accidental deletions
+
+-   Always know exactly what changed, when, and why
+
+-   Easy backup and synchronization across multiple computers
+
+### Common fears (and why they're wrong)
+
+We've all been there. Let's address the worries head-on:
+
+-   *"It's too complicated"* -\> We'll start with the simplest possible workflow and build gradually.
+-   *"I'm not technical enough"* -\> Many successful researchers use Git with just 5 basic commands. You don't need to learn everything.
+-   *"I'll break something important"* -\> Git is designed to prevent data loss. Every change is tracked and reversible.
+-   *"I don't have time to learn this"* -\> The time invested now will save dozens of hours later
+-   *"My field doesn't use Git"* \> Perfect! Be the one who brings modern tools to your discipline.
+
+### Different types of workflows we'll cover
+
+**Personal version control:** Track your own work safely, never lose progress, and maintain clean project history.
+
+**Sharing research publicly:** Make your work discoverable, citable, and professional-looking on GitHub.
+
+**Basic collaboration:** Download and use others' code, and understand the foundations of collaborative workflows.
+
+*At the end of the guide there will be links to further git and github resources*
+
+## 2. Initial setup
+
+**This section covers:**
+
+1.  Creating a GitHub account
+2.  Choose between command line and GUI tools
+3.  How to configure Git
+4.  The basic Git workflow
+
+**Before we start:** You'll need a computer with internet access and about 10 minutes for account creation and software installation.
+
+### 2.1 Creating your GitHub account
+
+GitHub is where you'll store and share your work. It's free for public research projects (which is what we want anyway)! We'll set up an account now and come back to actually using GitHub a little later on.
+
+1.  **Visit [github.com](https://github.com)** and click "Sign up"
+
+2.  **Choose a username**
+
+    *- Good: john-smith, john-smith-projects, research-john-smith*
+
+    *- Avoid: coolcat58, slowsloth4, codechampion*
+
+    ::: {.callout-important appearance="minimal"}
+    Your GitHub username becomes part of URLs (github.com/your-username), so choose something you'll be comfortable sharing professionally.
+    :::
+
+3.  **Enter your email** (use an institutional email if possible, some universities provide extra features)
+
+4.  **Choose the free plan** (it includes everything we need!)
+
+5.  **Verify your email address**
+
+### 2.2 Choosing Your Tools
+
+You can use Git however you feel comfortable and don't need to stick to just one approach:
+
+**GitHub Desktop (Recommended for beginners):** Point-and-click interface with a visual view of functions and colour coded. No command line needed.
+
+**Command Line:** Five essential commands handle 90% of workflows. Works everywhere and preferred by many experienced users.
+
+::: callout-tip
+Git also integrates with most IDE's such as VScode where editing and version control are combined in one place!
+:::
+
+This guide will cover both GitHub Desktop and the Command Line Interface (CLI) but feel free to use your preferred tool - Git behaves the same.
+
+### 2.3 Setting Up Git
+
+Before Git can track your work, it needs to know who you are. This allows you to make changes on different devices and attributes your work to you.
+
+::: panel-tabset
+## GitHub Desktop setup
+
+1.  **Download GitHub Desktop** from [desktop.github.com](https://desktop.github.com)
+2.  **Install and open** the application
+3.  **Sign in to GitHub.com** using your credentials for GitHub.com
+
+The app handles most configuration automatically!
+
+![*GitHub Desktop - follow the steps to sign in*](images/GitHub_Desktop_sign_in.png){width="100%"}
+
+## Command line setup
+
+First, check if Git is already installed:
+
+``` bash
+$ git --version
+git version 2.39.0  # (or similar - any version 2.x+ is fine)
+```
+
+If Git isn't installed or if you want the most up to date version:
+
+\- **Mac:** Install Command Line Tools with latest Git: `xcode-select --install`
+
+\- **Windows:** Download from [git-scm.com](https://git-scm.com)
+
+\- **Linux:** `sudo apt install git` (Ubuntu) or equivalent for your distribution
+
+Configure your identity:
+
+``` bash
+$ git config --global user.name "Your name"
+$ git config --global user.email "your.email@university.edu"
+
+# Verify the configuration
+$ git config --list
+user.name= Your name
+user.email= your.email@address
+```
+
+## Basic folder navigation (For CLI Users)
+
+If you're new to the command line, here are some useful commands for navigating your folder structure:
+
+``` bash
+$ pwd # "Print working directory" - where am I? This will show the path to the current folder
+```
+
+``` bash
+$ ls # List the files/folders in the current folder
+```
+
+``` bash
+$ cd folder_name # Change directory (moves into specified folder)
+```
+
+``` bash
+$ cd .. # Move up one level (to parent folder)
+```
+
+``` bash
+$ cd ~ # Go to the home folder - this is normally the first folder on all paths
+```
+
+It may feel unfamiliar using these commands at first but you'll get used to them in no time and they are super useful for quick navigation!
+:::
+
+**What we've covered:** You've created a GitHub account, configured Git with your identity, and chosen your preferred tools. Git now knows who you are and you can begin tracking your files.
+
+**If something went wrong:**
+
+-   **"Git command not found":** Git isn't installed. Follow the installation steps for your operating system.
+
+-   **"Can't sign into GitHub Desktop":** Check your internet connection and GitHub credentials.
+
+-   **"Unexpected terminal output":** Check the commands are exactly correct (try copy-pasting them in).\
+
+### 2.4 The Basic Git Workflow
+
+This four step pattern goes from modifying files to sharing the progress online:
+
+1.  **Check what's changed** - See what files have been modified
+
+2.  **Choose what to save** - Select which changes to track
+
+3.  **Create a snapshot** - Make a record of the current tracked files
+
+4.  **Share your progress** - Upload to GitHub for backup and sharing
+
+This becomes as natural as saving a document - but much more powerful.
+
+::: callout-note
+## Demo project folder
+
+In this guide, we will follow an example research project:\
+\|── demo_CLI\
+│   ├── data.csv (some input data to share)\
+│   ├── main.py (our main analysis code to share)\
+│   ├── notes.txt (random notes to *not* share)\
+│   ├── outputs.csv (some output data to *not* share)\
+│   └── result.png (results figure to share)
+:::
+
+## 3. Your First Repository
+
+**What you'll learn:**
+
+-   How to create a Git repository
+
+-   Understand what Git sees in your project folder
+
+**Before we start:** Either use an existing project you'd like to start tracking (any folder with some files also works) or create a new folder but remember to add some files for later steps!
+
+### Creating Your Repository
+
+::: panel-tabset
+## GitHub Desktop
+
+**If starting from a new project folder:**
+
+1.  Open GitHub Desktop
+
+2.  Click "Create a New Repository on your Local Drive"
+
+3.  Fill in the details:
+
+    -   Name: folder_name
+
+    -   Description: Enter or leave blank - can edit this later
+
+    -   Local path: Choose where you want the project folder
+
+    -   Initialize with README: (can leave this checked or can create this later )
+
+    -   Git ignore: None (we'll create this later)
+
+    -   License: None (we'll add this later)
+
+4.  Click "Create Repository"
+
+GitHub Desktop creates the folder and sets up Git automatically!
+
+**If you have an existing project folder to start tracking:**
+
+Launch a terminal window,
+
+``` bash
+$ cd demo_desktop # Go to folder
+$ git init        # Initialises the Git repository
+Initialized empty Git repository in user/demo_desktop/.git/
+```
+
+Now in GitHub Desktop,
+
+1.  Click "Add an Existing Repository from your Local Drive..."
+2.  Select the folder where git is initialised
+
+![*GitHub Desktop starting repository (a folder git is tracking) selection*](images/GD_repo_select.png){width="100%"}
+
+## Command Line
+
+In a terminal, navigate to your project folder (or create a new one):
+
+``` bash
+$ cd demo_desktop # Go to folder
+
+$ git init        # Initialises the Git repository
+Initialized empty Git repository in user/demo_desktop/.git/
+
+$ ls -a           # Example project files
+.       .git        main.py     outputs.csv
+..      data.csv    notes.txt   result.png
+```
+:::
+
+By initialising Git, a new hidden .git directory is created where all of the Git tracking and functionality is stored. Deleting this .git directory will remove all git functionality from the folder.
+
+### Understanding Git's View of Your Files
+
+::: panel-tabset
+## GitHub Desktop
+
+1.  **Look at the "Changes" tab** - you'll see a list of all modified files - this will be empty if created a new repository
+2.  **Each file shows its status:**
+    -   Green "+" means new file
+    -   Yellow "M" means modified file
+    -   Red "-" means deleted file
+3.  **Notice the file count** - "X changed files" tells you how much has changed
+
+![*This repository was just initialised so all these files are new*](images/GD_existing_repo.png){width="100%"}
+
+At this point, Git sees your files and GitHub Desktop is set up to start tracking everything automatically. We can also view the contents of files and any changes.
+
+## Command Line
+
+Running `git status` shows us what Git is seeing in the folder.
+
+``` bash
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        analysis.py       
+        data.csv          
+        notes.txt          
+        results.png
+        outputs.csv      
+        .DS_Store          
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+**Understanding this output:**
+
+-   `On branch main` -\> The default branch (can be a diffent name like 'master' depending on the Git configuration)
+
+-   `No commits yet` -\> No snapshots have been created
+
+-   `Untracked files` -\> Git sees these files but isn't managing them yet, the hint tells us there are untracked files present
+:::
+
+**What just happened?** You've created a Git repository! Git is now watching your project folder and can see all your files. You can see the status of each file and whether Git is actively tracking that file.
+
+**Success check:**
+
+-   GitHub Desktop users: You see your project with files listed under "Changes"
+
+-   Command line users: `git status` runs without errors and shows your files as "untracked"
+
+-   Your project folder now contains a hidden `.git` directory (you may need to show hidden files with `ls -a` to see it)
+
+**If something went wrong:**
+
+-   **"Not a git repository":** Make sure you're in the right folder and ran `git init`
+
+-   **"No files showing in GitHub Desktop":** Check that you've selected the correct repository and there are files in the folder
+
+-   **"Permission denied":** Make sure you have write access to the folder you're trying to use
+
+
+## 4. Staging Files: Choosing what to track and save
+
+### Understanding the Staging Area
+
+Git doesn't automatically save every change you make, instead, it gives you control over exactly what gets saved and when. This happens through Git's "staging area", which acts like a preparation zone where you tell Git which file changes to track for a snapshot.
+
+Think of it like packing a suitcase for a trip. You don't throw everything from your closet into the suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.
+
+**Why does this matter?** 
+
+Imagine you're working on your analysis and you've:
+
+-   Fixed a bug in your main script
+
+-   Updated your research notes
+
+-   Created some temporary test files
+
+-   Modified your data processing code
+
+Rather than saving all these changes as one messy snapshot, staging lets you create two focused commits: one for the bug fix and data processing (the code changes), and another for the updated notes. The temporary files stay unstaged and don't clutter your project history.
+
+### Staging Files in Practice
+
+::: panel-tabset
+## GitHub Desktop
+
+GitHub Desktop makes staging visual and intuitive. When you open the app after making changes to your files, you'll see them listed in the "Changes" tab.
+
+**Key insight:** GitHub Desktop stages all changed files by default - they appear with checked boxes. To exclude files from your next commit, simply uncheck them.
+
+Show Image
+
+In this example, you can see:
+
+-   `analysis.py` has been modified (yellow "M" icon)
+
+-   `notes.md` is a new file (green "+" icon)
+
+-   `.DS_Store` is a system file we don't want to commit
+
+**To control what gets staged:**
+
+-   **Keep checked** - files you want in your next snapshot
+
+-   **Uncheck** - files you want to exclude (like system files or work-in-progress changes)
+
+-   **Click on any file** - to see exactly what changed in that file
+
+The beauty of this approach is that you can see your changes and decide what belongs together before creating your snapshot.
+
+## Command Line
+
+**Staging commands:**
+``` bash         
+
+$ git add file_name # Stage a specified file/folder
+
+$ git add -u        # Stage all modified files (but not untracked files)
+
+$ git add .         # Stage everything, including new files (be careful!)
+
+$ git restore --staged file_name # If you accidentally add a file, unstages files
+
+$ git rm --cached file_name # Only use if no commits made in this repository
+```
+
+Let's look at an example where we choose some files to track and others to not track. Then we will modify a tracked file and see what Git thinks about our current changes:
+
+::: {.figure}
+<script src="https://asciinema.org/a/N5FAYTrL5ljOgqV4bxOi0bC0m.js" 
+        id="asciicast-N5FAYTrL5ljOgqV4bxOi0bC0m" 
+        async="true"
+        data-cols="80"
+        data-rows="20">
+</script>
+*Staging commands in practice. You can pause the video and copy/paste any commands directly from the terminal.*
+:::
+
+Checking `git status` as we go tells us several important things:
+
+-   **"Untracked files"**: Git sees all the files in the repository but is not tracking any yet
+
+-   **"Changes to be committed"** - Git notices `main.py` and `data.csv` have been added and are ready to commit
+
+-   **"Changes not staged for commit"** - Git has been tracking `data.csv` as it was added and notices there are changes in the file but these have not been staged. Saving a snapshot (commit) now would only save the previous unmodified version of the file. If an untracked file is modified, Git will not notice any changes.
+
+Now `main.py` and `data.csv` are staged (ready to be saved), while our temporary files remain unstaged.
+:::
+
+The staging area is Git's way of letting you craft deliberate, meaningful snapshots rather than chaotic "save everything" moments. Once you get comfortable with this concept, you'll find it becomes second nature and your project history will tell a much clearer story of your research progress.
+
+Next, we'll learn how to turn these staged changes into permanent commits that become part of your project's history.
+
+
+### 5. Creating Your First Commit
+
+## 5. Creating Commits: Saving changes
+
+### Understanding Commits
+
+A commit is Git's way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project's story - a point you can always return to, no matter what happens later.
+
+When you create a commit, Git doesn't just save the files you've staged. It creates a complete record that includes:
+
+- **The exact state** of all your staged files
+- **A unique identifier** (like a fingerprint) for this specific snapshot
+- **Your name and timestamp** showing who made the change and when
+- **A message** describing what this snapshot represents
+
+This is fundamentally different from just saving a file. When you save a document, you overwrite the previous version. When you commit in Git, you add a new entry to your project's permanent history while keeping all previous versions intact.
+
+### The Commit Message: Your Future Self Will Thank You
+
+The commit message is your opportunity to explain what this snapshot represents and why it matters. Later on, when you're trying to understand your project's evolution, these messages become invaluable breadcrumbs.
+
+**Effective commit messages follow a simple pattern:**
+
+- **Start with an action verb** - "Add", "Fix", "Update", "Remove", "Refactor"
+
+- **Be specific about what changed** - not just that something changed
+
+- **Keep the first line concise** - aim for 50 characters or less
+
+- **Focus on the "what" and "why"** - the code shows the "how"
+
+**Examples that tell a story:**
+
+- "Add correlation analysis for housing price data"
+- "Fix missing value handling in data cleaning step"
+- "Update visualization colors for accessibility"
+- "Changes" or "Update stuff" or "Fixed it"
+
+The difference is clear: good messages help you understand your project's progression, while vague messages leave you guessing.
+
+::: {.callout-tip}
+## Before You Commit: Quick Checklist
+
+**Check your staged files** - Use `git status` or review GitHub Desktop's Changes tab. Are you committing exactly what you intend?
+
+**Avoid large files** - Git works best with text files and small binaries. Large datasets or high-resolution images can bloat your repository. Consider if these files belong in Git or should be stored elsewhere.
+
+**Review your changes** - Click on files in GitHub Desktop or use `git diff --staged` to see exactly what you're about to commit. Catching mistakes now is easier than fixing them later.
+:::
+
+### Creating Your Commit
+
+::: panel-tabset
+## GitHub Desktop
+
+The commit interface in GitHub Desktop keeps everything visual and straightforward:
+
+1. **Review your staged files** - confirm the checked files are what you want to commit
+2. **Write your commit message** in the "Summary" field at the bottom
+3. **Add details if helpful** in the "Description" field (optional)
+4. **Click "Commit to main"**
+
+![GitHub Desktop commit interface showing staged files and message box](images/desktop-commit-interface.png)
+
+Once you commit, the staged files disappear from the Changes tab - they're now part of 
+
