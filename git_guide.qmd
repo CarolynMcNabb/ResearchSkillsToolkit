@@ -1113,14 +1113,6 @@ Avoid destructive commands: Be cautious with commands containing --hard, --force
 Error message strategy: Git's error messages are usually helpful. Read them carefully as they often suggest the exact commands needed to fix the problem.
 :::
 
-### Summary 
-
-Remember that Git is designed to prevent data loss. Almost every mistake can be undone, and your commit history provides multiple recovery points. When encountering errors:
-
-Read the error message carefully Use diagnostic commands to understand the current state Try the simplest solution first Seek help for unfamiliar or destructive-looking commands
-
-The key insight is that Git problems are typically fixable, and each one you resolve builds your understanding and confidence with the system.
-
 ### Further resources for continued learning
 
 **In-depth tutorials:** 
@@ -1143,23 +1135,39 @@ The key insight is that Git problems are typically fixable, and each one you res
 
 `[DOWNLOADABLE CHEAT SHEET PLACEHOLDER: PDF reference card with common commands, flags, and troubleshooting tips]`
 
-------------------------------------------------------------------------
+## Summary
 
-## Final Thoughts: You're Part of Something Bigger
+You now have the essential skills to manage research projects with Git and share your work professionally on GitHub. This foundation - staging, committing, pushing, and basic collaboration - handles the vast majority of research version control needs.
 
-Every time you make your research open and collaborative, you're contributing to a global movement toward better science. Your shared code might:
+### What we've covered
 
--   **Help another researcher** solve a critical problem in their work
--   **Get adapted for use** in a completely different field
--   **Become the foundation** for the next breakthrough discovery
--   **Inspire someone** to pursue research they wouldn't have attempted alone
+**Personal version control:** You can track changes to your research, create meaningful snapshots of your progress, and recover from mistakes without losing work.
 
-**Git and GitHub aren't just tools** - they're your contribution to open, reproducible, collaborative science.
+**Professional sharing:** Your repositories now include proper documentation, clear commit histories, and appropriate licensing that makes your work discoverable and citable.
 
-**Start small. Experiment. Make mistakes.** Git is there to help you recover and learn.
+**Basic collaboration:** You can find and use others' research repositories, keep them updated, and understand the foundations of collaborative workflows.
 
-**Your research deserves to be shared with the world.**
+**Problem-solving confidence:** You know how to diagnose common issues, apply quick fixes, and when to seek help rather than risk losing work.
 
-------------------------------------------------------------------------
+### Building Confidence with Git
 
-*Remember: The goal was never to become a Git expert overnight. It was to build the confidence and skills to share your research openly and collaborate effectively. Every commit you make is a step toward better science.*
+Git is designed to prevent data loss. Almost every mistake can be undone, and your commit history provides multiple recovery points. When encountering errors:
+
+- Read the error message carefully
+- Use diagnostic commands to understand the current state  
+- Try the simplest solution first
+- Seek help for unfamiliar or destructive-looking commands
+
+Each problem you resolve builds your understanding and confidence with the system.
+
+### Your Contribution to Open Science
+
+Every time you share research openly, you contribute to more transparent and collaborative science. Your repositories might help another researcher solve a critical problem, get adapted for use in a different field, or become the foundation for breakthrough discoveries.
+
+Git and GitHub aren't just tools; they're part of modern research infrastructure that enables reproducible, collaborative science.
+
+### Moving Forward
+
+Start with what you've learned here. As your research needs grow, you can explore advanced Git features like branching, detailed collaboration workflows, and specialised tools. The foundation you've built provides a solid base for any future Git learning.
+
+Your research deserves to be shared with the world, and you now have the skills to do it professionally and confidently.
