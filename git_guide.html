@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>git_guide</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="git_guide_files/libs/clipboard/clipboard.min.js"></script>
+<script src="git_guide_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="git_guide_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="git_guide_files/libs/quarto-html/popper.min.js"></script>
+<script src="git_guide_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="git_guide_files/libs/quarto-html/anchor.min.js"></script>
+<link href="git_guide_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="git_guide_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="git_guide_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="git_guide_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="git_guide_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="a-researchers-guide-to-git-github" class="level1">
+<h1>A Researcher’s guide to Git &amp; GitHub</h1>
+<p><strong>Before we start:</strong> If you’ve ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. Git might seem intimidating at first, but it’s designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We’ll walk through this together, step by step, and by the end you’ll wonder why you waited so long to start using it!</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>All tools in this guide are free to install and use!</em></p>
+</div>
+</div>
+</div>
+<section id="what-and-why" class="level2">
+<h2 class="anchored" data-anchor-id="what-and-why">1. What and why?</h2>
+<section id="what-is-git-and-github" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-git-and-github">What is Git and GitHub?</h3>
+<p>Git is a version control software that allows you to go back in time to previous points in a project’s history. Much like track changes in Microsoft Word or saving progress in a video game, it allows you to decide when and what you want to save from a project.</p>
+<p>If you make any changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It’s like having infinite “undo” for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.</p>
+<p>While Git is the tool that tracks changes locally on your computer, GitHub is a website where you can share and backup your Git projects. &nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git_overview_diagram.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Overview of the Git/GitHub pipeline - we’ll cover each step in more detail!</em></figcaption>
+</figure>
+</div>
+</section>
+<section id="why-should-researchers-care" class="level3">
+<h3 class="anchored" data-anchor-id="why-should-researchers-care">Why should researchers care?</h3>
+<p><strong>Citations and career benefits:</strong></p>
+<ul>
+<li><p>Open research gets cited 30% more than closed research - &lt;<strong><em>citation!!!&gt;</em></strong></p></li>
+<li><p>Your GitHub profile showcases your technical skills to potential collaborators and employers</p></li>
+<li><p>Funding agencies increasingly require open access to research code and data</p></li>
+</ul>
+<p><strong>Collaboration made simple:</strong></p>
+<ul>
+<li><p>Multiple researchers can work on the same project without emailing files back and forth</p></li>
+<li><p>Colleagues can easily build on your work, leading to new collaborations</p></li>
+<li><p>You can contribute to other researchers’ projects, expanding your network</p></li>
+</ul>
+<p><strong>Industry standard:</strong></p>
+<ul>
+<li><p>Used by &gt;90% of software developers and increasingly by researchers across all disciplines - &lt;<strong><em>citation!!!&gt;</em></strong></p></li>
+<li><p>Learning Git makes you fluent in the language of modern collaborative work</p></li>
+<li><p>Essential skill for reproducible research and open science initiatives</p></li>
+</ul>
+<p><strong>Peace of mind:</strong></p>
+<ul>
+<li><p>Never lose work due to computer crashes or accidental deletions</p></li>
+<li><p>Always know exactly what changed, when, and why</p></li>
+<li><p>Easy backup and synchronization across multiple computers</p></li>
+</ul>
+</section>
+<section id="common-fears-and-why-theyre-wrong" class="level3">
+<h3 class="anchored" data-anchor-id="common-fears-and-why-theyre-wrong">Common fears (and why they’re wrong)</h3>
+<p>We’ve all been there. Let’s address the worries head-on:</p>
+<ul>
+<li><em>“It’s too complicated”</em> -&gt; We’ll start with the simplest possible workflow and build gradually.</li>
+<li><em>“I’m not technical enough”</em> -&gt; Many successful researchers use Git with just 5 basic commands. You don’t need to learn everything.</li>
+<li><em>“I’ll break something important”</em> -&gt; Git is designed to prevent data loss. Every change is tracked and reversible.</li>
+<li><em>“I don’t have time to learn this”</em> -&gt; The time invested now will save dozens of hours later</li>
+<li><em>“My field doesn’t use Git”</em> &gt; Perfect! Be the one who brings modern tools to your discipline.</li>
+</ul>
+</section>
+<section id="different-types-of-workflows-well-cover" class="level3">
+<h3 class="anchored" data-anchor-id="different-types-of-workflows-well-cover">Different types of workflows we’ll cover</h3>
+<p><strong>Personal version control:</strong> Track your own work safely, never lose progress, and maintain clean project history.</p>
+<p><strong>Sharing research publicly:</strong> Make your work discoverable, citable, and professional-looking on GitHub.</p>
+<p><strong>Basic collaboration:</strong> Download and use others’ code, and understand the foundations of collaborative workflows.</p>
+<p><em>At the end of the guide there will be links to further git and github resources</em></p>
+</section>
+</section>
+<section id="initial-setup" class="level2">
+<h2 class="anchored" data-anchor-id="initial-setup">2. Initial setup</h2>
+<p><strong>This section covers:</strong></p>
+<ol type="1">
+<li>Creating a GitHub account</li>
+<li>Choose between command line and GUI tools</li>
+<li>How to configure Git</li>
+<li>The basic Git workflow</li>
+</ol>
+<p><strong>Before we start:</strong> You’ll need a computer with internet access and about 10 minutes for account creation and software installation.</p>
+<section id="creating-your-github-account" class="level3">
+<h3 class="anchored" data-anchor-id="creating-your-github-account">2.1 Creating your GitHub account</h3>
+<p>GitHub is where you’ll store and share your work. It’s free for public research projects (which is what we want anyway)! We’ll set up an account now and come back to actually using GitHub a little later on.</p>
+<ol type="1">
+<li><p><strong>Visit <a href="https://github.com">github.com</a></strong> and click “Sign up”</p></li>
+<li><p><strong>Choose a username</strong></p>
+<p><em>- Good: john-smith, john-smith-projects, research-john-smith</em></p>
+<p><em>- Avoid: coolcat58, slowsloth4, codechampion</em></p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Your GitHub username becomes part of URLs (github.com/your-username), so choose something you’ll be comfortable sharing professionally.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Enter your email</strong> (use an institutional email if possible, some universities provide extra features)</p></li>
+<li><p><strong>Choose the free plan</strong> (it includes everything we need!)</p></li>
+<li><p><strong>Verify your email address</strong></p></li>
+</ol>
+</section>
+<section id="choosing-your-tools" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-your-tools">2.2 Choosing Your Tools</h3>
+<p>You can use Git however you feel comfortable and don’t need to stick to just one approach:</p>
+<p><strong>GitHub Desktop (Recommended for beginners):</strong> Point-and-click interface with a visual view of functions and colour coded. No command line needed.</p>
+<p><strong>Command Line:</strong> Five essential commands handle 90% of workflows. Works everywhere and preferred by many experienced users.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Git also integrates with most IDE’s such as VScode where editing and version control are combined in one place!</p>
+</div>
+</div>
+<p>This guide will cover both GitHub Desktop and the Command Line Interface (CLI) but feel free to use your preferred tool - Git behaves the same.</p>
+</section>
+<section id="setting-up-git" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-git">2.3 Setting Up Git</h3>
+<p>Before Git can track your work, it needs to know who you are. This allows you to make changes on different devices and attributes your work to you.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">GitHub Desktop setup</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Command line setup</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Basic folder navigation (For CLI Users)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li><strong>Download GitHub Desktop</strong> from <a href="https://desktop.github.com">desktop.github.com</a></li>
+<li><strong>Install and open</strong> the application</li>
+<li><strong>Sign in to GitHub.com</strong> using your credentials for GitHub.com</li>
+</ol>
+<p>The app handles most configuration automatically!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GitHub_Desktop_sign_in.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>GitHub Desktop - follow the steps to sign in</em></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>First, check if Git is already installed:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git <span class="at">--version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.39.0  <span class="co"># (or similar - any version 2.x+ is fine)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If Git isn’t installed or if you want the most up to date version:</p>
+<p>- <strong>Mac:</strong> Install Command Line Tools with latest Git: <code>xcode-select --install</code></p>
+<p>- <strong>Windows:</strong> Download from <a href="https://git-scm.com">git-scm.com</a></p>
+<p>- <strong>Linux:</strong> <code>sudo apt install git</code> (Ubuntu) or equivalent for your distribution</p>
+<p>Configure your identity:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">"Your name"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">"your.email@university.edu"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the configuration</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">user.name=</span> Your name</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">user.email=</span> your.email@address</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>If you’re new to the command line, here are some useful commands for navigating your folder structure:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd <span class="co"># "Print working directory" - where am I? This will show the path to the current folder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="co"># List the files/folders in the current folder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd folder_name <span class="co"># Change directory (moves into specified folder)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd .. <span class="co"># Move up one level (to parent folder)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~ <span class="co"># Go to the home folder - this is normally the first folder on all paths</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It may feel unfamiliar using these commands at first but you’ll get used to them in no time and they are super useful for quick navigation!</p>
+</div>
+</div>
+</div>
+<p><strong>What we’ve covered:</strong> You’ve created a GitHub account, configured Git with your identity, and chosen your preferred tools. Git now knows who you are and you can begin tracking your files.</p>
+<p><strong>If something went wrong:</strong></p>
+<ul>
+<li><p><strong>“Git command not found”:</strong> Git isn’t installed. Follow the installation steps for your operating system.</p></li>
+<li><p><strong>“Can’t sign into GitHub Desktop”:</strong> Check your internet connection and GitHub credentials.</p></li>
+<li><p><strong>“Unexpected terminal output”:</strong> Check the commands are exactly correct (try copy-pasting them in).<br>
+</p></li>
+</ul>
+</section>
+<section id="the-basic-git-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="the-basic-git-workflow">2.4 The Basic Git Workflow</h3>
+<p>This four step pattern goes from modifying files to sharing the progress online:</p>
+<ol type="1">
+<li><p><strong>Check what’s changed</strong> - See what files have been modified</p></li>
+<li><p><strong>Choose what to save</strong> - Select which changes to track</p></li>
+<li><p><strong>Create a snapshot</strong> - Make a record of the current tracked files</p></li>
+<li><p><strong>Share your progress</strong> - Upload to GitHub for backup and sharing</p></li>
+</ol>
+<p>This becomes as natural as saving a document - but much more powerful.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Demo project folder
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this guide, we will follow an example research project:<br>
+|── demo_CLI<br>
+│&nbsp;&nbsp; ├── data.csv (some input data to share)<br>
+│&nbsp;&nbsp; ├── main.py (our main analysis code to share)<br>
+│&nbsp;&nbsp; ├── notes.txt (random notes to <em>not</em> share)<br>
+│&nbsp;&nbsp; ├── outputs.csv (some output data to <em>not</em> share)<br>
+│&nbsp;&nbsp; └── result.png (results figure to share)</p>
+</div>
+</div>
+</section>
+</section>
+<section id="your-first-repository" class="level2">
+<h2 class="anchored" data-anchor-id="your-first-repository">3. Your First Repository</h2>
+<p><strong>What you’ll learn:</strong></p>
+<ul>
+<li><p>How to create a Git repository</p></li>
+<li><p>Understand what Git sees in your project folder</p></li>
+</ul>
+<p><strong>Before we start:</strong> Either use an existing project you’d like to start tracking (any folder with some files also works) or create a new folder but remember to add some files for later steps!</p>
+<section id="creating-your-repository" class="level3">
+<h3 class="anchored" data-anchor-id="creating-your-repository">Creating Your Repository</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><strong>If starting from a new project folder:</strong></p>
+<ol type="1">
+<li><p>Open GitHub Desktop</p></li>
+<li><p>Click “Create a New Repository on your Local Drive”</p></li>
+<li><p>Fill in the details:</p>
+<ul>
+<li><p>Name: folder_name</p></li>
+<li><p>Description: Enter or leave blank - can edit this later</p></li>
+<li><p>Local path: Choose where you want the project folder</p></li>
+<li><p>Initialize with README: (can leave this checked or can create this later )</p></li>
+<li><p>Git ignore: None (we’ll create this later)</p></li>
+<li><p>License: None (we’ll add this later)</p></li>
+</ul></li>
+<li><p>Click “Create Repository”</p></li>
+</ol>
+<p>GitHub Desktop creates the folder and sets up Git automatically!</p>
+<p><strong>If you have an existing project folder to start tracking:</strong></p>
+<p>Launch a terminal window,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd demo_desktop <span class="co"># Go to folder</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git init        <span class="co"># Initialises the Git repository</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Initialized</span> empty Git repository in user/demo_desktop/.git/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now in GitHub Desktop,</p>
+<ol type="1">
+<li>Click “Add an Existing Repository from your Local Drive…”</li>
+<li>Select the folder where git is initialised</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GD_repo_select.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>GitHub Desktop starting repository (a folder git is tracking) selection</em></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>In a terminal, navigate to your project folder (or create a new one):</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd demo_desktop <span class="co"># Go to folder</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git init        <span class="co"># Initialises the Git repository</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Initialized</span> empty Git repository in user/demo_desktop/.git/</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span>           <span class="co"># Example project files</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span>       .git        main.py     outputs.csv</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">..</span>      data.csv    notes.txt   result.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>By initialising Git, a new hidden .git directory is created where all of the Git tracking and functionality is stored. Deleting this .git directory will remove all git functionality from the folder.</p>
+</section>
+<section id="understanding-gits-view-of-your-files" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-gits-view-of-your-files">Understanding Git’s View of Your Files</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ol type="1">
+<li><strong>Look at the “Changes” tab</strong> - you’ll see a list of all modified files - this will be empty if created a new repository</li>
+<li><strong>Each file shows its status:</strong>
+<ul>
+<li>Green “+” means new file</li>
+<li>Yellow “M” means modified file</li>
+<li>Red “-” means deleted file</li>
+</ul></li>
+<li><strong>Notice the file count</strong> - “X changed files” tells you how much has changed</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GD_existing_repo.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>This repository was just initialised so all these files are new</em></figcaption>
+</figure>
+</div>
+<p>At this point, Git sees your files and GitHub Desktop is set up to start tracking everything automatically. We can also view the contents of files and any changes.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Running <code>git status</code> shows us what Git is seeing in the folder.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Untracked</span> files:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to include in what will be committed<span class="kw">)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">analysis.py</span>       </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">data.csv</span>          </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="ex">notes.txt</span>          </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="ex">results.png</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">outputs.csv</span>      </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="ex">.DS_Store</span>          </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> to track<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Understanding this output:</strong></p>
+<ul>
+<li><p><code>On branch main</code> -&gt; The default branch (can be a diffent name like ‘master’ depending on the Git configuration)</p></li>
+<li><p><code>No commits yet</code> -&gt; No snapshots have been created</p></li>
+<li><p><code>Untracked files</code> -&gt; Git sees these files but isn’t managing them yet, the hint tells us there are untracked files present</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>What just happened?</strong> You’ve created a Git repository! Git is now watching your project folder and can see all your files. You can see the status of each file and whether Git is actively tracking that file.</p>
+<p><strong>Success check:</strong></p>
+<ul>
+<li><p>GitHub Desktop users: You see your project with files listed under “Changes”</p></li>
+<li><p>Command line users: <code>git status</code> runs without errors and shows your files as “untracked”</p></li>
+<li><p>Your project folder now contains a hidden <code>.git</code> directory (you may need to show hidden files with <code>ls -a</code> to see it)</p></li>
+</ul>
+<p><strong>If something went wrong:</strong></p>
+<ul>
+<li><p><strong>“Not a git repository”:</strong> Make sure you’re in the right folder and ran <code>git init</code></p></li>
+<li><p><strong>“No files showing in GitHub Desktop”:</strong> Check that you’ve selected the correct repository and there are files in the folder</p></li>
+<li><p><strong>“Permission denied”:</strong> Make sure you have write access to the folder you’re trying to use</p></li>
+</ul>
+</section>
+</section>
+<section id="staging-files-choosing-what-to-track-and-save" class="level2">
+<h2 class="anchored" data-anchor-id="staging-files-choosing-what-to-track-and-save">4. Staging Files: Choosing what to track and save</h2>
+<section id="understanding-the-staging-area" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-staging-area">Understanding the Staging Area</h3>
+<p>Git doesn’t automatically save every change you make, instead, it gives you control over exactly what gets saved and when. This happens through Git’s “staging area”, which acts like a preparation zone where you tell Git which file changes to track for a snapshot.</p>
+<p>Think of it like packing a suitcase for a trip. You don’t throw everything from your closet into the suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.</p>
+<p><strong>Why does this matter?</strong></p>
+<p>Imagine you’re working on your analysis and you’ve:</p>
+<ul>
+<li><p>Fixed a bug in your main script</p></li>
+<li><p>Updated your research notes</p></li>
+<li><p>Created some temporary test files</p></li>
+<li><p>Modified your data processing code</p></li>
+</ul>
+<p>Rather than saving all these changes as one messy snapshot, staging lets you create two focused commits: one for the bug fix and data processing (the code changes), and another for the updated notes. The temporary files stay unstaged and don’t clutter your project history.</p>
+</section>
+<section id="staging-files-in-practice" class="level3">
+<h3 class="anchored" data-anchor-id="staging-files-in-practice">Staging Files in Practice</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Command Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>GitHub Desktop makes staging visual and intuitive. When you open the app after making changes to your files, you’ll see them listed in the “Changes” tab.</p>
+<p><strong>Key insight:</strong> GitHub Desktop stages all changed files by default - they appear with checked boxes. To exclude files from your next commit, simply uncheck them.</p>
+<p>Show Image</p>
+<p>In this example, you can see:</p>
+<ul>
+<li><p><code>analysis.py</code> has been modified (yellow “M” icon)</p></li>
+<li><p><code>notes.md</code> is a new file (green “+” icon)</p></li>
+<li><p><code>.DS_Store</code> is a system file we don’t want to commit</p></li>
+</ul>
+<p><strong>To control what gets staged:</strong></p>
+<ul>
+<li><p><strong>Keep checked</strong> - files you want in your next snapshot</p></li>
+<li><p><strong>Uncheck</strong> - files you want to exclude (like system files or work-in-progress changes)</p></li>
+<li><p><strong>Click on any file</strong> - to see exactly what changed in that file</p></li>
+</ul>
+<p>The beauty of this approach is that you can see your changes and decide what belongs together before creating your snapshot.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p><strong>Staging commands:</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add file_name <span class="co"># Stage a specified file/folder</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add <span class="at">-u</span>        <span class="co"># Stage all modified files (but not untracked files)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add .         <span class="co"># Stage everything, including new files (be careful!)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore <span class="at">--staged</span> file_name <span class="co"># If you accidentally add a file, unstages files</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> file_name <span class="co"># Only use if no commits made in this repository</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s look at an example where we choose some files to track and others to not track. Then we will modify a tracked file and see what Git thinks about our current changes:</p>
+<div class="figure">
+<script src="https://asciinema.org/a/N5FAYTrL5ljOgqV4bxOi0bC0m.js" id="asciicast-N5FAYTrL5ljOgqV4bxOi0bC0m" async="true" data-cols="80" data-rows="20">
+</script>
+<p><em>Staging commands in practice. You can pause the video and copy/paste any commands directly from the terminal.</em></p>
+</div>
+<p>Checking <code>git status</code> as we go tells us several important things:</p>
+<ul>
+<li><p><strong>“Untracked files”</strong>: Git sees all the files in the repository but is not tracking any yet</p></li>
+<li><p><strong>“Changes to be committed”</strong> - Git notices <code>main.py</code> and <code>data.csv</code> have been added and are ready to commit</p></li>
+<li><p><strong>“Changes not staged for commit”</strong> - Git has been tracking <code>data.csv</code> as it was added and notices there are changes in the file but these have not been staged. Saving a snapshot (commit) now would only save the previous unmodified version of the file. If an untracked file is modified, Git will not notice any changes.</p></li>
+</ul>
+<p>Now <code>main.py</code> and <code>data.csv</code> are staged (ready to be saved), while our temporary files remain unstaged.</p>
+</div>
+</div>
+</div>
+<p>The staging area is Git’s way of letting you craft deliberate, meaningful snapshots rather than chaotic “save everything” moments. Once you get comfortable with this concept, you’ll find it becomes second nature and your project history will tell a much clearer story of your research progress.</p>
+<p>Next, we’ll learn how to turn these staged changes into permanent commits that become part of your project’s history.</p>
+</section>
+<section id="creating-your-first-commit" class="level3">
+<h3 class="anchored" data-anchor-id="creating-your-first-commit">5. Creating Your First Commit</h3>
+</section>
+</section>
+<section id="creating-commits-saving-changes" class="level2">
+<h2 class="anchored" data-anchor-id="creating-commits-saving-changes">5. Creating Commits: Saving changes</h2>
+<section id="understanding-commits" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-commits">Understanding Commits</h3>
+<p>A commit is Git’s way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project’s story - a point you can always return to, no matter what happens later.</p>
+<p>When you create a commit, Git doesn’t just save the files you’ve staged. It creates a complete record that includes:</p>
+<ul>
+<li><strong>The exact state</strong> of all your staged files</li>
+<li><strong>A unique identifier</strong> (like a fingerprint) for this specific snapshot</li>
+<li><strong>Your name and timestamp</strong> showing who made the change and when</li>
+<li><strong>A message</strong> describing what this snapshot represents</li>
+</ul>
+<p>This is fundamentally different from just saving a file. When you save a document, you overwrite the previous version. When you commit in Git, you add a new entry to your project’s permanent history while keeping all previous versions intact.</p>
+</section>
+<section id="the-commit-message-your-future-self-will-thank-you" class="level3">
+<h3 class="anchored" data-anchor-id="the-commit-message-your-future-self-will-thank-you">The Commit Message: Your Future Self Will Thank You</h3>
+<p>The commit message is your opportunity to explain what this snapshot represents and why it matters. Later on, when you’re trying to understand your project’s evolution, these messages become invaluable breadcrumbs.</p>
+<p><strong>Effective commit messages follow a simple pattern:</strong></p>
+<ul>
+<li><p><strong>Start with an action verb</strong> - “Add”, “Fix”, “Update”, “Remove”, “Refactor”</p></li>
+<li><p><strong>Be specific about what changed</strong> - not just that something changed</p></li>
+<li><p><strong>Keep the first line concise</strong> - aim for 50 characters or less</p></li>
+<li><p><strong>Focus on the “what” and “why”</strong> - the code shows the “how”</p></li>
+</ul>
+<p><strong>Examples that tell a story:</strong></p>
+<ul>
+<li>“Add correlation analysis for housing price data”</li>
+<li>“Fix missing value handling in data cleaning step”</li>
+<li>“Update visualization colors for accessibility”</li>
+<li>“Changes” or “Update stuff” or “Fixed it”</li>
+</ul>
+<p>The difference is clear: good messages help you understand your project’s progression, while vague messages leave you guessing.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Before You Commit: Quick Checklist
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Check your staged files</strong> - Use <code>git status</code> or review GitHub Desktop’s Changes tab. Are you committing exactly what you intend?</p>
+<p><strong>Avoid large files</strong> - Git works best with text files and small binaries. Large datasets or high-resolution images can bloat your repository. Consider if these files belong in Git or should be stored elsewhere.</p>
+<p><strong>Review your changes</strong> - Click on files in GitHub Desktop or use <code>git diff --staged</code> to see exactly what you’re about to commit. Catching mistakes now is easier than fixing them later.</p>
+</div>
+</div>
+</section>
+<section id="creating-your-commit" class="level3">
+<h3 class="anchored" data-anchor-id="creating-your-commit">Creating Your Commit</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">GitHub Desktop</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>The commit interface in GitHub Desktop keeps everything visual and straightforward:</p>
+<ol type="1">
+<li><strong>Review your staged files</strong> - confirm the checked files are what you want to commit</li>
+<li><strong>Write your commit message</strong> in the “Summary” field at the bottom</li>
+<li><strong>Add details if helpful</strong> in the “Description” field (optional)</li>
+<li><strong>Click “Commit to main”</strong></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/desktop-commit-interface.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop commit interface showing staged files and message box</figcaption>
+</figure>
+</div>
+<p>Once you commit, the staged files disappear from the Changes tab - they’re now part of</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
