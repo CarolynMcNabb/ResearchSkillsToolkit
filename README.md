@@ -12,3 +12,5 @@ It includes three guides:
 1. **Principles of Good Code Writing** – Developed by *Parvathy Sureshkumarnair*, Cardiff University.
 2. **Introduction to Git** – Developed by *Ritvik Bharamgoudar*, Cardiff University.
 3. **Guide to Sample Size Calculations** – Developed by *Cristian Mesquida Caldentey*, Eindhoven University of Technology.
+
+# [Link to Reserach Skills Toolkit](https://carolynmcnabb.github.io/ResearchSkillsToolkit/)
