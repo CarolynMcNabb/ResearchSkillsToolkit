@@ -1,12 +1,12 @@
 ---
-title: "A researcher's guide to Git & GitHub"
+title: "A Researcher's Guide to Git & GitHub"
 author: "Ritvik Bharamgoudar"
 date: last-modified
 format:
   html:
     toc: true
     toc-floating: true
-    toc-location: left
+    toc-location: right
     toc-depth: 3
     theme: cosmo
     code-fold: true
