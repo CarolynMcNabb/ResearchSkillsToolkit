@@ -1,25 +1,33 @@
 # Research Skills Toolkit
 
-Welcome to the Research Skills Toolkit - a comprehensive collection of guides designed to improve technical skills for researchers.
+Tips, tricks and guidelines for more robust, reproducible and fundable research
 
-## Available guides
-### [Code Writing Practices](./good_code_writing_guide/)
-### [Code Writing Practices (one page)](./full_code_guide.html)
+## About This Toolkit
 
+The first version of the Research Skills Toolkit was developed in July 2025, funded by a **Cardiff University Research Culture Fund award** to *Jennifer Davies* and *Carolyn McNabb*. 
 
-### [Git & GitHub Guide](./git_guide.html)
-A comprehensive guide to version control with Git and GitHub, covering everything from basic commands to collaborative workflows for research projects. Perfect for researchers new to version control or looking to improve their Git skills.
+This toolkit is designed to help researchers develop essential technical skills for modern research workflows. Whether you're just starting or looking to improve your existing practices, these guides provide practical, research-focused advice developed by and for the research community.
 
 ---
 
-## About this toolkit
+### [Principles of Good Code Writing](./good_code_writing_guide/)
 
-This toolkit is designed to help researchers develop essential technical skills for modern research workflows. Whether you're just starting with coding or looking to improve your existing practices, these guides provide practical, research-focused advice developed by and for the research community.
+– Developed by *Parvathy Sureshkumarnair*, Cardiff University.
 
-## Contributing
+[*one page version*](./full_code_guide.html)
 
-Found an error or want to suggest improvements? This toolkit is open source and we welcome contributions! Please open an issue or submit a pull request on our [GitHub repository]().
+
+### [Introduction to Git & GitHub](./git_guide.html)
+
+A comprehensive introduction to getting the best out of Git and GitHub, covering everything from basic commands to collaborative workflows. Perfect for those new to version control or looking to improve their Git skills.
+
+– Developed by *Ritvik Bharamgoudar*, Cardiff University
+
+
+### [Guide to Sample Size Calculations](link to guide)
+
+– Developed by *Cristian Mesquida Caldentey*, Eindhoven University of Technology.
 
 ---
 
-*Last updated: [31/07/2025] | Maintained by [Cardiff University]*
+*Last updated: [01/08/2025] | Maintained by [Cardiff University]*
