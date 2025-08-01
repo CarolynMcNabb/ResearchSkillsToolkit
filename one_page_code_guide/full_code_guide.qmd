@@ -12,14 +12,10 @@ format:
     link-external-newwindow: true
 title-block-banner: true
 page-navigation: true
-navbar:
-  left:
-    - text: "Back to Home"
-      href: "../"
-  right:
-    - text: "Introduction to Git & GitHub"
-      href: "../git_guide/git_guide.html"
 ---
+<div style="text-align: left; margin-bottom: 20px;">
+[Back to Home](../)
+</div>
 *A beginner-friendly guide for researchers to write clean, reproducible code.*
 
 ## Overview

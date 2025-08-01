@@ -14,14 +14,10 @@ format:
     link-external-newwindow: true
 title-block-banner: true
 page-navigation: true
-navbar:
-  left:
-    - text: "Back to Home"
-      href: "../"
-  right:
-    - text: "Principles of Good Code Guide"
-      href: "../one_page_code_guide/full_code_guide.html"
 ---
+<div style="text-align: left; margin-bottom: 20px;">
+[Back to Home](../)
+</div>
 
 
 **Before we start:** If you've ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. 
