@@ -1,0 +1,19 @@
+# A hands-on guide to a priori power analysis
+
+## Welcome
+
+A beginner-friendly guide for researchers to conduct a priori power analysis for sample size justification.
+
+## Folder content
+
+This folder contains:
+
+-   hands-on_guidelines.html: HTML document containing all content included in the guidelines.
+
+-   hands-on_guidelines.qmd: Quarto document containing all content included in the guidelines.
+
+-   lakens_es.xlsx: Spreadsheet for calculating standardized effect sizes in simple and factorial designs. While it is not required for any of the analyses included in the guidelines, it may be of interest to students or researchers who want to better understand how different types of standardized effect sizes relate to one another.
+
+-   figures/: the folder contains figures included in the guidelines.
+
+-   references.bib: BibTex document containing references used in the guidelines.
