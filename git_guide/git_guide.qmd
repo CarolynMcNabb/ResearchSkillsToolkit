@@ -1199,7 +1199,7 @@ Your research deserves to be shared with the world, and you now have the skills 
 
 
 
-[← Back to Homepage](../) || [Principles of Good Code Writing](../good_code_writing_guide/) || [Guide to Sample Size Calculations](../guide-to-power-analysis/hands-on_guidelines.html)
+[← Back to Homepage](../) || [Principles of Good Code Writing](../one_page_code_guide/full_code_guide.html) || [Guide to Sample Size Calculations](../guide-to-power-analysis/hands-on_guidelines.html)
 
 
 **About This Guide**
