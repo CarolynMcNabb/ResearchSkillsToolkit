@@ -12,6 +12,13 @@ format:
     link-external-newwindow: true
 title-block-banner: true
 page-navigation: true
+navbar:
+  left:
+    - text: "Back to Home"
+      href: "../"
+  right:
+    - text: "Introduction to Git & GitHub"
+      href: "../git_guide/git_guide.html"
 ---
 *A beginner-friendly guide for researchers to write clean, reproducible code.*
 
@@ -949,6 +956,15 @@ If all else fails:
 [View Cheat Sheet](code_writing_cheatsheet.jpg){target="_blank"} ||   <a href="code_writing_cheatsheet.jpg" download>Download Cheat Sheet (JPG)</a>
 
 
+[Back to Homepage](../) || [Introduction to Git & GitHub](../git_guide/git_guide.html) || [Guide to Sample Size Calculations](../guide-to-power-analysis/hands-on_guidelines.html)
 
+
+**About This Guide**
+- Author: *Parvathy Sureshkumarnair*
+- Part of the Research Skills Toolkit
+- Funded by Cardiff University Research Culture Fund
+- [View on GitHub](https://github.com/CarolynMcNabb/ResearchSkillsToolkit) || [Report Issues](https://github.com/CarolynMcNabb/ResearchSkillsToolkit/issues)
+
+*Last updated: [01 Aug 2025] | Licensed under [MIT](../LICENSE)*
 
 
