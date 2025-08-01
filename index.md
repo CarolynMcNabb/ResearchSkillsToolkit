@@ -14,10 +14,10 @@ This toolkit is designed to help researchers develop essential technical skills 
 
 – Developed by *Parvathy Sureshkumarnair*, Cardiff University.
 
-[*one page version*](./full_code_guide.html)
+[*one page version*](./one_page_code_guide/full_code_guide.html)
 
 
-#### [Introduction to Git & GitHub](./git_guide.html)
+#### [Introduction to Git & GitHub](./git_guide/git_guide.html)
 
 A comprehensive introduction to getting the best out of Git and GitHub, covering everything from basic commands to collaborative workflows. Perfect for those new to version control or looking to improve their Git skills.
 

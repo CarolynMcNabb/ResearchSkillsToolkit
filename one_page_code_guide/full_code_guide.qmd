@@ -1,5 +1,5 @@
 ---
-title: "Principle's of Good Code Writing"
+title: "Principles of Good Code Writing"
 format:
   html:
     toc: true
