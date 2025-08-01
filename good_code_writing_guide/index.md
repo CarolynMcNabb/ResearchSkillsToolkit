@@ -1,47 +1,51 @@
 # Principles of Good Code Writing
+_A beginner-friendly guide for researchers to write clean, reproducible code._
 
-A comprehensive guide to writing clean, maintainable, and reproducible code for research purposes.
-
-## Overview
-[Guide Overview & Introduction](./README.md) - Start here for context and background on this guide
-
-## Table of Contents
-
-### Getting Started
-1. [Introduction](./01-introduction.md) - Why good code matters in research
-2. [What Makes Code Good](./02-what-makes-code-good.md) - Core principles overview
-
-### Writing Clear Code
-3. [Naming Things](./03-naming-things.md) - Variables, functions, and file naming
-4. [Readable Code](./04-readable-code.md) - Structure and formatting
-5. [Commenting](./05-commenting.md) - When and how to comment effectively
-
-### Code Organization
-6. [Breaking Into Chunks](./06-breaking-into-chunks.md) - Functions and modularity
-7. [Core Principles](./07-core-principles.md) - Fundamental coding concepts
-
-### Common Issues
-8. [Common Mistakes](./08-common-mistakes.md) - What to avoid
-9. [Reading Errors](./12-reading-errors.md) - Debugging and troubleshooting
-
-### Research-Specific Topics  
-10. [Lab Notebook Style](./09-lab-notebook-style.md) - Organizing research code
-11. [Reproducibility](./10-reproducibility.md) - Making research reproducible
-12. [Magic Numbers](./11-magic-numbers.md) - Avoiding hard-coded values
-
-### Quick Reference
-13. [Emergency Fixes](./14-emergency-fixes.md) - Quick solutions for common problems
-14. [Cheat Sheet](./13-cheat-sheet.md) - Quick reference guide
+## Welcome!
+This guide is for anyone writing code - even if you have zero formal programming training.  
+> No prior experience required.
+> 
+> Simple, practical tips that apply to **any language** (Python, R, MATLAB, etc.).  
 
 ---
 
-## Quick Navigation
+## Why This Guide Exists 💭
+Good code is like a **well-organized lab notebook**:
+- Easier for **you** to understand later.
+- Easier for **others** to reproduce your work.
+- Ready for journals and funding agencies requiring **open and reproducible research**.
 
-**New to coding?** Start with the [Guide Overview](./README.md), then [Introduction](./01-introduction.md) and [What Makes Code Good](./02-what-makes-code-good.md)
+---
 
-**Need a quick reference?** Jump to the [Cheat Sheet](./13-cheat-sheet.md)
+## Table of Contents 📖 
+1. [Introduction](sections/01-introduction.md)
+2. [What Makes Code Good?](sections/02-what-makes-code-good.md)
+3. [Naming Things Well](sections/03-naming-things.md)
+4. [Writing Readable Code](sections/04-readable-code.md)
+5. [Commenting and Documenting](sections/05-commenting.md)
+6. [Breaking Code Into Chunks](sections/06-breaking-into-chunks.md)
+7. [Core Coding Principles (DRY, KISS, YAGNI)](sections/07-core-principles.md)
+8. [Avoiding Common Mistakes](sections/08-common-mistakes.md)
+9. [Write Code Like a Lab Notebook](sections/09-lab-notebook-style.md)
+10. [Reproducibility in Practice](sections/10-reproducibility.md)
+11. [Magic Numbers & Checks](sections/11-magic-numbers.md)
+12. [Reading Error Messages](sections/12-reading-errors.md)
+13. [Cheat Sheet](sections/13-cheat-sheet.md)
+14. [Emergency Fixes](sections/14-emergency-fixes.md)
 
-**Having trouble with errors?** Check [Reading Errors](./12-reading-errors.md)
+---
+
+## How to Use This Guide
+- Start with **Introduction** if you're new to coding.
+- Jump to any principle for **quick tips and examples**.
+- Download the [Cheat Sheet](sections/15-cheat-sheet.jpg) for a one-page summary.
+
+---
+
+## Further Reading (Extra resources)
+- [What is Clean Code? (Codacy)](https://blog.codacy.com/what-is-clean-code)
+- [Top 10 Coding Principles (Dev.to)](https://dev.to/unitybuddy/top-10-coding-principles-every-developer-must-know-2gk4)
+- [Programming Principles (GitHub)](https://github.com/webpro/programming-principles)
 
 ---
 

@@ -1,6 +1,25 @@
-# A Researcher's guide to Git & GitHub
+---
+title: "A researcher's guide to Git & GitHub"
+author: "Ritvik Bharamgoudar"
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-floating: true
+    toc-location: left
+    toc-depth: 3
+    theme: cosmo
+    code-fold: true
+    code-summary: "Show code"
+    link-external-newwindow: true
+title-block-banner: true
+page-navigation: true
+---
 
-**Before we start:** If you've ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. Git might seem intimidating at first, but it's designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We'll walk through this together, step by step, and by the end you'll wonder why you waited so long to start using it!
+
+**Before we start:** If you've ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. 
+
+Git might seem intimidating at first, but it's designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We'll walk through this together, step by step, and by the end you'll wonder why you waited so long to start using it!
 
 ::: {.callout-note appearance="simple" icon="false"}
 *All tools in this guide are free to install and use!*
@@ -12,7 +31,7 @@
 
 Git is a version control software that allows you to go back in time to previous points in a project's history. Much like track changes in Microsoft Word or saving progress in a video game, it allows you to decide when and what you want to save from a project.
 
-If you make any changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It's like having infinite "undo" for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.
+If you make changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It's like having infinite "undo" for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.
 
 While Git is the tool that tracks changes locally on your computer, GitHub is a website where you can share and backup your Git projects.  
 
@@ -38,7 +57,7 @@ While Git is the tool that tracks changes locally on your computer, GitHub is a 
 
 **Industry standard:**
 
--   Used by >90% of software developers and increasingly by researchers across all disciplines 
+-   Used by over 90% of software developers and increasingly by researchers across all disciplines 
 
 -   Learning Git makes you fluent in the language of modern collaborative work
 
@@ -50,16 +69,18 @@ While Git is the tool that tracks changes locally on your computer, GitHub is a 
 
 -   Always know exactly what changed, when, and why
 
--   Easy backup and synchronization across multiple computers
+-   Easy backup and synchronisation across multiple computers
 
 ### Common fears (and why they're wrong)
 
-We've all been there. Let's address the worries head-on:
-
 -   *"It's too complicated"* -\> We'll start with the simplest possible workflow and build gradually.
+
 -   *"I'm not technical enough"* -\> Many successful researchers use Git with just 5 basic commands. You don't need to learn everything.
+
 -   *"I'll break something important"* -\> Git is designed to prevent data loss. Every change is tracked and reversible.
+
 -   *"I don't have time to learn this"* -\> The time invested now will save dozens of hours later
+
 -   *"My field doesn't use Git"* \> Perfect! Be the one who brings modern tools to your discipline.
 
 ### Different types of workflows we'll cover
@@ -109,7 +130,7 @@ GitHub is where you'll store and share your work. It's free for public research 
 
 You can use Git however you feel comfortable and don't need to stick to just one approach:
 
-**GitHub Desktop (Recommended for beginners):** Point-and-click interface with a visual view of functions and colour coded. No command line needed.
+**GitHub Desktop (Recommended for beginners):** Point-and-click interface with a visual view of functions and colour-coded. No command line needed.
 
 **Command Line:** Five essential commands handle 90% of workflows. Works everywhere and preferred by many experienced users.
 
@@ -155,7 +176,8 @@ Configure your identity:
 
 ``` bash
 $ git config --global user.name "Your name"
-$ git config --global user.email "your.email@university.edu"
+
+$ git config --global user.email "your.email@address"
 
 # Verify the configuration
 $ git config --list
@@ -194,23 +216,23 @@ It may feel unfamiliar using these commands at first but you'll get used to them
 
 **If something went wrong:**
 
--   **"Git command not found":** Git isn't installed. Follow the installation steps for your operating system.
+-   *"Git command not found":* Git isn't installed. Follow the installation steps for your operating system.
 
--   **"Can't sign into GitHub Desktop":** Check your internet connection and GitHub credentials.
+-   *"Can't sign into GitHub Desktop":* Check your internet connection and GitHub credentials.
 
--   **"Unexpected terminal output":** Check the commands are exactly correct (try copy-pasting them in).\
+-   *"Unexpected terminal output":* Check the commands are exactly correct (try copy-pasting them in).\
 
 ### 2.4 The Basic Git Workflow
 
-This four step pattern goes from modifying files to sharing the progress online:
+Now that Git is installed This four step pattern is all that's needed to go from making local changes to sharing the progress online:
 
-1.  **Check what's changed** - See what files have been modified
+1.  **Check which files have changed**
 
-2.  **Choose what to save** - Select which changes to track
+2.  **Choose what to save** 
 
-3.  **Create a snapshot** - Make a record of the current tracked files
+3.  **Save a snapshot**
 
-4.  **Share your progress** - Upload to GitHub for backup and sharing
+4.  **Share your progress** 
 
 This becomes as natural as saving a document - but much more powerful.
 
@@ -234,7 +256,7 @@ In this guide, we will follow an example research project:\
 
 -   Understand what Git sees in your project folder
 
-**Before we start:** Either use an existing project you'd like to start tracking (any folder with some files also works) or create a new folder but remember to add some files for later steps!
+**Before we start:** Either use an existing project you'd like to start tracking (any folder with some files also works) or create a new folder but remember to add some files for later steps.
 
 ### Creating Your Repository
 
@@ -255,7 +277,7 @@ In this guide, we will follow an example research project:\
 
     -   Local path: Choose where you want the project folder
 
-    -   Initialize with README: (can leave this checked or can create this later )
+    -   Initialise with README: (can leave this checked or can create this later )
 
     -   Git ignore: None (we'll create this later)
 
@@ -359,11 +381,11 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 **If something went wrong:**
 
--   **"Not a git repository":** Make sure you're in the right folder and ran `git init`
+-   *"Not a git repository":* Make sure you're in the right folder and ran `git init`
 
--   **"No files showing in GitHub Desktop":** Check that you've selected the correct repository and there are files in the folder
+-   *"No files showing in GitHub Desktop":* Check that you've selected the correct repository and there are files in the folder
 
--   **"Permission denied":** Make sure you have write access to the folder you're trying to use
+-   *"Permission denied":* Make sure you have write access to the folder you're trying to use
 
 
 ## 4. Staging Files: Choosing what to track and save
@@ -372,7 +394,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Git doesn't automatically save every change you make, instead, it gives you control over exactly what gets saved and when. This happens through Git's "staging area", which acts like a preparation zone where you tell Git which file changes to track for a snapshot.
 
-Think of it like packing a suitcase for a trip. You don't throw everything from your closet into the suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.
+Think of it like packing for a trip. You don't throw everything from your closet into a suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.
 
 **Why does this matter?** 
 
@@ -544,7 +566,7 @@ Get in the habit of running `git status` (or checking the Changes tab in GitHub 
 
 -   "Add correlation analysis for housing price data"
 -   "Fix missing value handling in data cleaning step"
--   "Update visualisation colors for accessibility"
+-   "Update visualisation colours for accessibility"
 -   Not just "Changes" or "Update stuff" or "Fixed it"
 
 The difference is clear: good messages help you understand your project's progression, while vague messages leave you guessing.
@@ -574,7 +596,7 @@ Click the **"History"** tab to see your project's timeline:
 
 Each entry shows: - **The commit message** - your description of what this snapshot represents - **When it was created** - timestamp showing your project's progression - **Your name** - useful when collaborating with others - **A unique identifier** - like a fingerprint for this exact snapshot
 
-**Click on any commit** to see exactly what files were changed and how they were modified. This transforms your abstract commit messages into concrete changes you can review.
+**Click on any commit** to see exactly what files were changed and how they were modified. This allows you to review the differences in each commit to the previous.
 
 ## Command Line
 
@@ -648,7 +670,7 @@ The command line approach requires two steps: creating the GitHub repository thr
 
     -   Set to Public
 
-    -   "Initialize with README" (Check or not, we will cover README later in more detail)
+    -   "Initialise with README" (Check or not, we will cover README later in more detail)
 
 4.  Click "Create repository"
 
@@ -1127,7 +1149,7 @@ Error message strategy: Git's error messages are usually helpful. Read them care
 
 - [GitHub Desktop](https://desktop.github.com) - GUI for Git operations 
 
-- [GitKraken](https://www.gitkraken.com) - Advanced Git GUI with visualization 
+- [GitKraken](https://www.gitkraken.com) - Advanced Git GUI with visualisation 
 
 - [GitHub CLI](https://cli.github.com) - Command-line tools for GitHub integration
 

@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Principle’s of Good Code Writing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="full_code_guide_files/libs/clipboard/clipboard.min.js"></script>
+<script src="full_code_guide_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="full_code_guide_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="full_code_guide_files/libs/quarto-html/popper.min.js"></script>
+<script src="full_code_guide_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="full_code_guide_files/libs/quarto-html/anchor.min.js"></script>
+<link href="full_code_guide_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="full_code_guide_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="full_code_guide_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="full_code_guide_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="full_code_guide_files/libs/bootstrap/bootstrap-8a894fcc3cb5e37eb5bf30def131be2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Principle’s of Good Code Writing</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-makes-code-good" id="toc-what-makes-code-good" class="nav-link" data-scroll-target="#what-makes-code-good">What Makes Code Good?</a></li>
+  <li><a href="#naming-things-well" id="toc-naming-things-well" class="nav-link" data-scroll-target="#naming-things-well">🏷 Naming Things Well</a></li>
+  <li><a href="#writing-readable-code" id="toc-writing-readable-code" class="nav-link" data-scroll-target="#writing-readable-code">✍️ Writing Readable Code</a></li>
+  <li><a href="#commenting-and-documenting" id="toc-commenting-and-documenting" class="nav-link" data-scroll-target="#commenting-and-documenting">📝 Commenting and Documenting</a></li>
+  <li><a href="#breaking-code-into-chunks" id="toc-breaking-code-into-chunks" class="nav-link" data-scroll-target="#breaking-code-into-chunks">🧩 Breaking Code Into Chunks</a></li>
+  <li><a href="#core-coding-principles-dry-kiss-yagni" id="toc-core-coding-principles-dry-kiss-yagni" class="nav-link" data-scroll-target="#core-coding-principles-dry-kiss-yagni">🧠 Core Coding Principles (DRY, KISS, YAGNI)</a></li>
+  <li><a href="#avoiding-common-mistakes" id="toc-avoiding-common-mistakes" class="nav-link" data-scroll-target="#avoiding-common-mistakes">⚠️ Avoiding Common Mistakes</a></li>
+  <li><a href="#write-code-like-a-lab-notebook" id="toc-write-code-like-a-lab-notebook" class="nav-link" data-scroll-target="#write-code-like-a-lab-notebook">📓 Write Code Like a Lab Notebook</a></li>
+  <li><a href="#reproducibility-in-practice" id="toc-reproducibility-in-practice" class="nav-link" data-scroll-target="#reproducibility-in-practice">🔄 Reproducibility in Practice</a></li>
+  <li><a href="#magic-numbers-constants-and-writing-checks" id="toc-magic-numbers-constants-and-writing-checks" class="nav-link" data-scroll-target="#magic-numbers-constants-and-writing-checks">🔢 Magic Numbers &amp; Constants (and Writing Checks)</a></li>
+  <li><a href="#reading-error-messages-using-documentation" id="toc-reading-error-messages-using-documentation" class="nav-link" data-scroll-target="#reading-error-messages-using-documentation">🛠 Reading Error Messages &amp; Using Documentation</a></li>
+  <li><a href="#good-coding-habits-in-a-nutshell" id="toc-good-coding-habits-in-a-nutshell" class="nav-link" data-scroll-target="#good-coding-habits-in-a-nutshell">Good Coding Habits in a Nutshell</a></li>
+  <li><a href="#emergency-fixes-common-problems-quick-solutions" id="toc-emergency-fixes-common-problems-quick-solutions" class="nav-link" data-scroll-target="#emergency-fixes-common-problems-quick-solutions">🛠 Emergency Fixes: Common Problems &amp; Quick Solutions</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><em>A beginner-friendly guide for researchers to write clean, reproducible code.</em></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This guide is for anyone writing code - even if you have zero formal programming training. No prior experience required. Simple, practical tips that apply to <strong>any language</strong> (Python, R, MATLAB, etc.).</p>
+<section id="why-this-guide-exists" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-guide-exists">Why This Guide Exists 💭</h3>
+<p>Good code is like a <strong>well-organized lab notebook</strong>:</p>
+<ul>
+<li><p>Easier for <strong>you</strong> to understand later.</p></li>
+<li><p>Easier for <strong>others</strong> to reproduce your work.</p></li>
+<li><p>Ready for journals and funding agencies requiring <strong>open and reproducible research</strong>.</p></li>
+</ul>
+</section>
+<section id="how-to-use-this-guide" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-this-guide">How to Use This Guide</h3>
+<ul>
+<li>Start with <strong>Introduction</strong> if you’re new to coding.</li>
+<li>Jump to any principle for <strong>quick tips and examples</strong>.</li>
+<li>If you need a quick reference, this cheat sheet summarises all the key concepts!</li>
+</ul>
+<p><a href="code_writing_cheatsheet.jpg" target="_blank">View Cheat Sheet</a> || <a href="code_writing_cheatsheet.jpg" download="">Download Cheat Sheet (JPG)</a></p>
+</section>
+<section id="further-reading-extra-resources" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading-extra-resources">Further Reading (Extra resources)</h3>
+<ul>
+<li><a href="https://blog.codacy.com/what-is-clean-code">What is Clean Code? (Codacy)</a></li>
+<li><a href="https://dev.to/unitybuddy/top-10-coding-principles-every-developer-must-know-2gk4">Top 10 Coding Principles (Dev.to)</a></li>
+<li><a href="https://github.com/webpro/programming-principles">Programming Principles (GitHub)</a></li>
+</ul>
+</section>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="welcome-a-general-coding-guide-thats-made-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="welcome-a-general-coding-guide-thats-made-for-you">Welcome! A General Coding Guide that’s made for <strong>YOU</strong>!</h3>
+<p>If you’ve ever opened a code file and thought:<br>
+&gt; “This looks like a different language…” &gt; &gt; “I’m not sure I can do this.” &gt; &gt; “How do I use this?”</p>
+<p>You’re not alone. Many researchers (biologists, psychologists, economists) learn coding on the go without any formal training. That means you’re learning the hard way, often under pressure. <strong>This guide is here to make that easier.</strong></p>
+<p>❌ <strong>You do NOT need to be an expert</strong> ❌</p>
+<p>❌ <strong>You do NOT need prior experience</strong> ❌</p>
+<p>✅ <strong>You just need to start small</strong> ✅</p>
+</section>
+<section id="what-youll-learn" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-learn">What You’ll Learn</h3>
+<p>This resource will show you <strong>simple principles</strong> that apply to any programming language (Python, R, MATLAB, JavaScript, etc.) to make your code:</p>
+<ul>
+<li><strong>Readable</strong> → So future you knows what you meant (even when you come back after a few weeks, months, or even years!)<br>
+</li>
+<li><strong>Organised</strong> → So your projects don’t feel like chaos (Just like your bedroom — let’s know where everything is!)<br>
+</li>
+<li><strong>Reusable</strong> → So you never have to rewrite the same thing twice (You can share it with others so they can try your code too without getting lost!)</li>
+</ul>
+<p><strong>Think of it as a lab notebook for your code.</strong><br>
+The goal is to help you write <strong>good code</strong>, not turn you into a software engineer.</p>
+</section>
+</section>
+<section id="what-makes-code-good" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-code-good">What Makes Code Good?</h2>
+<p>Good code isn’t about being clever or using the shortest syntax. It’s about writing code that is:</p>
+<p><strong>Clear</strong> → Anyone (including future you) can understand it</p>
+<p><strong>Readable</strong> → Others can follow the logic without guessing</p>
+<p><strong>Maintainable</strong> → Easy to modify without breaking everything</p>
+<p><strong>Structured</strong> → Organised into logical parts</p>
+<section id="why-good-code-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-good-code-matters">Why Good Code Matters</h3>
+<p>Good code is all about making your work <strong>easier to understand and reuse</strong>. It’s not about how fancy it looks.<br>
+This is becoming more important because:</p>
+<ul>
+<li><p><strong>You’ll probably need to revisit your code later.</strong><br>
+Ever looked at an old script and thought, <em>“What was I even doing here?”</em><br>
+Clean code saves you from decoding your own logic.</p></li>
+<li><p><strong>Collaboration is easier when code is readable.</strong><br>
+If a colleague needs to reproduce your results, they shouldn’t need to keep asking you where everything is or how to follow your work.</p></li>
+<li><p><strong>Reproducibility is expected.</strong><br>
+In research projects, more journals and funders are asking for code alongside publications. If you follow good practices, sharing your code later will be much easier.</p></li>
+<li><p><strong>Less stress.</strong><br>
+If something breaks (and it usually will), well-structured code makes debugging quicker.</p></li>
+</ul>
+<p><strong>Think of your code like a lab notebook.</strong><br>
+Would you write your experimental steps in a messy way that no one can follow? Probably not. Your code deserves the same clarity so others can also use it.</p>
+</section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<blockquote class="blockquote">
+<p>Heads up: Both do the same thing, but the second is a lot more self-explanatory…</p>
+</blockquote>
+<p><strong>Bad (short, but cryptic):</strong> ❌</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]<span class="op">;</span> y<span class="op">=</span><span class="bu">sum</span>(x)<span class="op">/</span><span class="bu">len</span>(x)<span class="op">;</span> <span class="bu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good (structured and readable):</strong> ✅</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean height of samples</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sample_heights <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mean_height <span class="op">=</span> <span class="bu">sum</span>(sample_heights) <span class="op">/</span> <span class="bu">len</span>(sample_heights)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean_height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-is-the-second-better" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-the-second-better">Why is the second better? 💭</h3>
+<ul>
+<li>Variables describe what they store (<code>sample_heights</code>, <code>mean_height</code>)</li>
+<li>There’s a short comment explaining the purpose</li>
+<li>Steps are on separate lines for readability</li>
+</ul>
+</section>
+<section id="what-to-avoid" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-avoid">❌ What to Avoid ❌</h3>
+<ul>
+<li>❌ Hard-to-follow logic<br>
+</li>
+<li>❌ Unnecessary complexity<br>
+</li>
+<li>❌ Giant scripts without sections</li>
+</ul>
+</section>
+<section id="tip" class="level3">
+<h3 class="anchored" data-anchor-id="tip">💡 Tip:</h3>
+<p>When in doubt:<br>
+&gt; <strong>Code for humans first, computers second.</strong><br>
+Computers don’t care about messy code but future you will!</p>
+<p>Every time you write code, ask yourself:<br>
+&gt; “Would future me understand this in six months?”<br>
+If the answer is <strong>no</strong>, clean it up.</p>
+</section>
+</section>
+<section id="naming-things-well" class="level2">
+<h2 class="anchored" data-anchor-id="naming-things-well">🏷 Naming Things Well</h2>
+<section id="why-naming-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-naming-matters">Why Naming Matters</h3>
+<p>Imagine opening a script and seeing this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What does this even do??? Who knows….</p>
+<p>Now compare this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>apples <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oranges <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>total_fruit <span class="op">=</span> apples <span class="op">+</span> oranges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Immediately clear, right?<br>
+Names are like <strong>labels</strong> that make your code self-explanatory.</p>
+</section>
+<section id="heres-some-golden-rules-for-naming" class="level3">
+<h3 class="anchored" data-anchor-id="heres-some-golden-rules-for-naming">Here’s some Golden Rules for Naming</h3>
+<p>✔ <strong>Be descriptive, not cryptic</strong><br>
+- ❌ Bad: <code>a</code>, <code>b</code>, <code>c</code><br>
+- ✅ Good: <code>mean_height</code>, <code>patient_age</code></p>
+<p>✔ <strong>Be consistent</strong><br>
+Choose one style of naming convention and stick to it throughout: - <code>snake_case</code> → Common in Python, R (<code>total_sales</code>) - <code>camelCase</code> → Common in JavaScript (<code>totalSales</code>) - <code>PascalCase</code> → Common in object-oriented programming eg. Python classes, C# (<code>DataFrame</code>)</p>
+<p>✔ <strong>Avoid misleading names</strong><br>
+- Don’t name a variable <code>temp</code> if it stores humidity values! - or ‘data’… WHAT DATA??</p>
+<p>✔ <strong>Keep it short but clear</strong><br>
+<code>avg_score</code> is better than <code>average_score_of_all_exam_results</code>.</p>
+</section>
+<section id="lets-compare-some-bad-vs-good-examples" class="level3">
+<h3 class="anchored" data-anchor-id="lets-compare-some-bad-vs-good-examples">Let’s Compare some Bad vs Good Examples</h3>
+<blockquote class="blockquote">
+<p>(So you get what we mean!)</p>
+</blockquote>
+<p><strong>Example 1 (in R):</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>significance_threshold <span class="ot">&lt;-</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Example 2 in Python:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pd1 <span class="op">=</span> pd.read_csv(<span class="st">"data.csv"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>patient_data <span class="op">=</span> pd.read_csv(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tips" class="level3">
+<h3 class="anchored" data-anchor-id="tips">📌 Tips</h3>
+<ul>
+<li>Use <strong>nouns</strong> for variables (<code>patient_age</code>)</li>
+<li>Use <strong>verbs</strong> for functions (<code>calculate_mean</code>)</li>
+<li>Avoid single letter variables except for loop counters (<code>i</code>, <code>j</code> in short loops) where they’re common</li>
+</ul>
+</section>
+</section>
+<section id="writing-readable-code" class="level2">
+<h2 class="anchored" data-anchor-id="writing-readable-code">✍️ Writing Readable Code</h2>
+<section id="why-readability-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-readability-matters">Why Readability Matters</h3>
+<p>Code should run the same whether it’s perfectly formatted or a confusing mess, but you’re not writing for the computer, you’re writing for <strong>humans (including future you)</strong>.</p>
+<p>Readable code: - Reduces errors<br>
+- Makes debugging easier<br>
+- Helps collaborators understand your logic without asking 10 questions</p>
+</section>
+<section id="what-makes-code-readable" class="level3">
+<h3 class="anchored" data-anchor-id="what-makes-code-readable">What Makes Code Readable?</h3>
+<p>✔ Consistent <strong>indentation</strong><br>
+✔ Logical <strong>spacing between sections</strong><br>
+✔ Short lines (80–100 characters)<br>
+✔ Group related code into <strong>chunks</strong></p>
+</section>
+<section id="lets-see-an-example" class="level3">
+<h3 class="anchored" data-anchor-id="lets-see-an-example">Let’s see an example:</h3>
+<p><strong>Bad (hard to read):</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd<span class="op">;</span>df<span class="op">=</span>pd.read_csv(<span class="st">"data.csv"</span>)<span class="op">;</span>df.dropna(inplace<span class="op">=</span><span class="va">True</span>)<span class="op">;</span><span class="bu">print</span>(df.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good (structured and spaced):</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dataset</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"data.csv"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove missing values</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary statistics</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See the difference? The second example is easier to <strong>scan and understand</strong>.</p>
+</section>
+<section id="time-saving-tools" class="level3">
+<h3 class="anchored" data-anchor-id="time-saving-tools">Time-Saving Tools</h3>
+<p>Instead of formatting everything manually: - <strong>Python:</strong> <code>black</code> or <code>autopep8</code><br>
+- <strong>R:</strong> RStudio’s built-in formatting (shortcut: <code>Ctrl+Shift+A</code>)<br>
+- <strong>JavaScript:</strong> Prettier</p>
+<p>These tools <strong>auto-format your code</strong> so you don’t waste time fixing spacing or line breaks.</p>
+</section>
+</section>
+<section id="commenting-and-documenting" class="level2">
+<h2 class="anchored" data-anchor-id="commenting-and-documenting">📝 Commenting and Documenting</h2>
+<section id="why-comments-matter" class="level3">
+<h3 class="anchored" data-anchor-id="why-comments-matter">Why Comments Matter</h3>
+<p>Comments are your way of <strong>talking to your future self and collaborators</strong>.<br>
+Code explains <strong>what</strong> is happening, but comments explain <strong>why</strong>.<br>
+Without them, you might look at your script in 6 months and wonder:<br>
+&gt; “What was I thinking here?”</p>
+</section>
+<section id="golden-rules-for-commenting" class="level3">
+<h3 class="anchored" data-anchor-id="golden-rules-for-commenting">Golden Rules for Commenting</h3>
+<p>✔ <strong>Explain “why”, not “what”</strong> - ❌ Bad:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 1 to x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>✅ Good:<br>
+</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct for baseline offset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>✔ <strong>Keep it short and relevant</strong><br>
+Avoid long essays. A single line often does the job.</p>
+<p>✔ <strong>Use section headers</strong><br>
+Break your script into steps using comments:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Load data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Clean data</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Analyze and visualize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>✔ <strong>Update comments when code changes</strong><br>
+Outdated comments can mislead people more than no comments.</p>
+</section>
+<section id="example-bad-vs-good" class="level3">
+<h3 class="anchored" data-anchor-id="example-bad-vs-good">✅ Example: Bad vs Good</h3>
+<p><strong>Bad commenting (R):</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate p-value</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good commenting (R):</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Significance threshold for t-test</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fl">0.04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="document-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="document-your-project">Document Your Project</h3>
+<p>Beyond comments in code: - <strong>README file:</strong> Explains what the code does and how to run it. - <strong>Docstrings:</strong> In Python, use triple quotes inside functions:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_mean(values):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the mean of a list of numeric values.</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="bu">len</span>(values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tip-1" class="level3">
+<h3 class="anchored" data-anchor-id="tip-1">💡 Tip:</h3>
+<p>If someone new opened your project today, could they: 1. Understand what it does?<br>
+2. Know how to run it?<br>
+If not, <strong>add comments or a README</strong>.</p>
+</section>
+</section>
+<section id="breaking-code-into-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-code-into-chunks">🧩 Breaking Code Into Chunks</h2>
+<section id="why-break-code-into-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="why-break-code-into-chunks">Why Break Code Into Chunks?</h3>
+<p>Writing your entire research paper as one giant paragraph would be both boring and strenuous to read and this would be what your code looks like too if you dont break it into sections. If your script is <strong>500 lines long with no breaks</strong>, debugging becomes a nightmare.</p>
+<p>Breaking code into chunks: - Makes it easier to <strong>read and maintain</strong> - Allows you to <strong>reuse parts</strong> without rewriting everything - Helps with <strong>testing</strong> — smaller pieces mean easier troubleshooting</p>
+</section>
+<section id="how-to-do-it" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-do-it">How to Do It</h3>
+<p>✔ Use <strong>functions</strong> for repeated tasks<br>
+✔ Group <strong>related steps together</strong><br>
+✔ Separate logic into <strong>modules or scripts</strong> (e.g., <code>data_cleaning.py</code>, <code>analysis.py</code>)</p>
+</section>
+<section id="heres-an-example" class="level3">
+<h3 class="anchored" data-anchor-id="heres-an-example">Here’s an example:</h3>
+<p><strong>Bad (repeated code):</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">sum</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate another average</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">sum</span>([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]) <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good (use a function):</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_mean(values):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculate the mean of a list of numbers."""</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="bu">len</span>(values)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(calculate_mean([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(calculate_mean([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="organising-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="organising-your-project">Organising Your Project</h3>
+<p>Instead of one huge script, structure your project like this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/project/</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data/</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">scripts/</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">data_cleaning.py</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="ex">analysis.py</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output/</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">README.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This keeps things <strong>modular and tidy</strong> — like <strong>labelled drawers instead of a messy box</strong>.</p>
+</section>
+</section>
+<section id="core-coding-principles-dry-kiss-yagni" class="level2">
+<h2 class="anchored" data-anchor-id="core-coding-principles-dry-kiss-yagni">🧠 Core Coding Principles (DRY, KISS, YAGNI)</h2>
+<section id="why-these-principles-matter" class="level3">
+<h3 class="anchored" data-anchor-id="why-these-principles-matter">Why These Principles Matter</h3>
+<p>These aren’t just <strong>buzzwords from software engineering</strong> — they make life easier for researchers too.<br>
+Following these rules means: - Less time debugging<br>
+- Less repeated effort<br>
+- Cleaner, more reproducible scripts</p>
+<hr>
+</section>
+<section id="the-big-three-principles" class="level3">
+<h3 class="anchored" data-anchor-id="the-big-three-principles">The Big Three Principles</h3>
+<section id="dry-dont-repeat-yourself" class="level4">
+<h4 class="anchored" data-anchor-id="dry-dont-repeat-yourself"><strong>1. DRY — Don’t Repeat Yourself</strong></h4>
+<p>Instead of repeating the same logic multiple times, turn it into a function or reuse a script.</p>
+<p><strong>Bad:</strong> ❌</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate two averages</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">sum</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">sum</span>([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]) <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good:</strong> ✅</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_mean(values):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="bu">len</span>(values)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(calculate_mean([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(calculate_mean([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="kiss-keep-it-simple-stupid" class="level4">
+<h4 class="anchored" data-anchor-id="kiss-keep-it-simple-stupid"><strong>2. KISS — Keep It Simple, Stupid</strong></h4>
+<p>Don’t over-engineer. Your goal isn’t to impress other programmers - it’s to make your code understandable.</p>
+<p><strong>Bad (too fancy):</strong> ❌</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nested one-liner that's hard to read</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sum</span>([x <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>]) <span class="op">/</span> <span class="bu">len</span>([x <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good (clear and simple):</strong>✅</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean of odd numbers</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>odd_numbers <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>mean_odd <span class="op">=</span> <span class="bu">sum</span>(odd_numbers) <span class="op">/</span> <span class="bu">len</span>(odd_numbers)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean_odd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="yagni-you-arent-gonna-need-it" class="level4">
+<h4 class="anchored" data-anchor-id="yagni-you-arent-gonna-need-it"><strong>3. YAGNI — You Aren’t Gonna Need It</strong></h4>
+<p>Don’t write code “just in case.” Extra complexity = extra bugs.</p>
+<p><strong>Bad (R):</strong>❌</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Writing a function for a feature you might never use</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fancy_plot_generator <span class="ot">&lt;-</span> <span class="cf">function</span>(data, <span class="at">use_3d=</span><span class="cn">FALSE</span>, <span class="at">color_gradient=</span><span class="st">"blue-red"</span>, <span class="at">add_labels=</span><span class="cn">TRUE</span>, ...) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Overkill for a simple plot</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Good (R):</strong>✅</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple and works for now</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="researcher-friendly-analogy" class="level3">
+<h3 class="anchored" data-anchor-id="researcher-friendly-analogy">Researcher-Friendly Analogy</h3>
+<p>Think of these rules like lab work: - <strong>DRY:</strong> If you’re writing the same protocol twice, make a template.<br>
+- <strong>KISS:</strong> Don’t build a rocket when you just need a test tube.<br>
+- <strong>YAGNI:</strong> Don’t buy a centrifuge for a project that only needs a pipette.</p>
+</section>
+</section>
+<section id="avoiding-common-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="avoiding-common-mistakes">⚠️ Avoiding Common Mistakes</h2>
+<section id="why-this-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-matters">Why This Matters</h3>
+<p>Most coding errors aren’t caused by “advanced” or complex problems! They usually come from <strong>simple mistakes</strong> like syntax errors. These are easy to fix once you know what to look for.</p>
+</section>
+<section id="mistake-1-hardcoding-file-paths" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-1-hardcoding-file-paths">❌ Mistake 1: Hardcoding File Paths</h3>
+<p>Researchers often write <strong>absolute paths</strong> like:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"C:/Users/Parvathy/Desktop/PhD/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This works only on your computer. If someone else runs your code (or you switch machines), it fails.</p>
+<p>✅ <strong>Fix: Use relative paths</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"./data/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> os.path.join(<span class="st">"data"</span>, <span class="st">"data.csv"</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(data_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mistake-2-over-commenting" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-2-over-commenting">❌ Mistake 2: Over-commenting</h3>
+<p><strong>Bad:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Add 1 to x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This adds no value. Your code should <strong>explain itself through clear names</strong>, not cluttered comments.</p>
+<p>✅ <strong>Better:</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust for baseline offset</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>adjusted_value <span class="op">=</span> raw_value <span class="op">-</span> baseline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mistake-3-using-cryptic-variable-names" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-3-using-cryptic-variable-names">❌ Mistake 3: Using Cryptic Variable Names</h3>
+<p><strong>Bad (R):</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What does <code>a</code> mean? Future-you won’t remember.</p>
+<p>✅ <strong>Better (R):</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>significance_threshold <span class="ot">&lt;-</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mistake-4-giant-scripts-with-no-structure" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-4-giant-scripts-with-no-structure">❌ Mistake 4: Giant Scripts With No Structure</h3>
+<p>A <strong>500-line script without sections</strong> is like a thesis with no chapters.</p>
+<p>✅ <strong>Fix: Use headers and functions:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Load data</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Clean data</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Analyse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mistake-5-nested-loops-without-explanation" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-5-nested-loops-without-explanation">❌ Mistake 5: Nested Loops Without Explanation</h3>
+<p><strong>Hard to follow:</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>        do_something(i, j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>✅ <strong>Fix: Add context or break into helper functions:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> samples:</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    process_sample(sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mistake-6-forgetting-to-save-random-seeds" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-6-forgetting-to-save-random-seeds">❌ Mistake 6: Forgetting to Save Random Seeds</h3>
+<p>When working with random processes (bootstrapping, ML), forgetting to set a seed means results will <strong>change every time</strong>.</p>
+<p>✅ <strong>Fix:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mistake-7-ignoring-error-messages" class="level3">
+<h3 class="anchored" data-anchor-id="mistake-7-ignoring-error-messages">❌ Mistake 7: Ignoring Error Messages</h3>
+<p>Many researchers panic when they see <strong>red text</strong> and don’t read the actual error.</p>
+<p>Error messages usually tell you: - What went wrong (e.g., <code>FileNotFoundError</code>) - Where it happened (file and line number)</p>
+<p>💡 <strong>Tip:</strong> Read the <strong>first line</strong> of the error message, copy it, and Google it.</p>
+</section>
+</section>
+<section id="write-code-like-a-lab-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="write-code-like-a-lab-notebook">📓 Write Code Like a Lab Notebook</h2>
+<section id="why" class="level3">
+<h3 class="anchored" data-anchor-id="why">Why?</h3>
+<p>Your research workflow is already structured when you keep lab notes, log experimental steps, and label results clearly.<br>
+Your code should follow the same logic.</p>
+</section>
+<section id="how-to-structure-your-code" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-structure-your-code">How to Structure Your Code</h3>
+<p>Think of your script as a <strong>step-by-step protocol</strong>.<br>
+Use <strong>clear sections with comments or headers</strong>.</p>
+<hr>
+</section>
+<section id="suggested-structure" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-structure">Suggested Structure</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Import libraries</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Load data</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Clean and prepare data</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Analyse</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Visualise</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Save results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="example-template-python" class="level3">
+<h3 class="anchored" data-anchor-id="example-template-python">Example Template (Python)</h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Import libraries</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Load data</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"./data/experiment.csv"</span>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Clean data</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Analyse</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>mean_value <span class="op">=</span> data[<span class="st">'height'</span>].mean()</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Visualise</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>plt.hist(data[<span class="st">'height'</span>])</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Save results</span></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"./output/cleaned_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="organising-your-project-directory" class="level3">
+<h3 class="anchored" data-anchor-id="organising-your-project-directory">Organising Your Project Directory</h3>
+<p>Instead of keeping everything in one folder, use a <strong>clear structure</strong>:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/project/</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data/</span>         <span class="co"># Raw data files</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">scripts/</span>      <span class="co"># Your code</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output/</span>       <span class="co"># Results and plots</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">README.md</span>     <span class="co"># What this project does and how to run it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="reproducibility-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-in-practice">🔄 Reproducibility in Practice</h2>
+<section id="why-reproducibility-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-reproducibility-matters">Why Reproducibility Matters</h3>
+<p>Science depends on the ability to <strong>repeat results</strong>.<br>
+If your code can’t reproduce the same outputs tomorrow (or on a collaborator’s machine), your findings are at risk.</p>
+</section>
+<section id="core-principles-of-reproducible-code" class="level3">
+<h3 class="anchored" data-anchor-id="core-principles-of-reproducible-code">Core Principles of Reproducible Code</h3>
+<p>✔ <strong>Same input → same output</strong><br>
+Running the same script with the same data should always give the same result.</p>
+<p>✔ <strong>Minimal manual steps</strong><br>
+Scripts should run from start to finish without manual clicks or edits.</p>
+<p>✔ <strong>Self-contained projects</strong><br>
+Include all files (or instructions to get them), a README, and dependency info so others can run your code easily.</p>
+</section>
+<section id="checklist-for-reproducibility" class="level3">
+<h3 class="anchored" data-anchor-id="checklist-for-reproducibility">📝 Checklist for Reproducibility</h3>
+<ul>
+<li>✓ <strong>Use relative paths, not hardcoded ones</strong></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Bad</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"C:/Users/Parvathy/Desktop/PhD/data.csv"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ Good</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"./data/experiment.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>✓ <strong>Save random seeds for consistent results</strong></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>✓ <strong>Record software versions</strong></p>
+<ul>
+<li><strong>Python:</strong><br>
+<code>bash     pip freeze &gt; requirements.txt</code></li>
+<li><strong>R:</strong><br>
+<code>r     sessionInfo()</code></li>
+</ul></li>
+<li><p>✓ <strong>Avoid interactive manual steps</strong><br>
+Don’t require someone to “click” or “select” something for the script to run.</p></li>
+<li><p>✓ <strong>Include all required files</strong><br>
+If your code depends on <code>data.csv</code>, make sure it’s in the repo (or provide a download link).</p></li>
+<li><p>✓ <strong>Use standard formats</strong><br>
+Prefer <code>.csv</code> for data over Excel <code>.xlsx</code> (to avoid version issues).</p></li>
+</ul>
+</section>
+<section id="example-project-setup" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-setup">Example Project Setup</h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/project/</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data/</span>            <span class="co"># Raw data files</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">scripts/</span>         <span class="co"># Code scripts</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output/</span>          <span class="co"># Processed data and results</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">requirements.txt</span> <span class="co"># List of software dependencies</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">README.md</span>        <span class="co"># Instructions to run everything</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>💡 <strong>Tip:</strong><br>
+Before sharing code, <strong>test it on a clean machine or environment</strong>.<br>
+If it works there, it’ll work for others.</p>
+</section>
+</section>
+<section id="magic-numbers-constants-and-writing-checks" class="level2">
+<h2 class="anchored" data-anchor-id="magic-numbers-constants-and-writing-checks">🔢 Magic Numbers &amp; Constants (and Writing Checks)</h2>
+<section id="what-are-magic-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-magic-numbers">What Are “Magic Numbers”?</h3>
+<p>A <strong>magic number</strong> is a number that appears in your code without context.</p>
+<p><strong>Example (Python):</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Significant"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Why <code>0.05</code>? If someone else reads your code (or you revisit it later), they won’t know what that number means.</p>
+</section>
+<section id="why-this-is-a-problem" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-is-a-problem">❌ Why This Is a Problem</h3>
+<ul>
+<li>Hard to understand<br>
+</li>
+<li>Easy to break if you need to change it in multiple places<br>
+</li>
+<li>Makes your code less reusable</li>
+</ul>
+</section>
+<section id="fix-use-named-constants" class="level3">
+<h3 class="anchored" data-anchor-id="fix-use-named-constants">✅ Fix: Use Named Constants</h3>
+<p>Define important numbers or thresholds <strong>once at the top of your script</strong>.</p>
+<p><strong>Python:</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>SIGNIFICANCE_THRESHOLD <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_value <span class="op">&lt;</span> SIGNIFICANCE_THRESHOLD:</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Significant"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>R:</strong></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>SIGNIFICANCE_THRESHOLD <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (p_value <span class="sc">&lt;</span> SIGNIFICANCE_THRESHOLD) {</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Significant"</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This makes your code: ✔ Easier to read<br>
+✔ Easier to maintain (change it in one place)</p>
+</section>
+<section id="add-simple-checks-validation" class="level3">
+<h3 class="anchored" data-anchor-id="add-simple-checks-validation">Add Simple Checks (Validation)</h3>
+<p>Small checks prevent big headaches.</p>
+<p><strong>Python:</strong></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(data.columns) <span class="op">&gt;</span> <span class="dv">1</span>, <span class="st">"Data should have more than one column"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>R:</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">ncol</span>(data) <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-checks-are-important" class="level3">
+<h3 class="anchored" data-anchor-id="why-checks-are-important">Why Checks Are Important</h3>
+<ul>
+<li>Catch errors early<br>
+</li>
+<li>Avoid wasting time running broken code<br>
+</li>
+<li>Make your code more robust</li>
+</ul>
+<p>💡 <strong>Tip:</strong> Think of constants and checks like <strong>labels and safety checks in your lab</strong> that prevent accidents.</p>
+</section>
+</section>
+<section id="reading-error-messages-using-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="reading-error-messages-using-documentation">🛠 Reading Error Messages &amp; Using Documentation</h2>
+<p>When you see an error in your code, do you: - ❌ Panic?<br>
+- ❌ Close your laptop?<br>
+- ❌ Think, “I’m bad at coding”? - ❌ HOWWWWW! It was working a second ago! Stop right there….<br>
+Errors are <strong>normal</strong> — every coder sees them every day.<br>
+The key is learning how to <strong>read them and use them to fix your code</strong>.</p>
+<section id="golden-rule" class="level3">
+<h3 class="anchored" data-anchor-id="golden-rule">Golden Rule</h3>
+<p>Error messages are your <strong>friend</strong>, not your enemy.<br>
+They usually tell you: 1. <strong>What went wrong</strong> (the error type)<br>
+2. <strong>Where it happened</strong> (line number)<br>
+3. Sometimes, <strong>why it happened</strong> (a hint)</p>
+</section>
+<section id="example-in-python" class="level3">
+<h3 class="anchored" data-anchor-id="example-in-python">Example in Python</h3>
+<pre class="text"><code>FileNotFoundError: [Errno 2] No such file or directory: 'data.csv'</code></pre>
+<p><strong>What does this mean?</strong><br>
+- The script tried to open <code>data.csv</code>, but it wasn’t there.</p>
+<p><strong>Fix:</strong><br>
+- Check if the file exists in the right folder.<br>
+- Check your file path spelling.</p>
+</section>
+<section id="example-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="example-in-r">Example in R</h3>
+<pre class="text"><code>Error in read.csv("data.csv") : cannot open file 'data.csv'</code></pre>
+<p>Same idea — <strong>file path issue</strong>.</p>
+</section>
+<section id="how-to-handle-errors-like-a-pro" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-handle-errors-like-a-pro">How to Handle Errors Like a Pro</h3>
+<p>✔ Step 1: Read the <strong>first line</strong> of the error.<br>
+✔ Step 2: Look for the <strong>file name</strong> or <strong>variable name</strong>.<br>
+✔ Step 3: Copy the <strong>error message</strong> (not your whole screen) and Google it.<br>
+✔ Step 4: Check official docs or Stack Overflow.</p>
+</section>
+<section id="documentation-is-your-best-friend" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-is-your-best-friend">Documentation is Your Best Friend</h3>
+<p>Every language has official documentation: - <strong>Python:</strong> <a href="https://docs.python.org">https://docs.python.org</a><br>
+- <strong>R:</strong> <code>?function_name</code> in R console<br>
+- <strong>Pandas, NumPy:</strong> <a href="https://pandas.pydata.org/docs">https://pandas.pydata.org/docs</a></p>
+<p>💡 When you Google, add the language name:</p>
+<pre class="text"><code>"TypeError unsupported operand type" Python</code></pre>
+<p>💡 <strong>Tip:</strong><br>
+Learning to debug is like learning to troubleshoot in the lab and it’s all <strong>part of the process, not a failure</strong>.</p>
+</section>
+</section>
+<section id="good-coding-habits-in-a-nutshell" class="level2">
+<h2 class="anchored" data-anchor-id="good-coding-habits-in-a-nutshell">Good Coding Habits in a Nutshell</h2>
+<p>Use this as a <strong>quick reminder</strong> when writing code:</p>
+<section id="general-principles" class="level3">
+<h3 class="anchored" data-anchor-id="general-principles">General Principles</h3>
+<ul>
+<li>Code for <strong>humans first</strong>, machines second.</li>
+<li>One clear purpose per <strong>function or script</strong>.</li>
+<li>Use <strong>descriptive names</strong> (not <code>a</code> or <code>temp</code>).</li>
+</ul>
+</section>
+<section id="structure" class="level3">
+<h3 class="anchored" data-anchor-id="structure">Structure</h3>
+<p>Organise scripts like a <strong>lab protocol</strong>:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Import libraries</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Load data</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Clean data</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Analyse</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Save results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Project layout:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/project/</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data/</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">scripts/</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output/</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">README.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="core-rules" class="level3">
+<h3 class="anchored" data-anchor-id="core-rules">Core Rules</h3>
+<ul>
+<li><strong>DRY</strong>: Don’t Repeat Yourself (reuse code, write functions).</li>
+<li><strong>KISS</strong>: Keep It Simple, Stupid (avoid complexity).</li>
+<li><strong>YAGNI</strong>: You Aren’t Gonna Need It (don’t add features you don’t need).</li>
+</ul>
+</section>
+<section id="formatting" class="level3">
+<h3 class="anchored" data-anchor-id="formatting">Formatting</h3>
+<ul>
+<li>Consistent <strong>indentation</strong> and <strong>spacing</strong>.</li>
+<li>Blank lines between <strong>sections</strong>.</li>
+<li>Auto-format with:
+<ul>
+<li>Python → <code>black</code></li>
+<li>R → RStudio (<code>Ctrl+Shift+A</code>)</li>
+<li>JavaScript → <strong>Prettier</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="comments" class="level3">
+<h3 class="anchored" data-anchor-id="comments">Comments</h3>
+<ul>
+<li>Explain <strong>why</strong>, not <strong>what</strong>.</li>
+<li>Use <strong>headers for steps</strong>:<br>
+<code># Load data</code>, <code># Clean data</code>.</li>
+<li>Update comments when code changes.</li>
+</ul>
+</section>
+<section id="reproducibility" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility">Reproducibility</h3>
+<ul>
+<li>Use <strong>relative paths</strong> (<code>./data/file.csv</code>), not <code>C:/Users/...</code>.</li>
+<li>Save <strong>random seeds</strong> (<code>np.random.seed(42)</code> or <code>set.seed(42)</code>).</li>
+<li>Keep <strong>dependencies documented</strong> (<code>requirements.txt</code> or <code>sessionInfo()</code> in R).</li>
+</ul>
+</section>
+<section id="constants-checks" class="level3">
+<h3 class="anchored" data-anchor-id="constants-checks">Constants &amp; Checks</h3>
+<p>Replace <strong>magic numbers</strong> with named constants:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>SIGNIFICANCE_THRESHOLD <span class="op">=</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Add <strong>sanity checks</strong>:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(data.columns) <span class="op">&gt;</span> <span class="dv">1</span>, <span class="st">"Data should have more than one column"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="emergency-fixes-common-problems-quick-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="emergency-fixes-common-problems-quick-solutions">🛠 Emergency Fixes: Common Problems &amp; Quick Solutions</h2>
+<p><strong>Problem:</strong> Code won’t run<br>
+Check for: - Missing <strong>brackets or colons</strong> <code>()</code>, <code>:</code> - Incorrect <strong>indentation</strong> - Typos in <strong>variable names</strong></p>
+<p><strong>Problem:</strong> “File Not Found”<br>
+Check: - Is the file in the correct folder? - Are you using the correct relative path? (<code>./data/file.csv</code>)</p>
+<p><strong>Problem:</strong> “Object Not Defined”<br>
+Fix: - Did you spell the variable name correctly? - Did you run the cell/script where it was defined?</p>
+<p><strong>Problem:</strong> Weird output<br>
+Check: - Data types (e.g., numbers stored as text) - Missing values (<code>NaN</code> or <code>NA</code>)</p>
+<p><strong>Problem:</strong> Random results every time<br>
+Fix: - Set a <strong>random seed</strong>.</p>
+<p>💡 <strong>Pro Tip:</strong><br>
+If all else fails: 1. Read the error message <strong>carefully</strong>.<br>
+2. Copy the <strong>first line</strong> into Google (with your language name).<br>
+3. Check official docs or <strong>Stack Overflow</strong>.</p>
+<section id="comments-1" class="level3">
+<h3 class="anchored" data-anchor-id="comments-1">Comments</h3>
+<ul>
+<li>Explain <strong>why</strong>, not <strong>what</strong>.</li>
+<li>Use <strong>headers for steps</strong>:</li>
+</ul>
+</section>
+<section id="further-reading-extra-resources-1" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading-extra-resources-1">Further Reading (Extra resources)</h3>
+<ul>
+<li><a href="https://blog.codacy.com/what-is-clean-code">What is Clean Code? (Codacy)</a></li>
+<li><a href="https://dev.to/unitybuddy/top-10-coding-principles-every-developer-must-know-2gk4">Top 10 Coding Principles (Dev.to)</a></li>
+<li><a href="https://github.com/webpro/programming-principles">Programming Principles (GitHub)</a></li>
+</ul>
+<p><a href="code_writing_cheatsheet.jpg" target="_blank">View Cheat Sheet</a> || <a href="code_writing_cheatsheet.jpg" download="">Download Cheat Sheet (JPG)</a></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

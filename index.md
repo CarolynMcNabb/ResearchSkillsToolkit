@@ -4,6 +4,7 @@ Welcome to the Research Skills Toolkit - a comprehensive collection of guides de
 
 ## Available guides
 ### [Code Writing Practices](./good_code_writing_guide/)
+### [Code Writing Practices (one page)](./full_code_guide.html)
 
 
 ### [Git & GitHub Guide](./git_guide.html)

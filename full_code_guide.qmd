@@ -1,0 +1,956 @@
+---
+title: "Principle's of Good Code Writing"
+format:
+  html:
+    toc: true
+    toc-floating: true
+    toc-location: left
+    toc-depth: 2
+    theme: cosmo
+    code-fold: true
+    code-summary: "Show code"
+    link-external-newwindow: true
+title-block-banner: true
+page-navigation: true
+---
+
+
+*A beginner-friendly guide for researchers to write clean, reproducible code.*
+
+## Overview
+This guide is for anyone writing code - even if you have zero formal programming training. No prior experience required. Simple, practical tips that apply to **any language** (Python, R, MATLAB, etc.).  
+
+### Why This Guide Exists 💭
+Good code is like a **well-organized lab notebook**:
+
+- Easier for **you** to understand later.
+
+- Easier for **others** to reproduce your work.
+
+- Ready for journals and funding agencies requiring **open and reproducible research**.
+
+### How to Use This Guide
+- Start with **Introduction** if you're new to coding.
+- Jump to any principle for **quick tips and examples**.
+- If you need a quick reference, this cheat sheet summarises all the key concepts! 
+
+[View Cheat Sheet](code_writing_cheatsheet.jpg){target="_blank"} ||   <a href="code_writing_cheatsheet.jpg" download>Download Cheat Sheet (JPG)</a>
+
+### Further Reading (Extra resources)
+- [What is Clean Code? (Codacy)](https://blog.codacy.com/what-is-clean-code)
+- [Top 10 Coding Principles (Dev.to)](https://dev.to/unitybuddy/top-10-coding-principles-every-developer-must-know-2gk4)
+- [Programming Principles (GitHub)](https://github.com/webpro/programming-principles)
+
+## Introduction
+
+### Welcome! A General Coding Guide that's made for **YOU**!
+
+If you've ever opened a code file and thought:  
+> “This looks like a different language…"
+> 
+> "I’m not sure I can do this.”
+> 
+> "How do I use this?"
+
+You’re not alone. Many researchers (biologists, psychologists, economists) learn coding on the go without any formal training. That means you’re learning the hard way, often under pressure. **This guide is here to make that easier.**
+
+❌ **You do NOT need to be an expert** ❌
+
+❌ **You do NOT need prior experience** ❌
+
+✅ **You just need to start small** ✅
+
+###  What You'll Learn  
+This resource will show you **simple principles** that apply to any programming language (Python, R, MATLAB, JavaScript, etc.) to make your code:  
+
+- **Readable** → So future you knows what you meant (even when you come back after a few weeks, months, or even years!)  
+- **Organised** → So your projects don’t feel like chaos (Just like your bedroom — let’s know where everything is!)  
+- **Reusable** → So you never have to rewrite the same thing twice (You can share it with others so they can try your code too without getting lost!)  
+
+ **Think of it as a lab notebook for your code.**  
+The goal is to help you write **good code**, not turn you into a software engineer. 
+
+
+## What Makes Code Good?
+Good code isn’t about being clever or using the shortest syntax. It’s about writing code that is:
+
+**Clear** → Anyone (including future you) can understand it
+
+**Readable** → Others can follow the logic without guessing
+
+**Maintainable** → Easy to modify without breaking everything
+
+**Structured** → Organised into logical parts
+
+### Why Good Code Matters
+
+Good code is all about making your work **easier to understand and reuse**. It's not about how fancy it looks.  
+This is becoming more important because:
+
+- **You’ll probably need to revisit your code later.**  
+  Ever looked at an old script and thought, *“What was I even doing here?”*  
+  Clean code saves you from decoding your own logic.
+
+- **Collaboration is easier when code is readable.**  
+  If a colleague needs to reproduce your results, they shouldn’t need to keep asking you where everything is or how to follow your work.
+
+- **Reproducibility is expected.**  
+ In research projects, more journals and funders are asking for code alongside publications. If you follow good practices, sharing your code later will be much easier.
+
+- **Less stress.**  
+If something breaks (and it usually will), well-structured code makes debugging quicker.
+
+
+**Think of your code like a lab notebook.**  
+Would you write your experimental steps in a messy way that no one can follow? Probably not. Your code deserves the same clarity so others can also use it.
+
+
+### Examples
+
+> Heads up: Both do the same thing, but the second is a lot more self-explanatory...
+
+
+
+**Bad (short, but cryptic):** ❌
+```python
+x = [3,4,5,6]; y=sum(x)/len(x); print(y)
+```
+
+**Good (structured and readable):** ✅
+```python
+# Calculate mean height of samples
+sample_heights = [3, 4, 5, 6]
+mean_height = sum(sample_heights) / len(sample_heights)
+print(mean_height)
+```
+
+
+### Why is the second better? 💭 
+- Variables describe what they store (`sample_heights`, `mean_height`)
+- There’s a short comment explaining the purpose
+- Steps are on separate lines for readability
+
+
+### ❌ What to Avoid ❌
+- ❌ Hard-to-follow logic  
+- ❌ Unnecessary complexity  
+- ❌ Giant scripts without sections  
+
+
+### 💡 Tip:
+When in doubt:  
+> **Code for humans first, computers second.**  
+Computers don’t care about messy code but future you will!
+
+Every time you write code, ask yourself:  
+> “Would future me understand this in six months?”  
+If the answer is **no**, clean it up.
+
+
+## 🏷 Naming Things Well
+
+### Why Naming Matters
+Imagine opening a script and seeing this:
+
+```python
+a = 10
+b = 20
+c = a + b
+```
+
+What does this even do??? Who knows....
+
+Now compare this:
+
+```python
+apples = 10
+oranges = 20
+total_fruit = apples + oranges
+```
+
+Immediately clear, right?  
+Names are like **labels** that make your code self-explanatory.
+
+
+### Here's some Golden Rules for Naming
+✔ **Be descriptive, not cryptic**  
+- ❌ Bad: `a`, `b`, `c`  
+- ✅ Good: `mean_height`, `patient_age`
+
+✔ **Be consistent**  
+Choose one style of naming convention and stick to it throughout:
+- `snake_case` → Common in Python, R (`total_sales`)
+- `camelCase` → Common in JavaScript (`totalSales`)
+- `PascalCase` → Common in object-oriented programming eg. Python classes, C# (`DataFrame`)
+
+✔ **Avoid misleading names**  
+- Don’t name a variable `temp` if it stores humidity values!
+- or 'data'... WHAT DATA??
+
+✔ **Keep it short but clear**  
+`avg_score` is better than `average_score_of_all_exam_results`.
+
+
+### Let's Compare some Bad vs Good Examples 
+> (So you get what we mean!)
+
+**Example 1 (in R):**
+```r
+# Bad
+x <- 0.05
+
+# Good
+significance_threshold <- 0.05
+```
+
+**Example 2 in Python:**
+```python
+# Bad
+pd1 = pd.read_csv("data.csv")
+
+# Good
+patient_data = pd.read_csv("data.csv")
+```
+
+
+### 📌 Tips
+- Use **nouns** for variables (`patient_age`)
+- Use **verbs** for functions (`calculate_mean`)
+- Avoid single letter variables except for loop counters (`i`, `j` in short loops) where they're common
+
+## ✍️ Writing Readable Code
+
+### Why Readability Matters
+Code should run the same whether it’s perfectly formatted or a confusing mess, but you’re not writing for the computer, you’re writing for **humans (including future you)**.  
+
+Readable code:
+- Reduces errors  
+- Makes debugging easier  
+- Helps collaborators understand your logic without asking 10 questions  
+
+
+### What Makes Code Readable?
+✔ Consistent **indentation**  
+✔ Logical **spacing between sections**  
+✔ Short lines (80–100 characters)  
+✔ Group related code into **chunks**  
+
+
+### Let's see an example: 
+
+**Bad (hard to read):**
+```python
+import pandas as pd;df=pd.read_csv("data.csv");df.dropna(inplace=True);print(df.describe())
+```
+
+**Good (structured and spaced):**
+```python
+import pandas as pd
+
+# Load dataset
+data = pd.read_csv("data.csv")
+
+# Remove missing values
+data.dropna(inplace=True)
+
+# Display summary statistics
+print(data.describe())
+```
+
+See the difference? The second example is easier to **scan and understand**.
+
+
+### Time-Saving Tools
+Instead of formatting everything manually:
+- **Python:** `black` or `autopep8`  
+- **R:** RStudio’s built-in formatting (shortcut: `Ctrl+Shift+A`)  
+- **JavaScript:** Prettier  
+
+These tools **auto-format your code** so you don’t waste time fixing spacing or line breaks.
+
+
+## 📝 Commenting and Documenting
+
+###  Why Comments Matter
+Comments are your way of **talking to your future self and collaborators**.  
+Code explains **what** is happening, but comments explain **why**.  
+Without them, you might look at your script in 6 months and wonder:  
+> “What was I thinking here?”
+
+
+### Golden Rules for Commenting
+✔ **Explain “why”, not “what”**
+- ❌ Bad:  
+```python
+# Add 1 to x
+```
+- ✅ Good:  
+```python
+# Correct for baseline offset
+```
+
+✔ **Keep it short and relevant**  
+Avoid long essays. A single line often does the job.
+
+✔ **Use section headers**  
+Break your script into steps using comments:
+```python
+# Step 1: Load data
+# Step 2: Clean data
+# Step 3: Analyze and visualize
+```
+
+✔ **Update comments when code changes**  
+Outdated comments can mislead people more than no comments.
+
+
+### ✅ Example: Bad vs Good
+
+**Bad commenting (R):**
+```r
+# Calculate p-value
+p = 0.04
+```
+
+**Good commenting (R):**
+```r
+# Significance threshold for t-test
+p_value <- 0.04
+```
+
+
+### Document Your Project
+Beyond comments in code:
+- **README file:** Explains what the code does and how to run it.
+- **Docstrings:** In Python, use triple quotes inside functions:
+```python
+def calculate_mean(values):
+    """
+    Calculate the mean of a list of numeric values.
+    """
+    return sum(values) / len(values)
+```
+
+### 💡 Tip:
+If someone new opened your project today, could they:
+1. Understand what it does?  
+2. Know how to run it?  
+If not, **add comments or a README**.
+
+
+## 🧩 Breaking Code Into Chunks
+
+### Why Break Code Into Chunks?
+Writing your entire research paper as one giant paragraph would be both boring and strenuous  to read and this would be what your code looks like too if you dont break it into sections. If your script is **500 lines long with no breaks**, debugging becomes a nightmare.
+
+Breaking code into chunks:
+- Makes it easier to **read and maintain**
+- Allows you to **reuse parts** without rewriting everything
+- Helps with **testing** — smaller pieces mean easier troubleshooting
+
+
+### How to Do It
+✔ Use **functions** for repeated tasks  
+✔ Group **related steps together**  
+✔ Separate logic into **modules or scripts** (e.g., `data_cleaning.py`, `analysis.py`)  
+
+
+### Here's an example: 
+
+**Bad (repeated code):**
+```python
+# Calculate average
+a = sum([1, 2, 3]) / 3
+print(a)
+
+# Calculate another average
+b = sum([4, 5, 6]) / 3
+print(b)
+```
+
+**Good (use a function):**
+```python
+def calculate_mean(values):
+    """Calculate the mean of a list of numbers."""
+    return sum(values) / len(values)
+
+print(calculate_mean([1, 2, 3]))
+print(calculate_mean([4, 5, 6]))
+```
+
+
+### Organising Your Project
+Instead of one huge script, structure your project like this:
+```bash
+/project/
+    data/
+    scripts/
+        data_cleaning.py
+        analysis.py
+    output/
+    README.md
+```
+
+This keeps things **modular and tidy** — like **labelled drawers instead of a messy box**.
+
+
+## 🧠 Core Coding Principles (DRY, KISS, YAGNI)
+
+### Why These Principles Matter
+These aren’t just **buzzwords from software engineering** — they make life easier for researchers too.  
+Following these rules means:
+- Less time debugging  
+- Less repeated effort  
+- Cleaner, more reproducible scripts  
+
+---
+
+### The Big Three Principles
+
+
+#### **1. DRY — Don’t Repeat Yourself**
+Instead of repeating the same logic multiple times, turn it into a function or reuse a script.
+
+**Bad:** ❌
+```python
+# Calculate two averages
+a = sum([1, 2, 3]) / 3
+b = sum([4, 5, 6]) / 3
+```
+
+**Good:** ✅ 
+```python
+def calculate_mean(values):
+    return sum(values) / len(values)
+
+print(calculate_mean([1, 2, 3]))
+print(calculate_mean([4, 5, 6]))
+```
+
+
+#### **2. KISS — Keep It Simple, Stupid**
+Don’t over-engineer. Your goal isn’t to impress other programmers - it’s to make your code understandable.
+
+**Bad (too fancy):** ❌
+```python
+# Nested one-liner that's hard to read
+print(sum([x for x in [1, 2, 3] if x % 2 == 1]) / len([x for x in [1, 2, 3] if x % 2 == 1]))
+```
+
+**Good (clear and simple):**✅ 
+```python
+# Calculate mean of odd numbers
+odd_numbers = [x for x in [1, 2, 3] if x % 2 == 1]
+mean_odd = sum(odd_numbers) / len(odd_numbers)
+print(mean_odd)
+```
+
+
+#### **3. YAGNI — You Aren’t Gonna Need It**
+Don’t write code “just in case.” Extra complexity = extra bugs.
+
+**Bad (R):**❌
+```r
+# Writing a function for a feature you might never use
+fancy_plot_generator <- function(data, use_3d=FALSE, color_gradient="blue-red", add_labels=TRUE, ...) {
+    # Overkill for a simple plot
+}
+```
+
+**Good (R):**✅ 
+```r
+# Simple and works for now
+plot(data)
+```
+
+
+### Researcher-Friendly Analogy
+Think of these rules like lab work:
+- **DRY:** If you’re writing the same protocol twice, make a template.  
+- **KISS:** Don’t build a rocket when you just need a test tube.  
+- **YAGNI:** Don’t buy a centrifuge for a project that only needs a pipette.  
+
+
+## ⚠️ Avoiding Common Mistakes
+
+### Why This Matters
+Most coding errors aren’t caused by “advanced” or complex problems! They usually come from **simple mistakes** like syntax errors. These are easy to fix once you know what to look for.
+
+
+### ❌ Mistake 1: Hardcoding File Paths
+Researchers often write **absolute paths** like:
+```python
+data = pd.read_csv("C:/Users/Parvathy/Desktop/PhD/data.csv")
+```
+This works only on your computer. If someone else runs your code (or you switch machines), it fails.
+
+✅ **Fix: Use relative paths**
+```python
+data = pd.read_csv("./data/data.csv")
+```
+or:
+```python
+import os
+data_path = os.path.join("data", "data.csv")
+data = pd.read_csv(data_path)
+```
+
+
+### ❌ Mistake 2: Over-commenting
+**Bad:**
+```python
+x = x + 1  # Add 1 to x
+```
+This adds no value. Your code should **explain itself through clear names**, not cluttered comments.
+
+✅ **Better:**
+```python
+# Adjust for baseline offset
+adjusted_value = raw_value - baseline
+```
+
+
+### ❌ Mistake 3: Using Cryptic Variable Names
+**Bad (R):**
+```r
+a <- 0.05
+```
+What does `a` mean? Future-you won’t remember.
+
+✅ **Better (R):**
+```r
+significance_threshold <- 0.05
+```
+
+
+### ❌ Mistake 4: Giant Scripts With No Structure
+A **500-line script without sections** is like a thesis with no chapters.
+
+✅ **Fix: Use headers and functions:**
+```python
+# Step 1: Load data
+# Step 2: Clean data
+# Step 3: Analyse
+```
+
+
+### ❌ Mistake 5: Nested Loops Without Explanation
+**Hard to follow:**
+```python
+for i in range(10):
+    for j in range(10):
+        do_something(i, j)
+```
+
+✅ **Fix: Add context or break into helper functions:**
+```python
+for sample in samples:
+    process_sample(sample)
+```
+
+
+### ❌ Mistake 6: Forgetting to Save Random Seeds
+When working with random processes (bootstrapping, ML), forgetting to set a seed means results will **change every time**.
+
+✅ **Fix:**
+```python
+import numpy as np
+np.random.seed(42)
+```
+
+
+### ❌ Mistake 7: Ignoring Error Messages
+Many researchers panic when they see **red text** and don’t read the actual error.
+
+Error messages usually tell you:
+- What went wrong (e.g., `FileNotFoundError`)
+- Where it happened (file and line number)
+
+💡 **Tip:** Read the **first line** of the error message, copy it, and Google it.
+
+
+## 📓 Write Code Like a Lab Notebook
+
+###  Why?
+Your research workflow is already structured when you keep lab notes, log experimental steps, and label results clearly.  
+Your code should follow the same logic. 
+
+
+### How to Structure Your Code
+Think of your script as a **step-by-step protocol**.  
+Use **clear sections with comments or headers**.
+
+---
+###  Suggested Structure
+```bash
+# Step 1: Import libraries
+# Step 2: Load data
+# Step 3: Clean and prepare data
+# Step 4: Analyse
+# Step 5: Visualise
+# Step 6: Save results
+```
+
+
+### Example Template (Python)
+```python
+# Step 1: Import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Step 2: Load data
+data = pd.read_csv("./data/experiment.csv")
+
+# Step 3: Clean data
+data.dropna(inplace=True)
+
+# Step 4: Analyse
+mean_value = data['height'].mean()
+
+# Step 5: Visualise
+plt.hist(data['height'])
+plt.show()
+
+# Step 6: Save results
+data.to_csv("./output/cleaned_data.csv", index=False)
+```
+
+
+### Organising Your Project Directory
+Instead of keeping everything in one folder, use a **clear structure**:
+```bash
+/project/
+    data/         # Raw data files
+    scripts/      # Your code
+    output/       # Results and plots
+    README.md     # What this project does and how to run it
+```
+
+
+## 🔄 Reproducibility in Practice
+
+### Why Reproducibility Matters
+Science depends on the ability to **repeat results**.  
+If your code can’t reproduce the same outputs tomorrow (or on a collaborator’s machine), your findings are at risk.  
+
+
+### Core Principles of Reproducible Code
+
+
+✔ **Same input → same output**  
+Running the same script with the same data should always give the same result.
+
+✔ **Minimal manual steps**  
+Scripts should run from start to finish without manual clicks or edits.
+
+✔ **Self-contained projects**  
+Include all files (or instructions to get them), a README, and dependency info so others can run your code easily.
+
+
+###  📝 Checklist for Reproducibility
+- ✓ **Use relative paths, not hardcoded ones**
+```python
+# ❌ Bad
+data = pd.read_csv("C:/Users/Parvathy/Desktop/PhD/data.csv")
+
+# ✅ Good
+data = pd.read_csv("./data/experiment.csv")
+```
+
+- ✓ **Save random seeds for consistent results**
+```python
+import numpy as np
+np.random.seed(42)
+```
+
+- ✓ **Record software versions**
+    - **Python:**  
+      ```bash
+      pip freeze > requirements.txt
+      ```
+    - **R:**  
+      ```r
+      sessionInfo()
+      ```
+
+- ✓ **Avoid interactive manual steps**  
+  Don’t require someone to “click” or “select” something for the script to run.
+
+- ✓ **Include all required files**  
+  If your code depends on `data.csv`, make sure it’s in the repo (or provide a download link).
+
+- ✓ **Use standard formats**  
+  Prefer `.csv` for data over Excel `.xlsx` (to avoid version issues).
+
+
+### Example Project Setup
+```bash
+/project/
+    data/            # Raw data files
+    scripts/         # Code scripts
+    output/          # Processed data and results
+    requirements.txt # List of software dependencies
+    README.md        # Instructions to run everything
+```
+
+
+💡 **Tip:**  
+Before sharing code, **test it on a clean machine or environment**.  
+If it works there, it’ll work for others.
+
+
+## 🔢 Magic Numbers & Constants (and Writing Checks)
+
+### What Are “Magic Numbers”?
+A **magic number** is a number that appears in your code without context.
+
+**Example (Python):**
+```python
+if p < 0.05:
+    print("Significant")
+```
+Why `0.05`? If someone else reads your code (or you revisit it later), they won’t know what that number means.
+
+
+### ❌ Why This Is a Problem
+- Hard to understand  
+- Easy to break if you need to change it in multiple places  
+- Makes your code less reusable  
+
+
+### ✅ Fix: Use Named Constants
+Define important numbers or thresholds **once at the top of your script**.
+
+**Python:**
+```python
+SIGNIFICANCE_THRESHOLD = 0.05
+
+if p_value < SIGNIFICANCE_THRESHOLD:
+    print("Significant")
+```
+
+**R:**
+```r
+SIGNIFICANCE_THRESHOLD <- 0.05
+
+if (p_value < SIGNIFICANCE_THRESHOLD) {
+    print("Significant")
+}
+```
+
+This makes your code:
+✔ Easier to read  
+✔ Easier to maintain (change it in one place)  
+
+
+### Add Simple Checks (Validation)
+Small checks prevent big headaches.
+
+**Python:**
+```python
+assert len(data.columns) > 1, "Data should have more than one column"
+```
+
+**R:**
+```r
+stopifnot(ncol(data) > 1)
+```
+
+### Why Checks Are Important
+- Catch errors early  
+- Avoid wasting time running broken code  
+- Make your code more robust  
+
+
+💡 **Tip:** Think of constants and checks like **labels and safety checks in your lab** that prevent accidents.
+
+
+## 🛠 Reading Error Messages & Using Documentation
+
+When you see an error in your code, do you:
+- ❌ Panic?  
+- ❌ Close your laptop?  
+- ❌ Think, “I’m bad at coding”?
+-  ❌ HOWWWWW! It was working a second ago!
+Stop right there....  
+Errors are **normal** — every coder sees them every day.  
+The key is learning how to **read them and use them to fix your code**.
+
+
+### Golden Rule
+Error messages are your **friend**, not your enemy.  
+They usually tell you:
+1. **What went wrong** (the error type)  
+2. **Where it happened** (line number)  
+3. Sometimes, **why it happened** (a hint)  
+
+
+###  Example in Python
+```text
+FileNotFoundError: [Errno 2] No such file or directory: 'data.csv'
+```
+
+ **What does this mean?**  
+- The script tried to open `data.csv`, but it wasn’t there.  
+
+**Fix:**  
+- Check if the file exists in the right folder.  
+- Check your file path spelling.  
+
+
+###  Example in R
+```text
+Error in read.csv("data.csv") : cannot open file 'data.csv'
+```
+Same idea — **file path issue**.
+
+
+###  How to Handle Errors Like a Pro
+✔ Step 1: Read the **first line** of the error.  
+✔ Step 2: Look for the **file name** or **variable name**.  
+✔ Step 3: Copy the **error message** (not your whole screen) and Google it.  
+✔ Step 4: Check official docs or Stack Overflow.  
+
+
+###  Documentation is Your Best Friend
+Every language has official documentation:
+- **Python:** [https://docs.python.org](https://docs.python.org)  
+- **R:** `?function_name` in R console  
+- **Pandas, NumPy:** [https://pandas.pydata.org/docs](https://pandas.pydata.org/docs)  
+
+💡 When you Google, add the language name:
+```text
+"TypeError unsupported operand type" Python
+```
+
+
+💡 **Tip:**  
+Learning to debug is like learning to troubleshoot in the lab and it’s all **part of the process, not a failure**.
+
+
+## Good Coding Habits in a Nutshell
+Use this as a **quick reminder** when writing code:
+
+
+### General Principles
+- Code for **humans first**, machines second.
+- One clear purpose per **function or script**.
+- Use **descriptive names** (not `a` or `temp`).
+
+
+###  Structure
+Organise scripts like a **lab protocol**:
+```bash
+# Step 1: Import libraries
+# Step 2: Load data
+# Step 3: Clean data
+# Step 4: Analyse
+# Step 5: Save results
+```
+
+Project layout:
+```bash
+/project/
+    data/
+    scripts/
+    output/
+    README.md
+```
+
+
+### Core Rules
+- **DRY**: Don’t Repeat Yourself (reuse code, write functions).
+- **KISS**: Keep It Simple, Stupid (avoid complexity).
+- **YAGNI**: You Aren’t Gonna Need It (don’t add features you don’t need).
+
+
+### Formatting
+- Consistent **indentation** and **spacing**.
+- Blank lines between **sections**.
+- Auto-format with:
+    - Python → `black`
+    - R → RStudio (`Ctrl+Shift+A`)
+    - JavaScript → **Prettier**
+
+
+### Comments
+- Explain **why**, not **what**.
+- Use **headers for steps**:  
+  `# Load data`, `# Clean data`.
+- Update comments when code changes.
+
+
+### Reproducibility
+- Use **relative paths** (`./data/file.csv`), not `C:/Users/...`.
+- Save **random seeds** (`np.random.seed(42)` or `set.seed(42)`).
+- Keep **dependencies documented** (`requirements.txt` or `sessionInfo()` in R).
+
+
+###  Constants & Checks
+Replace **magic numbers** with named constants:
+```python
+SIGNIFICANCE_THRESHOLD = 0.05
+```
+
+Add **sanity checks**:
+```python
+assert len(data.columns) > 1, "Data should have more than one column"
+```
+
+
+## 🛠 Emergency Fixes: Common Problems & Quick Solutions
+
+
+**Problem:** Code won’t run  
+ Check for:
+- Missing **brackets or colons** `()`, `:`
+- Incorrect **indentation**
+- Typos in **variable names**
+
+
+**Problem:** “File Not Found”  
+Check:
+- Is the file in the correct folder?
+- Are you using the correct relative path? (`./data/file.csv`)
+
+
+**Problem:** “Object Not Defined”  
+Fix:
+- Did you spell the variable name correctly?
+- Did you run the cell/script where it was defined?
+
+
+**Problem:** Weird output  
+Check:
+- Data types (e.g., numbers stored as text)
+- Missing values (`NaN` or `NA`)
+
+
+**Problem:** Random results every time  
+Fix:
+- Set a **random seed**.
+
+
+💡 **Pro Tip:**  
+If all else fails:
+1. Read the error message **carefully**.  
+2. Copy the **first line** into Google (with your language name).  
+3. Check official docs or **Stack Overflow**.
+
+###  Comments
+- Explain **why**, not **what**.
+- Use **headers for steps**:  
+
+
+### Further Reading (Extra resources)
+- [What is Clean Code? (Codacy)](https://blog.codacy.com/what-is-clean-code)
+- [Top 10 Coding Principles (Dev.to)](https://dev.to/unitybuddy/top-10-coding-principles-every-developer-must-know-2gk4)
+- [Programming Principles (GitHub)](https://github.com/webpro/programming-principles)
+
+
+[View Cheat Sheet](code_writing_cheatsheet.jpg){target="_blank"} ||   <a href="code_writing_cheatsheet.jpg" download>Download Cheat Sheet (JPG)</a>
+
+
+
+
+

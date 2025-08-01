@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ritvik Bharamgoudar">
+<meta name="dcterms.date" content="2025-08-01">
 
-<title>git_guide</title>
+<title>A researcher’s guide to Git &amp; GitHub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,23 +70,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="git_guide_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="git_guide_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="git_guide_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="git_guide_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="git_guide_files/libs/bootstrap/bootstrap-8a894fcc3cb5e37eb5bf30def131be2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A researcher’s guide to Git &amp; GitHub</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
 
-<main class="content" id="quarto-document-content">
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Ritvik Bharamgoudar </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 1, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link active" data-scroll-target="#what-and-why">1. What and why?</a>
+  <ul class="collapse">
+  <li><a href="#what-is-git-and-github" id="toc-what-is-git-and-github" class="nav-link" data-scroll-target="#what-is-git-and-github">What is Git and GitHub?</a></li>
+  <li><a href="#why-should-researchers-care" id="toc-why-should-researchers-care" class="nav-link" data-scroll-target="#why-should-researchers-care">Why should researchers care?</a></li>
+  <li><a href="#common-fears-and-why-theyre-wrong" id="toc-common-fears-and-why-theyre-wrong" class="nav-link" data-scroll-target="#common-fears-and-why-theyre-wrong">Common fears (and why they’re wrong)</a></li>
+  <li><a href="#different-types-of-workflows-well-cover" id="toc-different-types-of-workflows-well-cover" class="nav-link" data-scroll-target="#different-types-of-workflows-well-cover">Different types of workflows we’ll cover</a></li>
+  </ul></li>
+  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup">2. Initial setup</a>
+  <ul class="collapse">
+  <li><a href="#creating-your-github-account" id="toc-creating-your-github-account" class="nav-link" data-scroll-target="#creating-your-github-account">2.1 Creating your GitHub account</a></li>
+  <li><a href="#choosing-your-tools" id="toc-choosing-your-tools" class="nav-link" data-scroll-target="#choosing-your-tools">2.2 Choosing Your Tools</a></li>
+  <li><a href="#setting-up-git" id="toc-setting-up-git" class="nav-link" data-scroll-target="#setting-up-git">2.3 Setting Up Git</a></li>
+  <li><a href="#the-basic-git-workflow" id="toc-the-basic-git-workflow" class="nav-link" data-scroll-target="#the-basic-git-workflow">2.4 The Basic Git Workflow</a></li>
+  </ul></li>
+  <li><a href="#your-first-repository" id="toc-your-first-repository" class="nav-link" data-scroll-target="#your-first-repository">3. Your First Repository</a>
+  <ul class="collapse">
+  <li><a href="#creating-your-repository" id="toc-creating-your-repository" class="nav-link" data-scroll-target="#creating-your-repository">Creating Your Repository</a></li>
+  <li><a href="#understanding-gits-view-of-your-files" id="toc-understanding-gits-view-of-your-files" class="nav-link" data-scroll-target="#understanding-gits-view-of-your-files">Understanding Git’s View of Your Files</a></li>
+  </ul></li>
+  <li><a href="#staging-files-choosing-what-to-track-and-save" id="toc-staging-files-choosing-what-to-track-and-save" class="nav-link" data-scroll-target="#staging-files-choosing-what-to-track-and-save">4. Staging Files: Choosing what to track and save</a>
+  <ul class="collapse">
+  <li><a href="#understanding-the-staging-area" id="toc-understanding-the-staging-area" class="nav-link" data-scroll-target="#understanding-the-staging-area">Understanding the Staging Area</a></li>
+  <li><a href="#staging-files-in-practice" id="toc-staging-files-in-practice" class="nav-link" data-scroll-target="#staging-files-in-practice">Staging Files in Practice</a></li>
+  </ul></li>
+  <li><a href="#creating-commits-saving-changes" id="toc-creating-commits-saving-changes" class="nav-link" data-scroll-target="#creating-commits-saving-changes">5. Creating Commits: Saving changes</a>
+  <ul class="collapse">
+  <li><a href="#creating-a-commit" id="toc-creating-a-commit" class="nav-link" data-scroll-target="#creating-a-commit">Creating a Commit</a></li>
+  <li><a href="#your-projects-story-viewing-commit-history" id="toc-your-projects-story-viewing-commit-history" class="nav-link" data-scroll-target="#your-projects-story-viewing-commit-history">Your Project’s Story: Viewing Commit History</a></li>
+  </ul></li>
+  <li><a href="#connecting-to-github-from-local-to-public" id="toc-connecting-to-github-from-local-to-public" class="nav-link" data-scroll-target="#connecting-to-github-from-local-to-public">6. Connecting to GitHub: From Local to Public</a>
+  <ul class="collapse">
+  <li><a href="#understanding-githubs-role" id="toc-understanding-githubs-role" class="nav-link" data-scroll-target="#understanding-githubs-role">Understanding GitHub’s Role</a></li>
+  <li><a href="#creating-your-github-repository" id="toc-creating-your-github-repository" class="nav-link" data-scroll-target="#creating-your-github-repository">Creating Your GitHub Repository</a></li>
+  </ul></li>
+  <li><a href="#essential-files-for-public-repositories" id="toc-essential-files-for-public-repositories" class="nav-link" data-scroll-target="#essential-files-for-public-repositories">7. Essential Files for Public Repositories</a>
+  <ul class="collapse">
+  <li><a href="#making-your-repository-professional" id="toc-making-your-repository-professional" class="nav-link" data-scroll-target="#making-your-repository-professional">Making Your Repository Professional</a></li>
+  <li><a href="#core-repository-files" id="toc-core-repository-files" class="nav-link" data-scroll-target="#core-repository-files">Core Repository Files</a></li>
+  </ul></li>
+  <li><a href="#basic-collaboration-using-others-work" id="toc-basic-collaboration-using-others-work" class="nav-link" data-scroll-target="#basic-collaboration-using-others-work">8. Basic Collaboration: Using Others’ Work</a>
+  <ul class="collapse">
+  <li><a href="#understanding-repository-sharing" id="toc-understanding-repository-sharing" class="nav-link" data-scroll-target="#understanding-repository-sharing">Understanding repository sharing</a></li>
+  <li><a href="#cloning-getting-a-complete-copy" id="toc-cloning-getting-a-complete-copy" class="nav-link" data-scroll-target="#cloning-getting-a-complete-copy">Cloning: getting a complete copy</a></li>
+  <li><a href="#staying-current-pulling-updates" id="toc-staying-current-pulling-updates" class="nav-link" data-scroll-target="#staying-current-pulling-updates">Staying current: pulling updates</a></li>
+  </ul></li>
+  <li><a href="#common-issues-and-quick-fixes" id="toc-common-issues-and-quick-fixes" class="nav-link" data-scroll-target="#common-issues-and-quick-fixes">9. Common Issues and Quick Fixes</a>
+  <ul class="collapse">
+  <li><a href="#diagnosing-problems" id="toc-diagnosing-problems" class="nav-link" data-scroll-target="#diagnosing-problems">Diagnosing Problems</a></li>
+  <li><a href="#quick-reference-for-common-issues" id="toc-quick-reference-for-common-issues" class="nav-link" data-scroll-target="#quick-reference-for-common-issues">Quick Reference for Common Issues</a></li>
+  <li><a href="#exploring-repository-history" id="toc-exploring-repository-history" class="nav-link" data-scroll-target="#exploring-repository-history">Exploring Repository History</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
+  <li><a href="#further-resources-for-continued-learning" id="toc-further-resources-for-continued-learning" class="nav-link" data-scroll-target="#further-resources-for-continued-learning">Further resources for continued learning</a></li>
+  <li><a href="#downloadable-cheat-sheet-for-gitgithub" id="toc-downloadable-cheat-sheet-for-gitgithub" class="nav-link" data-scroll-target="#downloadable-cheat-sheet-for-gitgithub">Downloadable cheat sheet for Git/GitHub</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
+  <ul class="collapse">
+  <li><a href="#what-weve-covered" id="toc-what-weve-covered" class="nav-link" data-scroll-target="#what-weve-covered">What we’ve covered</a></li>
+  <li><a href="#building-confidence-with-git" id="toc-building-confidence-with-git" class="nav-link" data-scroll-target="#building-confidence-with-git">Building Confidence with Git</a></li>
+  <li><a href="#your-contribution-to-open-science" id="toc-your-contribution-to-open-science" class="nav-link" data-scroll-target="#your-contribution-to-open-science">Your Contribution to Open Science</a></li>
+  <li><a href="#moving-forward" id="toc-moving-forward" class="nav-link" data-scroll-target="#moving-forward">Moving Forward</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="a-researchers-guide-to-git-github" class="level1">
-<h1>A Researcher’s guide to Git &amp; GitHub</h1>
-<p><strong>Before we start:</strong> If you’ve ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. Git might seem intimidating at first, but it’s designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We’ll walk through this together, step by step, and by the end you’ll wonder why you waited so long to start using it!</p>
+
+<p><strong>Before we start:</strong> If you’ve ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you.</p>
+<p>Git might seem intimidating at first, but it’s designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We’ll walk through this together, step by step, and by the end you’ll wonder why you waited so long to start using it!</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -100,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-is-git-and-github" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-git-and-github">What is Git and GitHub?</h3>
 <p>Git is a version control software that allows you to go back in time to previous points in a project’s history. Much like track changes in Microsoft Word or saving progress in a video game, it allows you to decide when and what you want to save from a project.</p>
-<p>If you make any changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It’s like having infinite “undo” for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.</p>
+<p>If you make changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It’s like having infinite “undo” for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.</p>
 <p>While Git is the tool that tracks changes locally on your computer, GitHub is a website where you can share and backup your Git projects. &nbsp;</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -125,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>Industry standard:</strong></p>
 <ul>
-<li><p>Used by &gt;90% of software developers and increasingly by researchers across all disciplines</p></li>
+<li><p>Used by over 90% of software developers and increasingly by researchers across all disciplines</p></li>
 <li><p>Learning Git makes you fluent in the language of modern collaborative work</p></li>
 <li><p>Essential skill for reproducible research and open science initiatives</p></li>
 </ul>
@@ -133,18 +233,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Never lose work due to computer crashes or accidental deletions</p></li>
 <li><p>Always know exactly what changed, when, and why</p></li>
-<li><p>Easy backup and synchronization across multiple computers</p></li>
+<li><p>Easy backup and synchronisation across multiple computers</p></li>
 </ul>
 </section>
 <section id="common-fears-and-why-theyre-wrong" class="level3">
 <h3 class="anchored" data-anchor-id="common-fears-and-why-theyre-wrong">Common fears (and why they’re wrong)</h3>
-<p>We’ve all been there. Let’s address the worries head-on:</p>
 <ul>
-<li><em>“It’s too complicated”</em> -&gt; We’ll start with the simplest possible workflow and build gradually.</li>
-<li><em>“I’m not technical enough”</em> -&gt; Many successful researchers use Git with just 5 basic commands. You don’t need to learn everything.</li>
-<li><em>“I’ll break something important”</em> -&gt; Git is designed to prevent data loss. Every change is tracked and reversible.</li>
-<li><em>“I don’t have time to learn this”</em> -&gt; The time invested now will save dozens of hours later</li>
-<li><em>“My field doesn’t use Git”</em> &gt; Perfect! Be the one who brings modern tools to your discipline.</li>
+<li><p><em>“It’s too complicated”</em> -&gt; We’ll start with the simplest possible workflow and build gradually.</p></li>
+<li><p><em>“I’m not technical enough”</em> -&gt; Many successful researchers use Git with just 5 basic commands. You don’t need to learn everything.</p></li>
+<li><p><em>“I’ll break something important”</em> -&gt; Git is designed to prevent data loss. Every change is tracked and reversible.</p></li>
+<li><p><em>“I don’t have time to learn this”</em> -&gt; The time invested now will save dozens of hours later</p></li>
+<li><p><em>“My field doesn’t use Git”</em> &gt; Perfect! Be the one who brings modern tools to your discipline.</p></li>
 </ul>
 </section>
 <section id="different-types-of-workflows-well-cover" class="level3">
@@ -191,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="choosing-your-tools" class="level3">
 <h3 class="anchored" data-anchor-id="choosing-your-tools">2.2 Choosing Your Tools</h3>
 <p>You can use Git however you feel comfortable and don’t need to stick to just one approach:</p>
-<p><strong>GitHub Desktop (Recommended for beginners):</strong> Point-and-click interface with a visual view of functions and colour coded. No command line needed.</p>
+<p><strong>GitHub Desktop (Recommended for beginners):</strong> Point-and-click interface with a visual view of functions and colour-coded. No command line needed.</p>
 <p><strong>Command Line:</strong> Five essential commands handle 90% of workflows. Works everywhere and preferred by many experienced users.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -238,12 +337,13 @@ Tip
 <p>- <strong>Linux:</strong> <code>sudo apt install git</code> (Ubuntu) or equivalent for your distribution</p>
 <p>Configure your identity:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">"Your name"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">"your.email@university.edu"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the configuration</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">user.name=</span> Your name</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">user.email=</span> your.email@address</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">"your.email@address"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the configuration</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">user.name=</span> Your name</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">user.email=</span> your.email@address</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>If you’re new to the command line, here are some useful commands for navigating your folder structure:</p>
@@ -259,9 +359,9 @@ Tip
 <p><strong>What we’ve covered:</strong> You’ve created a GitHub account, configured Git with your identity, and chosen your preferred tools. Git now knows who you are and you can begin tracking your files.</p>
 <p><strong>If something went wrong:</strong></p>
 <ul>
-<li><p><strong>“Git command not found”:</strong> Git isn’t installed. Follow the installation steps for your operating system.</p></li>
-<li><p><strong>“Can’t sign into GitHub Desktop”:</strong> Check your internet connection and GitHub credentials.</p></li>
-<li><p><strong>“Unexpected terminal output”:</strong> Check the commands are exactly correct (try copy-pasting them in).<br>
+<li><p><em>“Git command not found”:</em> Git isn’t installed. Follow the installation steps for your operating system.</p></li>
+<li><p><em>“Can’t sign into GitHub Desktop”:</em> Check your internet connection and GitHub credentials.</p></li>
+<li><p><em>“Unexpected terminal output”:</em> Check the commands are exactly correct (try copy-pasting them in).<br>
 </p></li>
 </ul>
 </section>
@@ -303,7 +403,7 @@ Demo project folder
 <li><p>How to create a Git repository</p></li>
 <li><p>Understand what Git sees in your project folder</p></li>
 </ul>
-<p><strong>Before we start:</strong> Either use an existing project you’d like to start tracking (any folder with some files also works) or create a new folder but remember to add some files for later steps!</p>
+<p><strong>Before we start:</strong> Either use an existing project you’d like to start tracking (any folder with some files also works) or create a new folder but remember to add some files for later steps.</p>
 <section id="creating-your-repository" class="level3">
 <h3 class="anchored" data-anchor-id="creating-your-repository">Creating Your Repository</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -319,7 +419,7 @@ Demo project folder
 <li><p>Name: folder_name</p></li>
 <li><p>Description: Enter or leave blank - can edit this later</p></li>
 <li><p>Local path: Choose where you want the project folder</p></li>
-<li><p>Initialize with README: (can leave this checked or can create this later )</p></li>
+<li><p>Initialise with README: (can leave this checked or can create this later )</p></li>
 <li><p>Git ignore: None (we’ll create this later)</p></li>
 <li><p>License: None (we’ll add this later)</p></li>
 </ul></li>
@@ -428,7 +528,7 @@ Demo project folder
 <section id="understanding-the-staging-area" class="level3">
 <h3 class="anchored" data-anchor-id="understanding-the-staging-area">Understanding the Staging Area</h3>
 <p>Git doesn’t automatically save every change you make, instead, it gives you control over exactly what gets saved and when. This happens through Git’s “staging area”, which acts like a preparation zone where you tell Git which file changes to track for a snapshot.</p>
-<p>Think of it like packing a suitcase for a trip. You don’t throw everything from your closet into the suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.</p>
+<p>Think of it like packing for a trip. You don’t throw everything from your closet into a suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.</p>
 <p><strong>Why does this matter?</strong></p>
 <p>Imagine you’re working on your analysis and you’ve:</p>
 <ul>
@@ -583,7 +683,7 @@ Tip
 <ul>
 <li>“Add correlation analysis for housing price data”</li>
 <li>“Fix missing value handling in data cleaning step”</li>
-<li>“Update visualisation colors for accessibility”</li>
+<li>“Update visualisation colours for accessibility”</li>
 <li>Not just “Changes” or “Update stuff” or “Fixed it”</li>
 </ul>
 <p>The difference is clear: good messages help you understand your project’s progression, while vague messages leave you guessing.</p>
@@ -619,7 +719,7 @@ Before You Commit: Quick Checklist
 </figure>
 </div>
 <p>Each entry shows: - <strong>The commit message</strong> - your description of what this snapshot represents - <strong>When it was created</strong> - timestamp showing your project’s progression - <strong>Your name</strong> - useful when collaborating with others - <strong>A unique identifier</strong> - like a fingerprint for this exact snapshot</p>
-<p><strong>Click on any commit</strong> to see exactly what files were changed and how they were modified. This transforms your abstract commit messages into concrete changes you can review.</p>
+<p><strong>Click on any commit</strong> to see exactly what files were changed and how they were modified. This allows you to review the differences in each commit to the previous.</p>
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <p>Git provides several ways to explore your project’s evolution:</p>
@@ -689,7 +789,7 @@ Before You Commit: Quick Checklist
 <li><p>Repository name: Match your local folder name</p></li>
 <li><p>Description: Brief research description</p></li>
 <li><p>Set to Public</p></li>
-<li><p>“Initialize with README” (Check or not, we will cover README later in more detail)</p></li>
+<li><p>“Initialise with README” (Check or not, we will cover README later in more detail)</p></li>
 </ul></li>
 <li><p>Click “Create repository”</p></li>
 </ol>
@@ -1141,7 +1241,7 @@ Tip
 <p><strong>Tools and utilities:</strong></p>
 <ul>
 <li><p><a href="https://desktop.github.com">GitHub Desktop</a> - GUI for Git operations</p></li>
-<li><p><a href="https://www.gitkraken.com">GitKraken</a> - Advanced Git GUI with visualization</p></li>
+<li><p><a href="https://www.gitkraken.com">GitKraken</a> - Advanced Git GUI with visualisation</p></li>
 <li><p><a href="https://cli.github.com">GitHub CLI</a> - Command-line tools for GitHub integration</p></li>
 </ul>
 </section>
@@ -1181,7 +1281,6 @@ Tip
 <h3 class="anchored" data-anchor-id="moving-forward">Moving Forward</h3>
 <p>Start with what you’ve learned here. As your research needs grow, you can explore advanced Git features like branching, detailed collaboration workflows, and specialised tools. The foundation you’ve built provides a solid base for any future Git learning.</p>
 <p>Your research deserves to be shared with the world, and you now have the skills to do it professionally and confidently.</p>
-</section>
 </section>
 </section>
 
@@ -1273,6 +1372,11 @@ Tip
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
