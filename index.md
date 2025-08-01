@@ -10,21 +10,21 @@ This toolkit is designed to help researchers develop essential technical skills 
 
 ---
 
-### [Principles of Good Code Writing](./good_code_writing_guide/)
+#### [Principles of Good Code Writing](./good_code_writing_guide/)
 
 – Developed by *Parvathy Sureshkumarnair*, Cardiff University.
 
 [*one page version*](./full_code_guide.html)
 
 
-### [Introduction to Git & GitHub](./git_guide.html)
+#### [Introduction to Git & GitHub](./git_guide.html)
 
 A comprehensive introduction to getting the best out of Git and GitHub, covering everything from basic commands to collaborative workflows. Perfect for those new to version control or looking to improve their Git skills.
 
 – Developed by *Ritvik Bharamgoudar*, Cardiff University
 
 
-### [Guide to Sample Size Calculations](link to guide)
+#### [Guide to Sample Size Calculations](./guide-to-power-analysis/hands-on_guidelines.html)
 
 – Developed by *Cristian Mesquida Caldentey*, Eindhoven University of Technology.
 
