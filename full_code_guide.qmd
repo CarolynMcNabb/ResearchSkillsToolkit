@@ -4,7 +4,7 @@ format:
   html:
     toc: true
     toc-floating: true
-    toc-location: left
+    toc-location: right
     toc-depth: 2
     theme: cosmo
     code-fold: true
@@ -13,8 +13,6 @@ format:
 title-block-banner: true
 page-navigation: true
 ---
-
-
 *A beginner-friendly guide for researchers to write clean, reproducible code.*
 
 ## Overview
