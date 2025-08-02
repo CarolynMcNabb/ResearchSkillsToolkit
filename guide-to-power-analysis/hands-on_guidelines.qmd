@@ -11,6 +11,16 @@ format:
 editor: visual
 ---
 
+**Note**
+
+This document focuses on conducting a priori power analyses as a method for justifying sample sizes in hypothesis-testing studies. For other sample size justifications, readers are referred to @lakens_justification_2022. The scope of this document is limited to a priori power analyses for tests that fall under the General Linear Model (GLM) framework, including *t*-tests, analysis of variance (ANOVA), analysis of covariance (ANCOVA), equivalence tests and minimum-effect tests. This document does not present original content. Rather, it compiles material from existing sources, including blog posts ([Solom Kurz's](https://solomonkurz.netlify.app/blog/2023-04-12-boost-your-power-with-baseline-covariates/), [Daniël Lakens'](https://daniellakens.blogspot.com/2020/03/effect-sizes-and-power-for-interactions.html) blogs), online resources ([LMU Open Science Center](https://lmu-osc.github.io/Simulations-for-Advanced-Power-Analyses/LM1.html), [PsyteachR](https://psyteachr.github.io) and [Power Analysis with Superpower](https://aaroncaldwell.us/SuperpowerBook/)) as well as published articles—all of which are cited throughout the document. The aim is to provide students and researchers with resources that explain the importance designing studies with adequate power to reject the presence or absence of meaningful effects and assist them in conduct valid and reproducible a priori power analyses.
+
+**Disclaimer**
+
+These guidelines are intended as a framework and introduction—not as definitive proof. There may be inaccuracies in this tutorial. If you notice any errors, please don’t hesitate to reach out. I strongly encourage researchers to collaborate with (applied) statisticians to ensure their a priori power analyses are methodologically sound.
+
+**Required packages**
+
 ```{r, message=FALSE}
 # Load packages
 library(patchwork) # combine ggplots
@@ -28,10 +38,6 @@ library(emmeans) # pairwise comparisons
 library(Superpower) # conduct power analysis for factorial designs
 library(TOSTER) # perform equivalence tests
 ```
-
-**Statement**
-
-This document focuses on conducting a priori power analyses as a method for justifying sample sizes in hypothesis-testing studies. For other sample size justifications, readers are referred to @lakens_justification_2022. The scope of this document is limited to a priori power analyses for tests that fall under the General Linear Model (GLM) framework, including *t*-tests, analysis of variance (ANOVA), analysis of covariance (ANCOVA), equivalence tests and minimum-effect tests. This document does not present original content. Rather, it compiles material from existing sources, including blog posts ([Solom Kurz's](https://solomonkurz.netlify.app/blog/2023-04-12-boost-your-power-with-baseline-covariates/), [Daniël Lakens'](https://daniellakens.blogspot.com/2020/03/effect-sizes-and-power-for-interactions.html) blogs), online resources ([LMU Open Science Center](https://lmu-osc.github.io/Simulations-for-Advanced-Power-Analyses/LM1.html), [PsyteachR](https://psyteachr.github.io) and [Power Analysis with Superpower](https://aaroncaldwell.us/SuperpowerBook/)) as well as published articles—all of which are cited throughout the document. The aim is to provide students and researchers with resources that explain the importance designing studies with adequate power to reject the presence or absence of meaningful effects and assist them in conduct valid and reproducible a priori power analyses.
 
 # First things first
 
