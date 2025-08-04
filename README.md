@@ -1,7 +1,6 @@
-# ResearchSkillsToolkit
 Tips, tricks and guidelines for more robust, reproducible and fundable research
 
-
+# [Link to Research Skills Toolkit](https://carolynmcnabb.github.io/ResearchSkillsToolkit/)
 
 ## About This Toolkit
 
@@ -13,4 +12,3 @@ It includes three guides:
 2. **Introduction to Git** – Developed by *Ritvik Bharamgoudar*, Cardiff University.
 3. **Guide to Sample Size Calculations** – Developed by *Cristian Mesquida Caldentey*, Eindhoven University of Technology.
 
-# [Link to Reserach Skills Toolkit](https://carolynmcnabb.github.io/ResearchSkillsToolkit/)
