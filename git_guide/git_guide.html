@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ritvik Bharamgoudar">
-<meta name="dcterms.date" content="2025-08-01">
+<meta name="dcterms.date" content="2025-08-05">
 
 <title>A Researcher’s Guide to Git &amp; GitHub</title>
 <style>
@@ -97,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 1, 2025</p>
+        <p class="date">August 5, 2025</p>
       </div>
     </div>
     
@@ -111,12 +111,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link active" data-scroll-target="#what-and-why">1. What and why?</a>
+  <li><a href="#about-this-guide" id="toc-about-this-guide" class="nav-link active" data-scroll-target="#about-this-guide">About This Guide</a></li>
+  <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link" data-scroll-target="#what-and-why">1. What and why?</a>
   <ul class="collapse">
-  <li><a href="#what-is-git-and-github" id="toc-what-is-git-and-github" class="nav-link" data-scroll-target="#what-is-git-and-github">What is Git and GitHub?</a></li>
   <li><a href="#why-should-researchers-care" id="toc-why-should-researchers-care" class="nav-link" data-scroll-target="#why-should-researchers-care">Why should researchers care?</a></li>
   <li><a href="#common-fears-and-why-theyre-wrong" id="toc-common-fears-and-why-theyre-wrong" class="nav-link" data-scroll-target="#common-fears-and-why-theyre-wrong">Common fears (and why they’re wrong)</a></li>
-  <li><a href="#different-types-of-workflows-well-cover" id="toc-different-types-of-workflows-well-cover" class="nav-link" data-scroll-target="#different-types-of-workflows-well-cover">Different types of workflows we’ll cover</a></li>
+  <li><a href="#what-well-cover" id="toc-what-well-cover" class="nav-link" data-scroll-target="#what-well-cover">What We’ll Cover</a></li>
   </ul></li>
   <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup">2. Initial setup</a>
   <ul class="collapse">
@@ -178,57 +178,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div style="text-align: left; margin-bottom: 20px;">
 <p><a href="../">Back to Home</a></p>
 </div>
-<p><strong>Before we start:</strong> If you’ve ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you.</p>
-<p>Git might seem intimidating at first, but it’s designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We’ll walk through this together, step by step, and by the end you’ll wonder why you waited so long to start using it!</p>
+<section id="about-this-guide" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-guide">About This Guide</h2>
+<p>This guide is an introduction to Git and GitHub, which are popular version control and collaboration tools. We will build confidence in using these tools, understand how they work and get the best out of them. No prior experience is required.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><em>All tools in this guide are free to install and use!</em></p>
+<p><em>All tools covered are free to install and use!</em></p>
 </div>
 </div>
 </div>
+</section>
 <section id="what-and-why" class="level2">
 <h2 class="anchored" data-anchor-id="what-and-why">1. What and why?</h2>
-<section id="what-is-git-and-github" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-git-and-github">What is Git and GitHub?</h3>
-<p>Git is a version control software that allows you to go back in time to previous points in a project’s history. Much like track changes in Microsoft Word or saving progress in a video game, it allows you to decide when and what you want to save from a project.</p>
-<p>If you make changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It’s like having infinite “undo” for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.</p>
-<p>While Git is the tool that tracks changes locally on your computer, GitHub is a website where you can share and backup your Git projects. &nbsp;</p>
+<p><strong>Git</strong> is version control software that lets you create snapshots of your project at specific moments. Like track changes in Word or saving progress in a video game, it lets you choose when and what to save from your work.</p>
+<p>When you modify files, add new ones, or delete unwanted content, Git captures the entire project state. You can return to any snapshot, see exactly what changed between versions, and never lose work again. It’s infinite “undo” for your entire project, plus the ability to explore different approaches simultaneously.</p>
+<p>While Git is the tool that works locally on your computer, <strong>GitHub</strong> is a website where you can share and backup your Git projects.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/git_overview_diagram.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption><em>Overview of the Git/GitHub pipeline - we’ll cover each step in more detail!</em></figcaption>
 </figure>
 </div>
-</section>
 <section id="why-should-researchers-care" class="level3">
 <h3 class="anchored" data-anchor-id="why-should-researchers-care">Why should researchers care?</h3>
-<p><strong>Citations and career benefits:</strong></p>
+<p>If you’ve ever accidentally deleted important files, struggled to share analysis with collaborators, or created one too many “final_FINAL_v2” versions, Git is the answer. It may seem intimidating initially, but it’s designed to make research safer and more collaborative:</p>
+<p><strong>Professional impact:</strong></p>
 <ul>
-<li><p>Open research gets cited more than closed research [Colavizza, 2024]</p></li>
-<li><p>Your GitHub profile showcases your technical skills to potential collaborators and employers</p></li>
-<li><p>Funding agencies increasingly require open access to research code and data</p></li>
+<li><p>Open research receives more citations than closed research</p></li>
+<li><p>GitHub profiles showcase technical skills to collaborators and employers</p></li>
+<li><p>Funding agencies increasingly require open access to research code</p></li>
 </ul>
-<p><strong>Collaboration made simple:</strong></p>
+<p><strong>Easy collaboration:</strong></p>
 <ul>
-<li><p>Multiple researchers can work on the same project without emailing files back and forth</p></li>
-<li><p>Colleagues can easily build on your work, leading to new collaborations</p></li>
-<li><p>You can contribute to other researchers’ projects, expanding your network</p></li>
+<li><p>Multiple researchers work on projects without email attachments</p></li>
+<li><p>Colleagues can build on your work easily, creating more collaboration opportunities</p></li>
+<li><p>Contribute to others’ projects and expand your network</p></li>
 </ul>
 <p><strong>Industry standard:</strong></p>
 <ul>
-<li><p>Used by over 90% of software developers and increasingly by researchers across all disciplines</p></li>
-<li><p>Learning Git makes you fluent in the language of modern collaborative work</p></li>
-<li><p>Essential skill for reproducible research and open science initiatives</p></li>
+<li><p>Used by 90%+ of software developers and growing numbers of researchers</p></li>
+<li><p>Essential for reproducible research and open science</p></li>
+<li><p>Fluency in modern collaborative workflows</p></li>
 </ul>
 <p><strong>Peace of mind:</strong></p>
 <ul>
-<li><p>Never lose work due to computer crashes or accidental deletions</p></li>
-<li><p>Always know exactly what changed, when, and why</p></li>
-<li><p>Easy backup and synchronisation across multiple computers</p></li>
+<li><p>Permanent protection against file loss or accidental deletion</p></li>
+<li><p>Complete change tracking with timestamps and explanations</p></li>
+<li><p>Automatic backup and synchronisation across devices</p></li>
 </ul>
 </section>
 <section id="common-fears-and-why-theyre-wrong" class="level3">
@@ -238,15 +238,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><em>“I’m not technical enough”</em> -&gt; Many successful researchers use Git with just 5 basic commands. You don’t need to learn everything.</p></li>
 <li><p><em>“I’ll break something important”</em> -&gt; Git is designed to prevent data loss. Every change is tracked and reversible.</p></li>
 <li><p><em>“I don’t have time to learn this”</em> -&gt; The time invested now will save dozens of hours later</p></li>
-<li><p><em>“My field doesn’t use Git”</em> &gt; Perfect! Be the one who brings modern tools to your discipline.</p></li>
+<li><p><em>“My field doesn’t use Git”</em> &gt; Perfect! Be the one who brings modern tools to your discipline.discipline</p></li>
 </ul>
 </section>
-<section id="different-types-of-workflows-well-cover" class="level3">
-<h3 class="anchored" data-anchor-id="different-types-of-workflows-well-cover">Different types of workflows we’ll cover</h3>
-<p><strong>Personal version control:</strong> Track your own work safely, never lose progress, and maintain clean project history.</p>
-<p><strong>Sharing research publicly:</strong> Make your work discoverable, citable, and professional-looking on GitHub.</p>
-<p><strong>Basic collaboration:</strong> Download and use others’ code, and understand the foundations of collaborative workflows.</p>
-<p><em>At the end of the guide there will be links to further git and github resources</em></p>
+<section id="what-well-cover" class="level3">
+<h3 class="anchored" data-anchor-id="what-well-cover">What We’ll Cover</h3>
+<p><strong>Personal version control:</strong> Track your work safely, maintain clean project history, never lose progress</p>
+<p><strong>Professional sharing:</strong> Make research discoverable and citable with proper documentation on GitHub</p>
+<p><strong>Basic collaboration:</strong> Download and use others’ repositories, understand collaborative workflow foundations</p>
+<p><em>At the end of the guide there will be links to further learning resources</em></p>
 </section>
 </section>
 <section id="initial-setup" class="level2">
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Before we start:</strong> You’ll need a computer with internet access and about 10 minutes for account creation and software installation.</p>
 <section id="creating-your-github-account" class="level3">
 <h3 class="anchored" data-anchor-id="creating-your-github-account">2.1 Creating your GitHub account</h3>
-<p>GitHub is where you’ll store and share your work. It’s free for public research projects (which is what we want anyway)! We’ll set up an account now and come back to actually using GitHub a little later on.</p>
+<p>GitHub is where you’ll store and share your work. We’ll set up an account now and come back to actually using GitHub a little later on.</p>
 <ol type="1">
 <li><p><strong>Visit <a href="https://github.com">github.com</a></strong> and click “Sign up”</p></li>
 <li><p><strong>Choose a username</strong></p>
@@ -541,21 +541,25 @@ Demo project folder
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>GitHub Desktop makes staging visual and intuitive. When you open the app after making changes to your files, you’ll see them listed in the “Changes” tab.</p>
-<p><strong>Key insight:</strong> GitHub Desktop stages all changed files by default - they appear with checked boxes. To exclude files from your next commit, simply uncheck them.</p>
-<p>Show Image</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/staging_ghd.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>GitHub Desktop staging: You can also see the exact modifications in a file</em></figcaption>
+</figure>
+</div>
 <p>In this example, you can see:</p>
 <ul>
-<li><p><code>analysis.py</code> has been modified (yellow “M” icon)</p></li>
-<li><p><code>notes.md</code> is a new file (green “+” icon)</p></li>
-<li><p><code>.DS_Store</code> is a system file we don’t want to commit</p></li>
+<li><p><code>data.csv</code> has been modified (yellow “M” icon)</p></li>
+<li><p><code>main.py</code> is a new file, not yet been committed (green “+” icon)</p></li>
+<li><p>The other files are unchecked as they are ouptut data, notes, images all of which we don’t want to commit</p></li>
 </ul>
 <p><strong>To control what gets staged:</strong></p>
 <ul>
 <li><p><strong>Keep checked</strong> - files you want in your next snapshot</p></li>
-<li><p><strong>Uncheck</strong> - files you want to exclude (like system files or work-in-progress changes)</p></li>
+<li><p><strong>Uncheck</strong> - files you want to exclude (like system files)</p></li>
 <li><p><strong>Click on any file</strong> - to see exactly what changed in that file</p></li>
 </ul>
-<p>The beauty of this approach is that you can see your changes and decide what belongs together before creating your snapshot.</p>
+<p>You can see your changes and decide what belongs together before creating your snapshot.</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p><strong>Staging commands:</strong></p>
@@ -591,7 +595,7 @@ Demo project folder
 </section>
 <section id="creating-commits-saving-changes" class="level2">
 <h2 class="anchored" data-anchor-id="creating-commits-saving-changes">5. Creating Commits: Saving changes</h2>
-<p>A commit is Git’s way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project’s story - a point you can always return to, no matter what happens later.</p>
+<p>A commit is Git’s way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project’s story; a point you can always return to, no matter what happens later.</p>
 <p>When you create a commit, Git doesn’t just save the files you’ve staged. It creates a complete record that includes:</p>
 <ul>
 <li><strong>The exact state</strong> of all your staged files</li>
@@ -609,28 +613,18 @@ Demo project folder
 <p>The commit interface in GitHub Desktop keeps everything visual and straightforward:</p>
 <ol type="1">
 <li><strong>Review your staged files</strong> - confirm the checked files are what you want to commit</li>
-<li><strong>Write your commit message</strong> in the “Summary” field at the bottom
-<ul>
-<li>Good: “Add initial analysis script and sample data”</li>
-<li>Avoid: “stuff” or “updates”</li>
-</ul></li>
+<li><strong>Write your commit message</strong> in the “Summary” field at the bottom</li>
 <li><strong>Add details if helpful</strong> in the “Description” field (optional)</li>
 <li><strong>Click “Commit to main”</strong></li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/desktop-commit-interface.png" class="img-fluid figure-img"></p>
-<figcaption>GitHub Desktop commit interface showing staged files and message box</figcaption>
-</figure>
-</div>
-<p>Once you commit, the staged files disappear from the Changes tab - they’re now part of your project’s permanent history. Any unstaged files remain in the Changes tab, ready for your next commit.</p>
+<p>Once you commit, the staged files disappear from the Changes tab - they’re now part of your project’s permanent history. Any unstaged files will remain in the Changes tab.</p>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>Creating a commit from the command line is straightforward once your files are staged:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a commit with a message</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add initial analysis script and sample data"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial analysis script and extra line of data added"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">f7fde3a]</span> Add initial analysis script and sample data</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">f7fde3a]</span> Initial analysis script and extra line of data added</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">4</span> files changed, 8 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 analysis.py</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 data.csv</span>
@@ -676,9 +670,9 @@ Tip
 </ul>
 <p><strong>Examples that tell a story:</strong></p>
 <ul>
-<li>“Add correlation analysis for housing price data”</li>
-<li>“Fix missing value handling in data cleaning step”</li>
-<li>“Update visualisation colours for accessibility”</li>
+<li>“Added correlation analysis for housing price data”</li>
+<li>“Fixed missing value handling in data cleaning step”</li>
+<li>“Updated visualisation colours for accessibility”</li>
 <li>Not just “Changes” or “Update stuff” or “Fixed it”</li>
 </ul>
 <p>The difference is clear: good messages help you understand your project’s progression, while vague messages leave you guessing.</p>
@@ -693,15 +687,15 @@ Before You Commit: Quick Checklist
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Check your staged files</strong> - Use <code>git status</code> or review GitHub Desktop’s Changes tab. Are you committing exactly what you intend?</p>
-<p><strong>Avoid large files</strong> - Git works best with text files and small binaries. Large datasets or high-resolution images can bloat your repository. Consider if these files belong in Git or should be stored elsewhere.</p>
+<p><strong>Avoid large files</strong> - Git works best with scripts and small binaries. Large datasets or high-resolution images (&gt;100MB) can bloat your repository especially if publishing the project to GitHub. Consider if these files belong in Git and require tracking.</p>
 <p><strong>Review your changes (optional)</strong> - Click on files in GitHub Desktop or use <code>git diff --staged</code> to see exactly what changes you’re about to commit. Catching mistakes now is easier than fixing them later.</p>
 </div>
 </div>
 </section>
 <section id="your-projects-story-viewing-commit-history" class="level3">
 <h3 class="anchored" data-anchor-id="your-projects-story-viewing-commit-history">Your Project’s Story: Viewing Commit History</h3>
-<p>Now that you’ve created your first commit, you’ve started writing your project’s permanent story. Each commit becomes a chapter that documents not just what changed, but when and why it changed.</p>
-<p>This history is more than just a record - it’s a powerful tool that lets you understand how your research evolved, track down when specific changes were made, and see the logical progression of your work.</p>
+<p>Now that you’ve created your first commit, you’ve started writing your project’s permanent story. Each commit becomes a bookmark that documents not just what changed from the previous commit, but when and why it changed.</p>
+<p>This history is a powerful tool that lets you understand how your research evolved, track down when specific changes were made, and see the logical progression of your work.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Command Line</a></li></ul>
 <div class="tab-content">
@@ -709,8 +703,8 @@ Before You Commit: Quick Checklist
 <p>Click the <strong>“History”</strong> tab to see your project’s timeline:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/desktop-history-timeline.png" class="img-fluid figure-img"></p>
-<figcaption>GitHub Desktop history showing project timeline</figcaption>
+<p><img src="images/commit_history_ghd.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop history showing each commit, the files changed and changes in each file</figcaption>
 </figure>
 </div>
 <p>Each entry shows: - <strong>The commit message</strong> - your description of what this snapshot represents - <strong>When it was created</strong> - timestamp showing your project’s progression - <strong>Your name</strong> - useful when collaborating with others - <strong>A unique identifier</strong> - like a fingerprint for this exact snapshot</p>
@@ -720,19 +714,23 @@ Before You Commit: Quick Checklist
 <p>Git provides several ways to explore your project’s evolution:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See your commit history</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--oneline</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">f7fde3a</span> Add initial analysis script and sample data</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">a1b2c3d</span> Initial project setup</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># More detailed view</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> f7fde3a8b2c1d5e6789012345678901234567890</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Jane Researcher <span class="op">&lt;</span>jane@university.edu<span class="op">&gt;</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Wed Jan 15 14:30:22 2025 <span class="at">-0500</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Add</span> initial analysis script and sample data</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># See what actually changed in the most recent commit</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git show</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">f7fde3a</span> Initial analysis script and extra line of data added</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># More detailed view</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> f7fde3a8b2c1d5e6789012345678901234567890</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> demo_researcher <span class="op">&lt;</span>demo@research.com<span class="op">&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Fri Aug 01 14:30:22 2025 <span class="at">-0500</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Initial</span> analysis script and extra line of data added</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># See what actually changed in the most recent commit</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git show</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="figure">
+<script src="https://asciinema.org/a/OBQSd7DWfkBibBiWAJgeNvpFZ.js" id="asciicast-OBQSd7DWfkBibBiWAJgeNvpFZ" async="true" data-cols="80" data-rows="20">
+</script>
+<p><em>Creating a commit and inspecting the log. You can pause the video and copy/paste any commands directly from the terminal.</em></p>
+</div>
 </div>
 </div>
 </div>
@@ -742,9 +740,9 @@ Before You Commit: Quick Checklist
 <h2 class="anchored" data-anchor-id="connecting-to-github-from-local-to-public">6. Connecting to GitHub: From Local to Public</h2>
 <section id="understanding-githubs-role" class="level3">
 <h3 class="anchored" data-anchor-id="understanding-githubs-role">Understanding GitHub’s Role</h3>
-<p>GitHub is essentially a hosting service for Git repositories - think of it as a public library where you can store and share your research projects. While Git tracks your changes locally on your computer, GitHub provides a remote location where those same Git repositories can live online.</p>
+<p>GitHub is essentially a hosting service for Git repositories, like a public library where you can store and share your research projects. While Git tracks your changes locally on your computer, GitHub provides a remote location where those same Git repositories can live online.</p>
 <p>This connection transforms your personal version control system into a collaborative platform. Your local Git repository remains the primary workspace where you make changes and create commits, but GitHub becomes the public version that others can access, reference, and build upon.</p>
-<p>The relationship is straightforward: your local repository contains your actual work and Git history, while GitHub hosts an identical copy that stays synchronised through “pushing” (uploading) and “pulling” (downloading) changes.</p>
+<p>Your local repository contains your actual work and Git history, while GitHub hosts an identical copy that stays synchronised through “pushing” (uploading) and “pulling” (downloading) changes.</p>
 </section>
 <section id="creating-your-github-repository" class="level3">
 <h3 class="anchored" data-anchor-id="creating-your-github-repository">Creating Your GitHub Repository</h3>
@@ -782,9 +780,9 @@ Before You Commit: Quick Checklist
 <li><p>Configure the repository:</p>
 <ul>
 <li><p>Repository name: Match your local folder name</p></li>
-<li><p>Description: Brief research description</p></li>
+<li><p>Description: Briefly summarise the project</p></li>
 <li><p>Set to Public</p></li>
-<li><p>“Initialise with README” (Check or not, we will cover README later in more detail)</p></li>
+<li><p>“Initialise with README” (Check or leave unchecked, we will cover writing a README later in more detail)</p></li>
 </ul></li>
 <li><p>Click “Create repository”</p></li>
 </ol>
@@ -974,7 +972,7 @@ Important
 <p>Before pushing: Review your .gitignore file and ensure no large files or sensitive information (passwords, personal data, API keys) are tracked in your repository.</p>
 </div>
 </div>
-<p>Iterative improvement: You don’t need perfect documentation immediately. Start with basic versions of these files and improve them as your project evolves.</p>
+<p>You don’t need perfect documentation immediately. Start with basic versions of these files and improve them as your project evolves.</p>
 </section>
 </section>
 <section id="basic-collaboration-using-others-work" class="level2">
@@ -1269,7 +1267,7 @@ Tip
 <p><strong>Only the beginning…</strong></p>
 <p>Start with what you’ve learned here. As your research needs grow, you can explore advanced Git features like branching, detailed collaboration workflows, and specialised tools. The foundation you’ve built provides a solid base for any future Git learning.</p>
 <p>Your research deserves to be shared with the world, and you now have the skills to do it professionally and confidently.</p>
-<p><a href="../">← Back to Homepage</a> || <a href="../good_code_writing_guide/">Principles of Good Code Writing</a> || <a href="../guide-to-power-analysis/hands-on_guidelines.html">Guide to Sample Size Calculations</a></p>
+<p><a href="../">← Back to Homepage</a> || <a href="../one_page_code_guide/full_code_guide.html">Principles of Good Code Writing</a> || <a href="../guide-to-power-analysis/hands-on_guidelines.html">Guide to Sample Size Calculations</a></p>
 <p><strong>About This Guide</strong> - Author: <em>Ritvik Bharamgoudar</em> - Part of the Research Skills Toolkit - Funded by Cardiff University Research Culture Fund - <a href="https://github.com/CarolynMcNabb/ResearchSkillsToolkit">View on GitHub</a> || <a href="https://github.com/CarolynMcNabb/ResearchSkillsToolkit/issues">Report Issues</a></p>
 <p><em>Last updated: [01 Aug 2025] | Licensed under <a href="../LICENSE">MIT</a></em></p>
 </section>

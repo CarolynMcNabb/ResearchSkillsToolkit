@@ -15,64 +15,64 @@ format:
 title-block-banner: true
 page-navigation: true
 ---
-<div style="text-align: left; margin-bottom: 20px;">
+
+::: {style="text-align: left; margin-bottom: 20px;"}
 [Back to Home](../)
-</div>
+:::
 
+## About This Guide
 
-**Before we start:** If you've ever accidentally deleted important files, struggled to share your analysis with others or made one too many final (final_FINAL) versions of a file, this guide is for you. 
-
-Git might seem intimidating at first, but it's designed to make your life easier and safer and the majority of people will use only 5 Git commands for all their needs. We'll walk through this together, step by step, and by the end you'll wonder why you waited so long to start using it!
+This guide is an introduction to Git and GitHub, which are popular version control and collaboration tools. We will build confidence in using these tools, understand how they work and get the best out of them. No prior experience is required.
 
 ::: {.callout-note appearance="simple" icon="false"}
-*All tools in this guide are free to install and use!*
+*All tools covered are free to install and use!*
 :::
 
 ## 1. What and why?
 
-### What is Git and GitHub?
+**Git** is version control software that lets you create snapshots of your project at specific moments. Like track changes in Word or saving progress in a video game, it lets you choose when and what to save from your work.
 
-Git is a version control software that allows you to go back in time to previous points in a project's history. Much like track changes in Microsoft Word or saving progress in a video game, it allows you to decide when and what you want to save from a project.
+When you modify files, add new ones, or delete unwanted content, Git captures the entire project state. You can return to any snapshot, see exactly what changed between versions, and never lose work again. It's infinite "undo" for your entire project, plus the ability to explore different approaches simultaneously.
 
-If you make changes such as modifying existing files, adding new files or deleting unwanted files, Git allows you to save a snapshot of the entire project at that point in time. You can jump back to any snapshot, see exactly what changed inbetween, and never lose work again. It's like having infinite "undo" for your entire project, plus the ability to work on different ideas simultaneously in the knowledge that any previous functionality can always be recovered.
-
-While Git is the tool that tracks changes locally on your computer, GitHub is a website where you can share and backup your Git projects.  
+While Git is the tool that works locally on your computer, **GitHub** is a website where you can share and backup your Git projects.
 
 ![*Overview of the Git/GitHub pipeline - we'll cover each step in more detail!*](images/git_overview_diagram.png){width="100%"}
 
 ### Why should researchers care?
 
-**Citations and career benefits:**
+If you've ever accidentally deleted important files, struggled to share analysis with collaborators, or created one too many "final_FINAL_v2" versions, Git is the answer. It may seem intimidating initially, but it's designed to make research safer and more collaborative:
 
--   Open research gets cited more than closed research [Colavizza, 2024]
+**Professional impact:**
 
--   Your GitHub profile showcases your technical skills to potential collaborators and employers
+-   Open research receives more citations than closed research
 
--   Funding agencies increasingly require open access to research code and data
+-   GitHub profiles showcase technical skills to collaborators and employers
 
-**Collaboration made simple:**
+-   Funding agencies increasingly require open access to research code
 
--   Multiple researchers can work on the same project without emailing files back and forth
+**Easy collaboration:**
 
--   Colleagues can easily build on your work, leading to new collaborations
+-   Multiple researchers work on projects without email attachments
 
--   You can contribute to other researchers' projects, expanding your network
+-   Colleagues can build on your work easily, creating more collaboration opportunities
+
+-   Contribute to others' projects and expand your network
 
 **Industry standard:**
 
--   Used by over 90% of software developers and increasingly by researchers across all disciplines 
+-   Used by 90%+ of software developers and growing numbers of researchers
 
--   Learning Git makes you fluent in the language of modern collaborative work
+-   Essential for reproducible research and open science
 
--   Essential skill for reproducible research and open science initiatives
+-   Fluency in modern collaborative workflows
 
 **Peace of mind:**
 
--   Never lose work due to computer crashes or accidental deletions
+-   Permanent protection against file loss or accidental deletion
 
--   Always know exactly what changed, when, and why
+-   Complete change tracking with timestamps and explanations
 
--   Easy backup and synchronisation across multiple computers
+-   Automatic backup and synchronisation across devices
 
 ### Common fears (and why they're wrong)
 
@@ -84,17 +84,17 @@ While Git is the tool that tracks changes locally on your computer, GitHub is a 
 
 -   *"I don't have time to learn this"* -\> The time invested now will save dozens of hours later
 
--   *"My field doesn't use Git"* \> Perfect! Be the one who brings modern tools to your discipline.
+-   *"My field doesn't use Git"* \> Perfect! Be the one who brings modern tools to your discipline.discipline
 
-### Different types of workflows we'll cover
+### What We'll Cover
 
-**Personal version control:** Track your own work safely, never lose progress, and maintain clean project history.
+**Personal version control:** Track your work safely, maintain clean project history, never lose progress
 
-**Sharing research publicly:** Make your work discoverable, citable, and professional-looking on GitHub.
+**Professional sharing:** Make research discoverable and citable with proper documentation on GitHub
 
-**Basic collaboration:** Download and use others' code, and understand the foundations of collaborative workflows.
+**Basic collaboration:** Download and use others' repositories, understand collaborative workflow foundations
 
-*At the end of the guide there will be links to further git and github resources*
+*At the end of the guide there will be links to further learning resources*
 
 ## 2. Initial setup
 
@@ -109,7 +109,7 @@ While Git is the tool that tracks changes locally on your computer, GitHub is a 
 
 ### 2.1 Creating your GitHub account
 
-GitHub is where you'll store and share your work. It's free for public research projects (which is what we want anyway)! We'll set up an account now and come back to actually using GitHub a little later on.
+GitHub is where you'll store and share your work. We'll set up an account now and come back to actually using GitHub a little later on.
 
 1.  **Visit [github.com](https://github.com)** and click "Sign up"
 
@@ -231,11 +231,11 @@ Now that Git is installed This four step pattern is all that's needed to go from
 
 1.  **Check which files have changed**
 
-2.  **Choose what to save** 
+2.  **Choose what to save**
 
 3.  **Save a snapshot**
 
-4.  **Share your progress** 
+4.  **Share your progress**
 
 This becomes as natural as saving a document - but much more powerful.
 
@@ -390,7 +390,6 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 -   *"Permission denied":* Make sure you have write access to the folder you're trying to use
 
-
 ## 4. Staging Files: Choosing what to track and save
 
 ### Understanding the Staging Area
@@ -399,7 +398,7 @@ Git doesn't automatically save every change you make, instead, it gives you cont
 
 Think of it like packing for a trip. You don't throw everything from your closet into a suitcase - you carefully select what you need for this journey. Similarly, staging lets you choose which file changes to include in each commit.
 
-**Why does this matter?** 
+**Why does this matter?**
 
 Imagine you're working on your analysis and you've:
 
@@ -415,37 +414,36 @@ Rather than saving all these changes as one messy snapshot, staging lets you cre
 
 ### Staging Files in Practice
 
-::: panel-tabset
+::::: panel-tabset
 ## GitHub Desktop
 
 GitHub Desktop makes staging visual and intuitive. When you open the app after making changes to your files, you'll see them listed in the "Changes" tab.
 
-**Key insight:** GitHub Desktop stages all changed files by default - they appear with checked boxes. To exclude files from your next commit, simply uncheck them.
-
-Show Image
+![*GitHub Desktop staging: You can also see the exact modifications in a file*](images/staging_ghd.png){width="100%"}
 
 In this example, you can see:
 
--   `analysis.py` has been modified (yellow "M" icon)
+-   `data.csv` has been modified (yellow "M" icon)
 
--   `notes.md` is a new file (green "+" icon)
+-   `main.py` is a new file, not yet been committed (green "+" icon)
 
--   `.DS_Store` is a system file we don't want to commit
+-   The other files are unchecked as they are ouptut data, notes, images all of which we don't want to commit
 
 **To control what gets staged:**
 
 -   **Keep checked** - files you want in your next snapshot
 
--   **Uncheck** - files you want to exclude (like system files or work-in-progress changes)
+-   **Uncheck** - files you want to exclude (like system files)
 
 -   **Click on any file** - to see exactly what changed in that file
 
-The beauty of this approach is that you can see your changes and decide what belongs together before creating your snapshot.
+You can see your changes and decide what belongs together before creating your snapshot.
 
 ## Command Line
 
 **Staging commands:**
-``` bash         
+
+``` bash
 
 $ git add file_name # Stage a specified file/folder
 
@@ -460,13 +458,16 @@ $ git rm --cached file_name # Only use if no commits made in this repository
 
 Let's look at an example where we choose some files to track and others to not track. Then we will modify a tracked file and see what Git thinks about our current changes:
 
-::: {.figure}
+::: figure
+```{=html}
 <script src="https://asciinema.org/a/N5FAYTrL5ljOgqV4bxOi0bC0m.js" 
         id="asciicast-N5FAYTrL5ljOgqV4bxOi0bC0m" 
         async="true"
         data-cols="80"
         data-rows="20">
 </script>
+```
+
 *Staging commands in practice. You can pause the video and copy/paste any commands directly from the terminal.*
 :::
 
@@ -479,7 +480,7 @@ Checking `git status` as we go tells us several important things:
 -   **"Changes not staged for commit"** - Git has been tracking `data.csv` as it was added and notices there are changes in the file but these have not been staged. Saving a snapshot (commit) now would only save the previous unmodified version of the file. If an untracked file is modified, Git will not notice any changes.
 
 Now `main.py` and `data.csv` are staged (ready to be saved), while our temporary files remain unstaged.
-:::
+:::::
 
 The staging area is Git's way of letting you craft deliberate, meaningful snapshots rather than chaotic "save everything" moments. Once you get comfortable with this concept, you'll find it becomes second nature and your project history will tell a much clearer story of your research progress.
 
@@ -487,7 +488,7 @@ Next, we'll learn how to turn these staged changes into permanent commits that b
 
 ## 5. Creating Commits: Saving changes
 
-A commit is Git's way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project's story - a point you can always return to, no matter what happens later.
+A commit is Git's way of taking a permanent snapshot of your project at a specific moment in time. Think of it as creating a bookmark in your project's story; a point you can always return to, no matter what happens later.
 
 When you create a commit, Git doesn't just save the files you've staged. It creates a complete record that includes:
 
@@ -501,21 +502,16 @@ This is fundamentally different from just saving a file. When you save a documen
 ### Creating a Commit
 
 ::: panel-tabset
-
 ## GitHub Desktop
 
 The commit interface in GitHub Desktop keeps everything visual and straightforward:
 
 1.  **Review your staged files** - confirm the checked files are what you want to commit
 2.  **Write your commit message** in the "Summary" field at the bottom
-    -   Good: "Add initial analysis script and sample data"
-    -   Avoid: "stuff" or "updates"
 3.  **Add details if helpful** in the "Description" field (optional)
 4.  **Click "Commit to main"**
 
-![GitHub Desktop commit interface showing staged files and message box](images/desktop-commit-interface.png)
-
-Once you commit, the staged files disappear from the Changes tab - they're now part of your project's permanent history. Any unstaged files remain in the Changes tab, ready for your next commit.
+Once you commit, the staged files disappear from the Changes tab - they're now part of your project's permanent history. Any unstaged files will remain in the Changes tab.
 
 ## Command Line
 
@@ -523,9 +519,9 @@ Creating a commit from the command line is straightforward once your files are s
 
 ``` bash
 # Create a commit with a message
-$ git commit -m "Add initial analysis script and sample data"
+$ git commit -m "Initial analysis script and extra line of data added"
 
-[main (root-commit) f7fde3a] Add initial analysis script and sample data
+[main (root-commit) f7fde3a] Initial analysis script and extra line of data added
  4 files changed, 8 insertions(+)
  create mode 100644 analysis.py
  create mode 100644 data.csv
@@ -567,9 +563,9 @@ Get in the habit of running `git status` (or checking the Changes tab in GitHub 
 
 **Examples that tell a story:**
 
--   "Add correlation analysis for housing price data"
--   "Fix missing value handling in data cleaning step"
--   "Update visualisation colours for accessibility"
+-   "Added correlation analysis for housing price data"
+-   "Fixed missing value handling in data cleaning step"
+-   "Updated visualisation colours for accessibility"
 -   Not just "Changes" or "Update stuff" or "Fixed it"
 
 The difference is clear: good messages help you understand your project's progression, while vague messages leave you guessing.
@@ -579,23 +575,23 @@ The difference is clear: good messages help you understand your project's progre
 
 **Check your staged files** - Use `git status` or review GitHub Desktop's Changes tab. Are you committing exactly what you intend?
 
-**Avoid large files** - Git works best with text files and small binaries. Large datasets or high-resolution images can bloat your repository. Consider if these files belong in Git or should be stored elsewhere.
+**Avoid large files** - Git works best with scripts and small binaries. Large datasets or high-resolution images (\>100MB) can bloat your repository especially if publishing the project to GitHub. Consider if these files belong in Git and require tracking.
 
 **Review your changes (optional)** - Click on files in GitHub Desktop or use `git diff --staged` to see exactly what changes you're about to commit. Catching mistakes now is easier than fixing them later.
 :::
 
 ### Your Project's Story: Viewing Commit History
 
-Now that you've created your first commit, you've started writing your project's permanent story. Each commit becomes a chapter that documents not just what changed, but when and why it changed.
+Now that you've created your first commit, you've started writing your project's permanent story. Each commit becomes a bookmark that documents not just what changed from the previous commit, but when and why it changed.
 
-This history is more than just a record - it's a powerful tool that lets you understand how your research evolved, track down when specific changes were made, and see the logical progression of your work.
+This history is a powerful tool that lets you understand how your research evolved, track down when specific changes were made, and see the logical progression of your work.
 
-::: panel-tabset
+:::: panel-tabset
 ## GitHub Desktop
 
 Click the **"History"** tab to see your project's timeline:
 
-![GitHub Desktop history showing project timeline](images/desktop-history-timeline.png)
+![GitHub Desktop history showing each commit, the files changed and changes in each file](images/commit_history_ghd.png)
 
 Each entry shows: - **The commit message** - your description of what this snapshot represents - **When it was created** - timestamp showing your project's progression - **Your name** - useful when collaborating with others - **A unique identifier** - like a fingerprint for this exact snapshot
 
@@ -608,31 +604,43 @@ Git provides several ways to explore your project's evolution:
 ``` bash
 # See your commit history
 $ git log --oneline
-f7fde3a Add initial analysis script and sample data
-a1b2c3d Initial project setup
+f7fde3a Initial analysis script and extra line of data added
 
 # More detailed view
 $ git log
 commit f7fde3a8b2c1d5e6789012345678901234567890
-Author: Jane Researcher <jane@university.edu>
-Date:   Wed Jan 15 14:30:22 2025 -0500
+Author: demo_researcher <demo@research.com>
+Date:   Fri Aug 01 14:30:22 2025 -0500
 
-    Add initial analysis script and sample data
+    Initial analysis script and extra line of data added
 
 # See what actually changed in the most recent commit
 $ git show
 ```
+
+::: figure
+```{=html}
+<script src="https://asciinema.org/a/OBQSd7DWfkBibBiWAJgeNvpFZ.js" 
+        id="asciicast-OBQSd7DWfkBibBiWAJgeNvpFZ" 
+        async="true"
+        data-cols="80"
+        data-rows="20">
+</script>
+```
+
+*Creating a commit and inspecting the log. You can pause the video and copy/paste any commands directly from the terminal.*
 :::
+::::
 
 ## 6. Connecting to GitHub: From Local to Public
 
 ### Understanding GitHub's Role
 
-GitHub is essentially a hosting service for Git repositories - think of it as a public library where you can store and share your research projects. While Git tracks your changes locally on your computer, GitHub provides a remote location where those same Git repositories can live online.
+GitHub is essentially a hosting service for Git repositories, like a public library where you can store and share your research projects. While Git tracks your changes locally on your computer, GitHub provides a remote location where those same Git repositories can live online.
 
 This connection transforms your personal version control system into a collaborative platform. Your local Git repository remains the primary workspace where you make changes and create commits, but GitHub becomes the public version that others can access, reference, and build upon.
 
-The relationship is straightforward: your local repository contains your actual work and Git history, while GitHub hosts an identical copy that stays synchronised through "pushing" (uploading) and "pulling" (downloading) changes.
+Your local repository contains your actual work and Git history, while GitHub hosts an identical copy that stays synchronised through "pushing" (uploading) and "pulling" (downloading) changes.
 
 ### Creating Your GitHub Repository
 
@@ -669,11 +677,11 @@ The command line approach requires two steps: creating the GitHub repository thr
 
     -   Repository name: Match your local folder name
 
-    -   Description: Brief research description
+    -   Description: Briefly summarise the project
 
     -   Set to Public
 
-    -   "Initialise with README" (Check or not, we will cover README later in more detail)
+    -   "Initialise with README" (Check or leave unchecked, we will cover writing a README later in more detail)
 
 4.  Click "Create repository"
 
@@ -864,7 +872,7 @@ $ git push
 Before pushing: Review your .gitignore file and ensure no large files or sensitive information (passwords, personal data, API keys) are tracked in your repository.
 :::
 
-Iterative improvement: You don't need perfect documentation immediately. Start with basic versions of these files and improve them as your project evolves.
+You don't need perfect documentation immediately. Start with basic versions of these files and improve them as your project evolves.
 
 ## 8. Basic Collaboration: Using Others' Work
 
@@ -922,7 +930,6 @@ The cloned repository is now a fully functional Git repository on your computer.
 Research is ongoing, and the original authors may continue updating their repository. Since your clone maintains a connection to the original, you can download these updates whenever they occur. This is different from cloning - pulling updates an existing local repository rather than creating a new one.
 
 ::: panel-tabset
-
 ## GitHub Desktop
 
 Select the cloned repository in GitHub Desktop Click "Fetch origin" to check for updates If updates exist, click "Pull origin" to download them
@@ -990,7 +997,7 @@ $ git remote -v
 $ git diff --staged
 ```
 
-These commands reveal most issues quickly and help you understand the current state before attempting fixes. 
+These commands reveal most issues quickly and help you understand the current state before attempting fixes.
 
 ### Quick Reference for Common Issues
 
@@ -1036,7 +1043,7 @@ For ongoing large file needs: Consider Git LFS or external storage solutions htt
 
 ## Push Rejected
 
-Problem: "Updates were rejected" or "fetch first" Solution: 
+Problem: "Updates were rejected" or "fetch first" Solution:
 
 **Command line**
 
@@ -1048,8 +1055,7 @@ $ git pull
 $ git push
 ```
 
-**GitHub Desktop**: 
-Click "Pull origin" then "Push origin" Prevention: Push changes regularly, pull before starting work sessions
+**GitHub Desktop**: Click "Pull origin" then "Push origin" Prevention: Push changes regularly, pull before starting work sessions
 
 ## Unstage Files
 
@@ -1126,13 +1132,13 @@ Avoid destructive commands: Be cautious with commands containing --hard, --force
 
 ### Getting Help
 
-- Modern AI assistance: AI chatbots (ChatGPT, Claude, GitHub Copilot) are excellent for Git troubleshooting. Copy your exact error message and ask for help, but always understand the suggested commands before running them.
+-   Modern AI assistance: AI chatbots (ChatGPT, Claude, GitHub Copilot) are excellent for Git troubleshooting. Copy your exact error message and ask for help, but always understand the suggested commands before running them.
 
-- GitHub documentation: Comprehensive official guides 
+-   GitHub documentation: Comprehensive official guides
 
-- Your institution's IT support: Often have Git expertise 
+-   Your institution's IT support: Often have Git expertise
 
-- Git documentation locally: `git help <command>` for detailed command information
+-   Git documentation locally: `git help <command>` for detailed command information
 
 ::: callout-tip
 Error message strategy: Git's error messages are usually helpful. Read them carefully as they often suggest the exact commands needed to fix the problem.
@@ -1140,21 +1146,21 @@ Error message strategy: Git's error messages are usually helpful. Read them care
 
 ### Further resources for continued learning
 
-**In-depth tutorials:** 
+**In-depth tutorials:**
 
-- [The Turing Way's Guide to Version Control](https://the-turing-way.netlify.app/reproducible-research/vcs.html) : Academic perspective on reproducible research 
+-   [The Turing Way's Guide to Version Control](https://the-turing-way.netlify.app/reproducible-research/vcs.html) : Academic perspective on reproducible research
 
-- [Software Carpentry Git Lessons](https://swcarpentry.github.io/git-novice/): Step-by-step lessons with exercises 
+-   [Software Carpentry Git Lessons](https://swcarpentry.github.io/git-novice/): Step-by-step lessons with exercises
 
-- [Pro Git Book](https://git-scm.com/book) : Comprehensive Git reference (free online)
+-   [Pro Git Book](https://git-scm.com/book) : Comprehensive Git reference (free online)
 
-**Tools and utilities:** 
+**Tools and utilities:**
 
-- [GitHub Desktop](https://desktop.github.com) - GUI for Git operations 
+-   [GitHub Desktop](https://desktop.github.com) - GUI for Git operations
 
-- [GitKraken](https://www.gitkraken.com) - Advanced Git GUI with visualisation 
+-   [GitKraken](https://www.gitkraken.com) - Advanced Git GUI with visualisation
 
-- [GitHub CLI](https://cli.github.com) - Command-line tools for GitHub integration
+-   [GitHub CLI](https://cli.github.com) - Command-line tools for GitHub integration
 
 ### Downloadable cheat sheet for Git/GitHub
 
@@ -1178,10 +1184,10 @@ You now have the essential skills to manage research projects with Git and share
 
 Git is designed to prevent data loss. Almost every mistake can be undone, and your commit history provides multiple recovery points. When encountering errors:
 
-- Read the error message carefully
-- Use diagnostic commands to understand the current state  
-- Try the simplest solution first
-- Seek help for unfamiliar or destructive-looking commands
+-   Read the error message carefully
+-   Use diagnostic commands to understand the current state\
+-   Try the simplest solution first
+-   Seek help for unfamiliar or destructive-looking commands
 
 Each problem you resolve builds your understanding and confidence with the system.
 
@@ -1197,15 +1203,8 @@ Start with what you've learned here. As your research needs grow, you can explor
 
 Your research deserves to be shared with the world, and you now have the skills to do it professionally and confidently.
 
+[← Back to Homepage](../) \|\| [Principles of Good Code Writing](../one_page_code_guide/full_code_guide.html) \|\| [Guide to Sample Size Calculations](../guide-to-power-analysis/hands-on_guidelines.html)
 
+**About This Guide** - Author: *Ritvik Bharamgoudar* - Part of the Research Skills Toolkit - Funded by Cardiff University Research Culture Fund - [View on GitHub](https://github.com/CarolynMcNabb/ResearchSkillsToolkit) \|\| [Report Issues](https://github.com/CarolynMcNabb/ResearchSkillsToolkit/issues)
 
-[← Back to Homepage](../) || [Principles of Good Code Writing](../one_page_code_guide/full_code_guide.html) || [Guide to Sample Size Calculations](../guide-to-power-analysis/hands-on_guidelines.html)
-
-
-**About This Guide**
-- Author: *Ritvik Bharamgoudar*
-- Part of the Research Skills Toolkit
-- Funded by Cardiff University Research Culture Fund
-- [View on GitHub](https://github.com/CarolynMcNabb/ResearchSkillsToolkit) || [Report Issues](https://github.com/CarolynMcNabb/ResearchSkillsToolkit/issues)
-
-*Last updated: [01 Aug 2025] | Licensed under [MIT](../LICENSE)*
+*Last updated: \[01 Aug 2025\] \| Licensed under [MIT](../LICENSE)*
