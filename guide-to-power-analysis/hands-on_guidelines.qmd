@@ -17,7 +17,7 @@ This document focuses on conducting a priori power analyses as a method for just
 
 **Disclaimer**
 
-These guidelines are intended as a framework and introduction—not as definitive proof. There may be inaccuracies in this tutorial. If you notice any errors, please don’t hesitate to reach out. I strongly encourage researchers to collaborate with (applied) statisticians to ensure their a priori power analyses are methodologically sound.
+These guidelines are intended as a framework and introduction—not as definitive proof. If you notice any inaccuracies or errors, please don’t hesitate to reach out. I strongly encourage researchers to collaborate with (applied) statisticians to ensure their a priori power analyses are methodologically sound.
 
 **Required packages**
 
